@@ -1,13 +1,15 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div>
+      header
   </div>
 </template>
+
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
 export default {
-  name: 'App'
+  name: 'Header'
 }
 </script>
+
 <style lang="scss">
+
 </style>
