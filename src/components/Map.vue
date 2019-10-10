@@ -244,7 +244,7 @@ export default {
         this.tooltipY = (rect.bottom - rect.height / 2 + document.documentElement.scrollTop).toFixed(0)
         this.tooltipX = (rect.right - rect.width / 2).toFixed(0)
         this.activeElement = {country, project}
-        e.target.classList.add('on')
+        e.target.classList.add('on-map')
       }, 0)
     },
     mouseleave () {
@@ -255,7 +255,7 @@ export default {
             country: '',
             project: []
           }
-          document.querySelector('.on').classList.remove('on')
+          document.querySelector('.on-map').classList.remove('on-map')
         }
       }, 0)
     }
