@@ -11,7 +11,7 @@ export default new Router({
   routes: [
     {
       path: '*',
-      redirect: {name: 'Home'}
+      redirect: { name: 'Home' }
     },
     {
       path: '/',
@@ -21,7 +21,7 @@ export default new Router({
           path: '',
           name: 'Home',
           component: Home
-        },
+        }
       ]
     },
     {

@@ -3,12 +3,13 @@
     <Header />
     <Navigation @toggleMenu="status => menuIsOpen = status" />
     <main class="container-fluid">
-      <router-link :to="{name: 'Home'}">{{$t('eng')}}</router-link>
-      <br />
-      <router-link :to="{name: 'Home-fr'}">{{$t('fre')}}</router-link>
-      <br />
-      <img src="../assets/img/shield.png" alt="">
-      <p>{{$t('home-text-1')}}</p>
+      <div class="maps-bg">
+        <img src="../assets/img/map.png" alt="map">
+      </div>
+      
+      
+      <!-- <img src="../assets/img/shield.png" alt="">
+      <p>{{$t('home-text-1')}}</p> -->
     </main>
     <Footer />
   </div>
@@ -33,12 +34,17 @@ export default {
 
 <style lang="scss">
 .main-wrap{
-  padding-left: 200px;
-  height: 200vh;
+  padding-left: 150px;
   transition: all 0.3s;
   background: #f7f7f7;
   &.open{
-    padding-left: 400px;
+    padding-left: 420px;
+  }
+  .maps-bg{
+    width: 100%;
+    img{
+      width: 100%;
+    }
   }
 }
 </style>

@@ -10,4 +10,8 @@ export default {
 }
 </script>
 <style lang="scss">
+button:focus,
+button:active{
+  outline: none;
+}
 </style>

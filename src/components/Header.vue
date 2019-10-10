@@ -1,7 +1,26 @@
 <template>
-  <div>
-      header
-  </div>
+  <header class="header">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between aling-items-center">
+        <div class="left">
+          <div class="logo">
+            <img src="../assets/img/logo.png" alt="logo" />
+          </div>
+        </div>
+        <div class="right d-flex">
+          <div class="translator d-flex">
+            <router-link :to="{name: 'Home'}" class="active">{{$t('eng')}}</router-link>
+            <br />
+            <router-link :to="{name: 'Home-fr'}">{{$t('fre')}}</router-link>
+            <br />
+          </div>
+          <div class="two-s">
+            <img src="../assets/img/c&c.png" alt="c&c" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -11,5 +30,24 @@ export default {
 </script>
 
 <style lang="scss">
+  .header{
+    padding: 37px 0;
+    .translator{
+      align-items: center;
+      margin-right: 80px;
+      a{
+        font-size: 16px;
+        line-height: 17px;
+        color: #000;
+        transition: all 0.3s;
+        margin-right: 20px;
+        &.active, &:hover{
+          color: #269DC3;
+          font-weight: 700;
+          text-decoration: none;
+        }
+      }
+    } 
+  }
 
 </style>
