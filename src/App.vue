@@ -4,10 +4,14 @@
   </div>
 </template>
 <script>
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css'
 export default {
   name: 'App'
 }
 </script>
 <style lang="scss">
+button:focus,
+button:active{
+  outline: none;
+}
 </style>
