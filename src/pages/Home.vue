@@ -3,10 +3,7 @@
     <Header />
     <Navigation @toggleMenu="status => menuIsOpen = status" />
     <main class="container-fluid">
-      <div class="maps-bg">
-        <img src="../assets/img/map.png" alt="map">
-      </div>
-
+      <Map />
       <!-- <img src="../assets/img/shield.png" alt="">
       <p>{{$t('home-text-1')}}</p> -->
     </main>
@@ -18,12 +15,14 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Navigation from '@/components/Navigation.vue'
+import Map from '@/components/Map.vue'
 export default {
   name: 'Home',
   components: {
     Header,
     Footer,
-    Navigation
+    Navigation,
+    Map
   },
   data: () => ({
     menuIsOpen: false
