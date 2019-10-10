@@ -32,7 +32,7 @@
         <p>Terms and Conditions</p>
         <p>© 2017 CRAFT & CONCEPT. All rights reserved</p>
       </div>
-    </div>  
+    </div>
   </footer>
 </template>
 
@@ -96,7 +96,7 @@ export default {
       }
     }
     .copirating{
-      border-top: 1px solid rgba(232, 232, 232, 0.1); 
+      border-top: 1px solid rgba(232, 232, 232, 0.1);
       padding: 20px 0;
       p{
         font-size: 12px;

@@ -6,8 +6,7 @@
       <div class="maps-bg">
         <img src="../assets/img/map.png" alt="map">
       </div>
-      
-      
+
       <!-- <img src="../assets/img/shield.png" alt="">
       <p>{{$t('home-text-1')}}</p> -->
     </main>
