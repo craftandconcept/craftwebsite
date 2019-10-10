@@ -4,33 +4,33 @@
       <div class="row footer-contacts">
         <div class="col-2">
           <div class="phone">
-            <h3>Phone:</h3>
+            <h3>{{$t('phone:')}}</h3>
             <a href="tel: +41788399321">+41 78 839 93 21</a>
           </div>
         </div>
         <div class="col-2">
           <div class="e-mail">
-            <h3>E-mail:</h3>
+            <h3>{{$t('e-mail:')}}</h3>
             <a href="mailto: info@craftandconcept.ch">info@craftandconcept.ch</a>
           </div>
         </div>
         <div class="col-3">
           <div class="text-footer">
-            <p>Want to schedule a meeting - text us under chat</p>
+            <p>{{$t('want-to-schedule-a-meeting-text-us-under-chat')}}</p>
           </div>
         </div>
         <div class="col-5">
           <div class="contact-us">
-            <h2>Have an idea for new design?</h2>
+            <h2>{{$t('have-an-idea-for-new-design?')}}</h2>
             <div class="d-flex justify-content-end">
-              <button class="btn-footer">Contact Us</button>
+              <button class="btn-footer">{{$t('contact-us')}}</button>
             </div>
           </div>
         </div>
       </div>
       <div class="copirating">
-        <p>Terms and Conditions</p>
-        <p>© 2017 CRAFT & CONCEPT. All rights reserved</p>
+        <p><a href="#">{{$t('terms-and-conditions')}}</a></p>
+        <p>{{$t('©-2017-CRAFT-&-CONCEPT.all-rights-reserved')}}</p>
       </div>
     </div>
   </footer>
@@ -92,13 +92,20 @@ export default {
         font-size: 14px;
         line-height: 17px;
         color: #000000;
+        border: 1px  solid #E9E9E9;
         transition: all 0.3s;
+        &:hover{
+          background: none;
+          color: #E9E9E9;
+        }
       }
     }
     .copirating{
       border-top: 1px solid rgba(232, 232, 232, 0.1);
       padding: 20px 0;
-      p{
+      p,
+      a{
+        text-decoration: none;
         font-size: 12px;
         line-height: 15px;
         color: rgba(247, 247, 247, 0.7);

@@ -9,8 +9,19 @@ export default {
   'individual-objects': 'Individual objects',
   'interior-design': 'Interior Design',
   '3D-rendering': '3D Rendering',
+  'brand-development': 'Brand Facilities',
   'production-facilities': 'Production Facilities',
   'team-&-creators': ' Team & Creators',
   'collaborators': 'Collaborators',
-  'contact-us': 'Contact us'
+  'contact-us': 'Contact us',
+  'phone:': 'Phone:',
+  'e-mail:': 'E-mail:',
+  'want-to-schedule-a-meeting-text-us-under-chat': 'Want to schedule a meeting - text us under chat',
+  'have-an-idea-for-new-design?': 'Have an idea for new design?',
+  'contact-us': 'Contact Us',
+  'terms-and-conditions': 'Terms and Conditions',
+  '©-2017-CRAFT-&-CONCEPT.all-rights-reserved': '© 2017 CRAFT & CONCEPT. All rights reserved'
+
+
+
 }

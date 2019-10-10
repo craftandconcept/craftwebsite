@@ -23,9 +23,10 @@
                 <ul>
                     <li><a href="#">{{$t('our-story')}}</a></li>
                     <li><a href="#">— {{$t('architecture')}}</a></li>
-                    <li><a href="#">— {{$t('individual-objects')}}</a></li>
                     <li><a href="#">— {{$t('interior-design')}}</a></li>
+                    <li><a href="#">— {{$t('individual-objects')}}</a></li>
                     <li><a href="#">— {{$t('3D-rendering')}}</a></li>
+                    <li><a href="#">— {{$t('brand-development')}}</a></li>
                     <li><a href="#">— {{$t('production-facilities')}}</a></li>
                     <li><a href="#">{{$t('team-&-creators')}}</a></li>
                     <li><a href="#">{{$t('collaborators')}}</a></li>
