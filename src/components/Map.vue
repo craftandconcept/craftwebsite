@@ -187,25 +187,145 @@
                 <path id="ZW" title="Zimbabwe" class="land" d="M562.71,527L561.22,526.7L560.27,527.06L558.92,526.55L557.78,526.52L555.99,525.16L553.82,524.7L553,522.8L552.99,521.75L551.79,521.43L548.62,518.18L547.73,516.47L547.17,515.95L546.09,513.6L549.22,513.92L550.13,514.26L551.08,514.19L552.63,512.3L555.07,509.9L556.08,509.68L556.42,508.67L558.01,507.52L560.14,507.12L560.32,508.2L562.66,508.14L563.96,508.75L564.56,509.47L565.9,509.68L567.35,510.62L567.36,514.31L566.81,516.35L566.69,518.55L567.14,519.43L566.83,521.17L566.4,521.44L565.66,523.59z"></path>
             </g>
         </svg>
+        <div
+          class="tooltip-custom"
+          :style="{top: tooltipY + 'px', left: tooltipX + 'px'}"
+          id="tooltip"
+          v-show="activeElement.country"
+        >
+          <h2>{{activeElement.country}}</h2>
+          <div class="link-wrap">
+            <a href="#" v-for="(item, index) in activeElement.project" :key="index">{{item}}</a>
+          </div>
+        </div>
     </div>
 </template>
 
 <script>
+// don't ask why, It's work.
+let cursorOnTootip = false;
 export default {
-    name: 'Map'
+  name: 'Map',
+  data: () => ({
+    сountryList: [{
+      countryCod: 'RU',
+      country: 'Russian',
+      projectList: ['Project-1', 'Project-2', 'Project-3', 'Project-4']
+    },
+    {
+      countryCod: 'UA',
+      country: 'Ukraine',
+      projectList: ['Project-5', 'Project-6', 'Project-7', 'Project-8']
+    }],
+    activeElement: {
+      country: '',
+      project: []
+    },
+    tooltipX: '',
+    tooltipY: '',
+    cursorOnTooltip: false
+  }),
+  mounted () {
+    // don't ask why, It's work.
+    this.сountryList.map(item => {
+      let path = document.getElementById(item.countryCod)
+      path.classList.add('active')
+      path.addEventListener('mouseenter', e => this.mouseEnter(e, item.country, item.projectList))
+      path.addEventListener('mouseleave', this.mouseleave)
+    })
+    document.getElementById('tooltip').addEventListener('mouseenter', () => { cursorOnTootip = true})
+    document.getElementById('tooltip').addEventListener('mouseleave', () => { cursorOnTootip = false; this.mouseleave()})
+  },
+  methods: {
+    mouseEnter (e, country, project) {
+      // don't ask why, It's work.
+      setTimeout( () => {
+        let rect = e.target.getBoundingClientRect();
+        this.tooltipY = (rect.bottom - rect.height / 2 + document.documentElement.scrollTop).toFixed(0)
+        this.tooltipX = (rect.right - rect.width / 2).toFixed(0)
+        this.activeElement = {country, project}
+        e.target.classList.add('on')
+      }, 0)
+    },
+    mouseleave () {
+      // don't ask why, It's work.
+      setTimeout( () => {
+        if(!cursorOnTootip) {
+          this.activeElement = {
+            country: '',
+            project: []
+          }
+          document.querySelector('.on').classList.remove('on')
+        }
+      }, 0)
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 svg{
-    width: 100%;
-    path{
-        fill: #dbe3e5;
-        transition: all .3s;
-        &:hover{
-            fill: #000;
+  width: 100%;
+  max-height: calc(100vh - 127px);
+  path{
+      fill: #dbe3e5;
+      transition: all .3s;
+      &.active{
+        &:hover, &.on{
+          fill: #464a4a;
         }
-    }
+      }
+  }
 }
-
+.tooltip-custom{
+  position: absolute;
+  padding: 30px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 0.01%, rgba(247, 249, 254, 0.9) 100%);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  min-width: 220px;
+  h2 {
+    margin: 0;
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 30px;
+  }
+  .link-wrap{
+    display: flex;
+    flex-direction: column;
+    a{
+      padding-left: 0;
+      position: relative;
+      color: #424647;
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      transition: all .3s;
+      line-height: 1;
+      font-size: 14px;
+      &:after{
+        position: absolute;
+        width: 0;
+        content: '';
+        height: 2px;
+        background: #2d96b8;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        transition: all .3s;
+      }
+      &:hover{
+        padding-left: 15px;
+        color: #2d96b8;
+        text-decoration: none;
+        &:after{
+          width: 10px;
+        }
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
 </style>

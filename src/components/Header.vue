@@ -2,7 +2,7 @@
   <header class="header">
     <div class="container-fluid">
       <div class="d-flex justify-content-between aling-items-center">
-        <div class="left">
+        <div class="left d-flex align-items-center">
           <div class="logo">
             <img src="../assets/img/logo.png" alt="logo" />
           </div>
@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss">
   .header{
-    padding: 37px 0;
+    padding: 37px 0 0;
     .translator{
       align-items: center;
       margin-right: 80px;
