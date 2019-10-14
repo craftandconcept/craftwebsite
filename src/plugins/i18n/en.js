@@ -20,8 +20,21 @@ export default {
   'have-an-idea-for-new-design?': 'Have an idea for new design?',
   'contact-us': 'Contact Us',
   'terms-and-conditions': 'Terms and Conditions',
-  '©-2017-CRAFT-&-CONCEPT.all-rights-reserved': '© 2017 CRAFT & CONCEPT. All rights reserved'
-
-
-
+  '©-2017-CRAFT-&-CONCEPT.all-rights-reserved': '© 2017 CRAFT & CONCEPT. All rights reserved',
+  'OUR': 'OUR',
+  'STORY': 'STORY',
+  'text-1': 'Every craftsman is unique by nature. Each of them is a free and powerful creator who travels beyond all boundaries and is just limited to endless inner space.',
+  'text-2': 'They tend to stay on their own.',
+  'text-3': 'True masterminds are believed to work isolated. On rare occasions, they come out of their shells with blazes of remarkable creations. Destined to change (or not) the whole world.',
+  'text-4': 'Power to unite with the best.',
+  'Architecture': 'ARCHITECTURE',
+  'Interior-Design': 'INTERIOR DESIGN',
+  'Individual-Objects': 'INDIVIDUAL OBJECTS',
+  'Brand-Development': 'BRAND DEVELOPMENT',
+  '3D-Rendering': '3D RENDERING',
+  'Production-facilities': 'PRODUCTION FACILITIES',
+  'Country-of-Operations': 'COUNTRY OF OPERATIONS',
+  'Projects': 'PROJECTS',
+  'Realized-Project': 'REALIZED PROJECTS',
+  'Creators-and-Team': 'CREATORS AND TEAM'
 }
