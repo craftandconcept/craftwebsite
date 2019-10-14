@@ -203,7 +203,7 @@
 
 <script>
 // don't ask why, It's work.
-let cursorOnTootip = false;
+let cursorOnTootip = false
 export default {
   name: 'Map',
   data: () => ({
@@ -233,24 +233,24 @@ export default {
       path.addEventListener('mouseenter', e => this.mouseEnter(e, item.country, item.projectList))
       path.addEventListener('mouseleave', this.mouseleave)
     })
-    document.getElementById('tooltip').addEventListener('mouseenter', () => { cursorOnTootip = true})
-    document.getElementById('tooltip').addEventListener('mouseleave', () => { cursorOnTootip = false; this.mouseleave()})
+    document.getElementById('tooltip').addEventListener('mouseenter', () => { cursorOnTootip = true })
+    document.getElementById('tooltip').addEventListener('mouseleave', () => { cursorOnTootip = false; this.mouseleave() })
   },
   methods: {
     mouseEnter (e, country, project) {
       // don't ask why, It's work.
-      setTimeout( () => {
-        let rect = e.target.getBoundingClientRect();
+      setTimeout(() => {
+        let rect = e.target.getBoundingClientRect()
         this.tooltipY = (rect.bottom - rect.height / 2 + document.documentElement.scrollTop).toFixed(0)
         this.tooltipX = (rect.right - rect.width / 2).toFixed(0)
-        this.activeElement = {country, project}
+        this.activeElement = { country, project }
         e.target.classList.add('on-map')
       }, 0)
     },
     mouseleave () {
       // don't ask why, It's work.
-      setTimeout( () => {
-        if(!cursorOnTootip) {
+      setTimeout(() => {
+        if (!cursorOnTootip) {
           this.activeElement = {
             country: '',
             project: []
@@ -271,7 +271,7 @@ svg{
       fill: #dbe3e5;
       transition: all .3s;
       &.active{
-        &:hover, &.on{
+        &:hover, &.on-map{
           fill: #464a4a;
         }
       }

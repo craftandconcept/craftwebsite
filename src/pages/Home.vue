@@ -59,7 +59,7 @@ export default {
     })
   },
   methods: {
-    animateNumber() {
+    animateNumber () {
       let step = 5
       let values = [8, 500, 450, 12]
       let numberAnimationIsFinish = [false, false, false, false]
@@ -105,7 +105,7 @@ export default {
       text-align: left;
       max-width: 130px;
       min-width: 110px;
-      
+
       h3{
         font-size: 64px;
         line-height: 79px;
@@ -119,7 +119,7 @@ export default {
       }
 
     }
-    
+
   }
 }
 </style>

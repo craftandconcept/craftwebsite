@@ -18,10 +18,7 @@ export default {
   'e-mail:': 'E-mail:',
   'want-to-schedule-a-meeting-text-us-under-chat': 'Want to schedule a meeting - text us under chat',
   'have-an-idea-for-new-design?': 'Have an idea for new design?',
-  'contact-us': 'Contact Us',
   'terms-and-conditions': 'Terms and Conditions',
   '©-2017-CRAFT-&-CONCEPT.all-rights-reserved': '© 2017 CRAFT & CONCEPT. All rights reserved'
-
-
 
 }
