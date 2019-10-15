@@ -1,99 +1,87 @@
 <template>
-  <div class="main-wrap" :class="{'open': menuIsOpen}">
-    <Header />
-    <Navigation @toggleMenu="status => menuIsOpen = status" />
-    <main class="container-fluid">
-      <Map />
-      <div class="project-counter d-flex" id="number">
-        <div class="project-col">
-          <h3>{{numberAnimation[0]}}</h3>
-          <p>{{$t('Country-of-Operations')}}</p>
-        </div>
-        <div class="project-col">
-          <h3>{{numberAnimation[1]}}</h3>
-          <p>{{$t('Projects')}}</p>
-        </div>
-        <div class="project-col">
-          <h3>{{numberAnimation[2]}}</h3>
-          <p>{{$t('Realized-Project')}}</p>
-        </div>
-        <div class="project-col">
-          <h3>{{numberAnimation[3]}}</h3>
-          <p>{{$t('Creators-and-Team')}}</p>
-        </div>
+  <div>
+    <Map />
+    <div class="project-counter d-flex" id="number">
+      <div class="project-col">
+        <h3>{{numberAnimation[0]}}</h3>
+        <p>{{$t('Country-of-Operations')}}</p>
       </div>
-      <div class="our-story d-flex">
-        <div class="title-story left d-flex">
-          <h2>
-            — {{$t('OUR')}} <br />
-            {{$t('STORY')}}
-          </h2>
-        </div>
-        <div class="text-story right align-items-center ">
-          <p>{{$t('text-1')}}</p>
-          <p>{{$t('text-2')}}</p>
-          <p>{{$t('text-3')}}</p>
-          <p>{{$t('text-4')}}</p>
-        </div>
+      <div class="project-col">
+        <h3>{{numberAnimation[1]}}</h3>
+        <p>{{$t('Projects')}}</p>
       </div>
-      <div class="gallery d-flex flex-wrap">
-        <a href="#" class="gallery-block">
-          <h3>_{{$t('Architecture')}}</h3>
-          <div class="overflow">
-            <img src="../assets/img/gallery-1.png" alt="gallery" />
-          </div>
-        </a>
-        <a href="#" class="gallery-block">
-          <h3>_{{$t('Interior-Design')}}</h3>
-          <div class="overflow">
-            <img src="../assets/img/gallery-2.png" alt="gallery" />
-          </div>
-        </a>
-        <a href="#" class="gallery-block">
-          <h3>_{{$t('Individual-Objects')}}</h3>
-          <div class="overflow">
-            <img src="../assets/img/gallery-3.png" alt="gallery" />
-          </div>
-        </a>
-        <a href="#" class="gallery-block">
-          <h3>_{{$t('Brand-Development')}}</h3>
-          <div class="overflow">
-            <img src="../assets/img/gallery-4.png" alt="gallery" />
-          </div>
-        </a>
-        <a href="#" class="gallery-block">
-          <h3>_{{$t('3D-Rendering')}}</h3>
-          <div class="overflow">
-            <img src="../assets/img/gallery-5.png" alt="gallery" />
-          </div>
-        </a>
-        <a href="#" class="gallery-block">
-          <h3>_{{$t('Production-facilities')}}</h3>
-          <div class="overflow">
-            <img src="../assets/img/gallery-6.png" alt="gallery" />
-          </div>
-        </a>
+      <div class="project-col">
+        <h3>{{numberAnimation[2]}}</h3>
+        <p>{{$t('Realized-Project')}}</p>
       </div>
-    </main>
-    <Footer />
+      <div class="project-col">
+        <h3>{{numberAnimation[3]}}</h3>
+        <p>{{$t('Creators-and-Team')}}</p>
+      </div>
+    </div>
+    <div class="our-story d-flex">
+      <div class="title-story left d-flex">
+        <h2>
+          — {{$t('OUR')}} <br />
+          {{$t('STORY')}}
+        </h2>
+      </div>
+      <div class="text-story right align-items-center ">
+        <p>{{$t('text-1')}}</p>
+        <p>{{$t('text-2')}}</p>
+        <p>{{$t('text-3')}}</p>
+        <p>{{$t('text-4')}}</p>
+      </div>
+    </div>
+    <div class="gallery d-flex flex-wrap">
+      <router-link to="/category/architecture" class="gallery-block">
+        <h3>_{{$t('Architecture')}}</h3>
+        <div class="overflow">
+          <img src="../assets/img/gallery-1.png" alt="gallery" />
+        </div>
+      </router-link>
+      <router-link to="/category/interior-design" class="gallery-block">
+        <h3>_{{$t('Interior-Design')}}</h3>
+        <div class="overflow">
+          <img src="../assets/img/gallery-2.png" alt="gallery" />
+        </div>
+      </router-link>
+      <router-link to="/category/individual-object" class="gallery-block">
+        <h3>_{{$t('Individual-Objects')}}</h3>
+        <div class="overflow">
+          <img src="../assets/img/gallery-3.png" alt="gallery" />
+        </div>
+      </router-link>
+      <router-link to="/category/brand-development" class="gallery-block">
+        <h3>_{{$t('Brand-Development')}}</h3>
+        <div class="overflow">
+          <img src="../assets/img/gallery-4.png" alt="gallery" />
+        </div>
+      </router-link>
+      <router-link to="/category/3d-rendering" class="gallery-block">
+        <h3>_{{$t('3D-Rendering')}}</h3>
+        <div class="overflow">
+          <img src="../assets/img/gallery-5.png" alt="gallery" />
+        </div>
+      </router-link>
+      <router-link to="/category/production-facilities" class="gallery-block">
+        <h3>_{{$t('Production-facilities')}}</h3>
+        <div class="overflow">
+          <img src="../assets/img/gallery-6.png" alt="gallery" />
+        </div>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
-import Navigation from '@/components/Navigation.vue'
 import Map from '@/components/Map.vue'
 export default {
   name: 'Home',
   components: {
-    Header,
-    Footer,
-    Navigation,
     Map
   },
   data: () => ({
-    menuIsOpen: false,
     numberAnimation: [0, 0, 0, 0]
   }),
   mounted () {
@@ -139,6 +127,9 @@ export default {
   background: #f7f7f7;
   &.open{
     padding-left: 420px;
+  }
+  main{
+    min-height: calc(100vh - 379px);
   }
   .maps-bg{
     width: 100%;

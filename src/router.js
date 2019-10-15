@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './pages/Home.vue'
 import Root from './pages/Root.vue'
 import Login from './pages/Login.vue'
+import Category from './pages/Category.vue'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
           path: '/admin',
           name: 'Login',
           component: Login
+        },
+        {
+          path: 'category/:name',
+          name: 'Category',
+          component: Category
         }
       ]
     },
@@ -38,6 +44,11 @@ export default new Router({
           path: '',
           name: 'Home-fr',
           component: Home
+        },
+        {
+          path: 'category/:name',
+          name: 'Category-fr',
+          component: Category
         }
       ]
     }
