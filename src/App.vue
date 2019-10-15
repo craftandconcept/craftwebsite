@@ -10,6 +10,9 @@ export default {
 }
 </script>
 <style lang="scss">
+// body{
+//   overflow-x: hidden;
+// }
 button:focus,
 button:active{
   outline: none;

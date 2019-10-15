@@ -216,6 +216,21 @@ export default {
       countryCod: 'UA',
       country: 'Ukraine',
       projectList: ['Project-5', 'Project-6', 'Project-7', 'Project-8']
+    },
+    {
+      countryCod: 'AU',
+      country: 'Australia',
+      projectList: ['Project-1', 'Project-2', 'Project-3', 'Project-4']
+    },
+    {
+      countryCod: 'JP',
+      country: 'Japan',
+      projectList: ['Project-1', 'Project-2', 'Project-3', 'Project-4']
+    },
+    {
+      countryCod: 'NZ',
+      country: 'New Zeland',
+      projectList: ['Project-1', 'Project-2', 'Project-3', 'Project-4']
     }],
     activeElement: {
       country: '',
@@ -245,6 +260,7 @@ export default {
         this.tooltipX = (rect.right - rect.width / 2).toFixed(0)
         this.activeElement = { country, project }
         e.target.classList.add('on-map')
+        this.checkTooltipOutPage()
       }, 0)
     },
     mouseleave () {
@@ -258,6 +274,11 @@ export default {
           document.querySelector('.on-map').classList.remove('on-map')
         }
       }, 0)
+    },
+    checkTooltipOutPage () {
+      if (+this.tooltipX + 240 > window.innerWidth) {
+        this.tooltipX = (+this.tooltipX - (+this.tooltipX + 260 - window.innerWidth)).toString()
+      }
     }
   }
 }
@@ -283,7 +304,7 @@ svg{
   background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 0.01%, rgba(247, 249, 254, 0.9) 100%);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
-  min-width: 220px;
+  width: 220px;
   h2 {
     margin: 0;
     font-size: 36px;
