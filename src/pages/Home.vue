@@ -37,42 +37,42 @@
         </div>
       </div>
       <div class="gallery d-flex flex-wrap">
-        <div class="gallery-block">
+        <a href="#" class="gallery-block">
           <h3>_{{$t('Architecture')}}</h3>
           <div class="overflow">
             <img src="../assets/img/gallery-1.png" alt="gallery" />
           </div>
-        </div>
-        <div class="gallery-block">
+        </a>
+        <a href="#" class="gallery-block">
           <h3>_{{$t('Interior-Design')}}</h3>
           <div class="overflow">
             <img src="../assets/img/gallery-2.png" alt="gallery" />
           </div>
-        </div>
-        <div class="gallery-block">
+        </a>
+        <a href="#" class="gallery-block">
           <h3>_{{$t('Individual-Objects')}}</h3>
           <div class="overflow">
             <img src="../assets/img/gallery-3.png" alt="gallery" />
           </div>
-        </div>
-        <div class="gallery-block">
+        </a>
+        <a href="#" class="gallery-block">
           <h3>_{{$t('Brand-Development')}}</h3>
           <div class="overflow">
             <img src="../assets/img/gallery-4.png" alt="gallery" />
           </div>
-        </div>
-        <div class="gallery-block">
+        </a>
+        <a href="#" class="gallery-block">
           <h3>_{{$t('3D-Rendering')}}</h3>
           <div class="overflow">
             <img src="../assets/img/gallery-5.png" alt="gallery" />
           </div>
-        </div>
-        <div class="gallery-block">
+        </a>
+        <a href="#" class="gallery-block">
           <h3>_{{$t('Production-facilities')}}</h3>
           <div class="overflow">
             <img src="../assets/img/gallery-6.png" alt="gallery" />
           </div>
-        </div>
+        </a>
       </div>
     </main>
     <Footer />
@@ -197,6 +197,7 @@ export default {
     .gallery-block{
       width: 33.3%;
       padding: 0 10px 45px;
+      text-decoration: none;
       .overflow{
         overflow: hidden;
       }
@@ -220,6 +221,55 @@ export default {
   }
 }
 @media(max-width: 1200px) {
-    
+  .main-wrap{
+    padding-left: 100px;
+    &.open{
+      padding-left: 350px;
+    }
+    .project-counter{
+      padding-left: 5%;
+    }
+    .our-story{
+      flex-direction: column;
+      padding-left: 5%;
+      .text-story{
+        padding-top: 55px;
+      }
+    }
+  }
+}
+@media(max-width: 992px) {
+  .main-wrap{
+    padding-left: 80px;
+    &.open{
+      padding-left: 295px;
+    }
+    .project-counter{
+      padding-left: 0;
+      .project-col {
+        margin-right: 1%;
+        h3{
+          font-size: 45px;
+        }
+        p{
+          font-size: 15px;
+        }
+      }
+    }
+    .our-story{
+      padding-left: 0;
+    }
+    .gallery{
+      .gallery-block{
+        width: 50%;
+      }
+    }
+  }
+}
+@media(max-width: 768px) {
+  
+}
+@media(max-width: 576px) {
+  
 }
 </style>

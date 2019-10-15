@@ -168,7 +168,6 @@ export default {
                 }
 
             }
-
         }
         &.open{
             background: #424647;
@@ -178,6 +177,48 @@ export default {
         }
     }
     @media(max-width: 1200px) {
+        .navigation-wrap{
+            .navigation-left{
+                width: 100px;
+            }
+             &.open{
+            background: #424647;
+                .navigation-right{
+                    width: 250px;
+                }
+            }
+        }
         
+    }
+    @media(max-width: 992px) {
+        .navigation-wrap{
+            .navigation-left{
+                width: 80px;
+                .burger{
+                    width: 40px;
+                    height: 40px;
+                    span{
+                        height: 2px;
+                        width: 21px;
+                        &::before,
+                        &::after{
+                            height: 2px;
+                        }
+                    }
+                }
+            }
+             &.open{
+            background: #424647;
+                .navigation-right{
+                    width: 215px;
+                }
+            }
+        }
+    }
+    @media(max-width: 768px) {
+  
+    }
+    @media(max-width: 576px) {
+  
     }
 </style>
