@@ -34,6 +34,9 @@
                 </ul>
             </div>
         </div>
+        <div class="shield">
+            <img src="../assets/img/shield.png" alt="shield">
+        </div>
     </div>
 </template>
 
@@ -54,6 +57,7 @@ export default {
 
 <style lang="scss">
     .navigation-wrap{
+        z-index: 1;
         position: fixed;
         height: 100vh;
         left: 0;
@@ -176,10 +180,18 @@ export default {
             }
         }
     }
+    .shield{
+        position: fixed;
+        right: 30px;
+        bottom: 100px;
+        z-index: 10;
+    }
     @media(max-width: 1200px) {
         .navigation-wrap{
             .navigation-left{
-                width: 100px;
+                width: 80px;
+                padding: 50px 15px;
+                align-items: center;
             }
              &.open{
             background: #424647;
@@ -193,7 +205,6 @@ export default {
     @media(max-width: 992px) {
         .navigation-wrap{
             .navigation-left{
-                width: 80px;
                 .burger{
                     width: 40px;
                     height: 40px;
@@ -216,6 +227,16 @@ export default {
         }
     }
     @media(max-width: 768px) {
+        .navigation-wrap{
+            &.open{
+                .navigation-right{
+                    width: calc(100vw - 80px);
+                    .text-menu ul li{
+                        text-align: center;
+                    }
+                }
+            }
+        }
   
     }
     @media(max-width: 576px) {
