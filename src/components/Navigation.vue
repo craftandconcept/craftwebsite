@@ -200,7 +200,7 @@ export default {
                 }
             }
         }
-        
+
     }
     @media(max-width: 992px) {
         .navigation-wrap{
@@ -237,9 +237,9 @@ export default {
                 }
             }
         }
-  
+
     }
     @media(max-width: 576px) {
-  
+
     }
 </style>

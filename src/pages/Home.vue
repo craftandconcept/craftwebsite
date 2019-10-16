@@ -267,9 +267,9 @@ export default {
       padding-left: 80px;
     }
   }
-  
+
 }
 @media(max-width: 576px) {
-  
+
 }
 </style>

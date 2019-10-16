@@ -22,10 +22,10 @@ $t: 1.5s;
 
 .load-wrap {
   position: fixed;
-	padding-top: 1em;
-	background: currentcolor;
-	color: #fff;
-	text-align: center;
+  padding-top: 1em;
+  background: currentcolor;
+  color: #fff;
+  text-align: center;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -36,18 +36,18 @@ $t: 1.5s;
   justify-content: center;
 }
 .dot {
-	background: #dbe3e5;
-	&, &:after {
-		display: inline-block;
-		width: $d; height: $d;
-		border-radius: 50%;
-		animation: a $t calc(((var(--i) + var(--o, 0))/var(--n) - 1)*#{$t}) infinite
-	}
-	&:after {
-		--o: 1;
-		background: currentcolor;
+  background: #dbe3e5;
+  &, &:after {
+    display: inline-block;
+    width: $d; height: $d;
+    border-radius: 50%;
+    animation: a $t calc(((var(--i) + var(--o, 0))/var(--n) - 1)*#{$t}) infinite
+  }
+  &:after {
+    --o: 1;
+    background: currentcolor;
     content: '';
-	}
+  }
 }
 
 @keyframes a { 0%, 50% { transform: scale(0) } }
