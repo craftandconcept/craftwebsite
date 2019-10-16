@@ -22,12 +22,12 @@
             <div class="text-menu">
                 <ul>
                     <li><a href="#">{{$t('our-story')}}</a></li>
-                    <li><a href="#">— {{$t('architecture')}}</a></li>
-                    <li><a href="#">— {{$t('interior-design')}}</a></li>
-                    <li><a href="#">— {{$t('individual-objects')}}</a></li>
-                    <li><a href="#">— {{$t('3D-rendering')}}</a></li>
-                    <li><a href="#">— {{$t('brand-development')}}</a></li>
-                    <li><a href="#">— {{$t('production-facilities')}}</a></li>
+                    <li><router-link to="/category/architecture">— {{$t('architecture')}}</router-link></li>
+                    <li><router-link to="/category/interior-design">— {{$t('interior-design')}}</router-link></li>
+                    <li><router-link to="/category/individual-object">— {{$t('individual-objects')}}</router-link></li>
+                    <li><router-link to="/category/3d-rendering">— {{$t('3D-rendering')}}</router-link></li>
+                    <li><router-link to="/category/brand-development">— {{$t('brand-development')}}</router-link></li>
+                    <li><router-link to="/category/production-facilities">— {{$t('production-facilities')}}</router-link></li>
                     <li><a href="#">{{$t('team-&-creators')}}</a></li>
                     <li><a href="#">{{$t('collaborators')}}</a></li>
                     <li><a href="#">{{$t('contact-us')}}</a></li>

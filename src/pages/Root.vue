@@ -1,6 +1,13 @@
 <template>
   <div :class="{'no-scroll': isLoaderVisible}">
-    <router-view/>
+    <div class="main-wrap" :class="{'open': menuIsOpen}">
+      <Header />
+      <Navigation @toggleMenu="status => menuIsOpen = status" />
+      <main class="container-fluid">
+        <router-view/>
+      </main>
+      <Footer />
+    </div>
     <transition name="fade">
       <Loader v-show="isLoaderVisible"/>
     </transition>
@@ -9,16 +16,23 @@
 
 <script>
 import Loader from '@/components/Loader'
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+import Navigation from '@/components/Navigation.vue'
 export default {
   components: {
-    Loader
+    Loader,
+    Header,
+    Footer,
+    Navigation
   },
   data: () => ({
+    menuIsOpen: false,
     isLoaderVisible: false
   }),
   created () {
     this.isLoaderVisible = true
-    if (this.$route.name === 'Home') {
+    if (this.$route.name !== 'Home-fr') {
       this.$i18n.locale = 'en'
     } else {
       this.$i18n.locale = 'fr'
@@ -27,7 +41,7 @@ export default {
   },
   watch: {
     '$route.name' () {
-      if (this.$route.name === 'Home') {
+      if (this.$route.name !== 'Home-fr') {
         this.$i18n.locale = 'en'
       } else {
         this.$i18n.locale = 'fr'

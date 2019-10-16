@@ -3,9 +3,9 @@
     <div class="container-fluid">
       <div class="d-flex justify-content-between aling-items-center">
         <div class="left d-flex align-items-center">
-          <div class="logo">
+          <router-link :to="{name: 'Home'}" class="logo">
             <img src="../assets/img/logo.png" alt="logo" />
-          </div>
+          </router-link>
         </div>
         <div class="right d-flex">
           <div class="translator d-flex">
