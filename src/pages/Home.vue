@@ -269,18 +269,52 @@ export default {
     .project-counter{
       flex-wrap: wrap;
       .project-col{
-        min-width: 0;
+        max-width: unset;
         width: 45%;
         margin-right: 10%;
         &:nth-child(2n){
           margin-right: 0;
         }
+        h3{
+          font-size: 60px;
+        }
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+    .gallery{
+      .gallery-block{
+        width: 100%;
+        h3{
+          font-size: 14px;
+        }
       }
     }
   }
-
 }
 @media(max-width: 576px) {
-
+  .main-wrap{
+    .project-counter{
+      flex-wrap: wrap;
+     .project-col{
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+        h3{
+          font-size: 50px;
+        }
+        p{
+          font-size: 16px;
+        }
+      }
+    }
+    .our-story{
+      .title-story h2{
+        font-size: 55px;
+        padding-right: 0;
+      }
+    }
+  }
 }
 </style>

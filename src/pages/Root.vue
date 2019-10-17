@@ -4,7 +4,9 @@
       <Header />
       <Navigation @toggleMenu="status => menuIsOpen = status" />
       <main class="container-fluid">
-        <router-view/>
+        <transition name="fade">
+          <router-view/>
+        </transition>
       </main>
       <Footer />
     </div>

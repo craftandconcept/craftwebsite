@@ -228,12 +228,20 @@ export default {
     }
     @media(max-width: 768px) {
         .navigation-wrap{
+            .shield{
+                opacity: 1;
+                transition-delay: 0s;
+            }
             &.open{
                 .navigation-right{
                     width: calc(100vw - 80px);
                     .text-menu ul li{
                         text-align: center;
                     }
+                }
+                .shield{
+                    opacity: 0;
+                    transition-delay: 0.2s;
                 }
             }
         }

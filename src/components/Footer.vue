@@ -2,19 +2,19 @@
   <footer class="footer">
     <div class="container-fluid">
       <div class="row footer-contacts">
-        <div class="col-2">
+        <div class="col-xl-3 col-lg-3">
           <div class="phone">
             <h3>{{$t('phone:')}}</h3>
             <a href="tel: +41788399321">+41 78 839 93 21</a>
           </div>
         </div>
-        <div class="col-2">
+        <div class="col-xl-3 col-lg-3">
           <div class="e-mail">
             <h3>{{$t('e-mail:')}}</h3>
             <a href="mailto: info@craftandconcept.ch">info@craftandconcept.ch</a>
           </div>
         </div>
-        <div class="col-3">
+        <div class="col-xl-4 col-lg-4">
           <div class="text-footer">
             <p>{{$t('want-to-schedule-a-meeting-text-us-under-chat')}}</p>
           </div>
@@ -112,6 +112,16 @@ export default {
         margin: 0;
         &:last-child{
           margin-top: 20px;
+        }
+      }
+    }
+  }
+  @media(max-width: 991px){
+    .footer {
+      .footer-contacts{
+        padding: 20px 0;
+        .text-footer{
+          margin-top: 10px;
         }
       }
     }

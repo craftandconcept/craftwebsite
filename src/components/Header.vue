@@ -49,4 +49,35 @@ export default {
       }
     }
   }
+  @media(max-width: 767px) {
+    .header{
+      .left img{
+        height: 45px;
+      }
+      .two-s img{
+        width: 80px;
+        height: 80px;
+      }
+      .translator {
+        margin-right: 50px;
+      }
+    }
+  }
+  @media(max-width: 576px) {
+    .header{
+      .left img{
+        height: 28px;
+      }
+      .two-s img{
+        width: 57px;
+        height: 57px;
+      }
+      .translator {
+        margin-right: 3px;
+        a{
+          margin-right: 5px;
+        }
+      }
+    }
+  }
 </style>
