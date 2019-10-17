@@ -216,7 +216,7 @@ export default {
   .main-wrap{
     padding-left: 80px;
     &.open{
-      padding-left: 350px;
+      padding-left: 330px;
     }
     .project-counter{
       padding-left: 5%;
@@ -265,6 +265,17 @@ export default {
   .main-wrap{
     &.open{
       padding-left: 80px;
+    }
+    .project-counter{
+      flex-wrap: wrap;
+      .project-col{
+        min-width: 0;
+        width: 45%;
+        margin-right: 10%;
+        &:nth-child(2n){
+          margin-right: 0;
+        }
+      }
     }
   }
 
