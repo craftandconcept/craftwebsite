@@ -272,6 +272,7 @@ export default {
         min-width: 0;
         width: 45%;
         margin-right: 10%;
+        max-width: unset;
         &:nth-child(2n){
           margin-right: 0;
         }
