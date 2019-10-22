@@ -55,14 +55,15 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $last = \DB::table('projects')->latest()->first()->id + 1;
+        // dd($last->id);
         if($request->hasfile('image'))
         {
             
             foreach($request->file('image') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/', $name); 
+                $image->move(public_path().'/images/project'.$last.'/', $name); 
                 $data[] = $name;  
             }
         }
@@ -124,7 +125,7 @@ class ProjectsController extends Controller
             foreach($request->file('image') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/', $name);  
+                $image->move(public_path().'/images/project'.$project->id.'/', $name);  
                 $data[] = $name;  
             }
         }
