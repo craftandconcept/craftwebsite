@@ -55,7 +55,12 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        $last = \DB::table('projects')->latest()->first()->id + 1;
+        if(\DB::table('projects')->latest()->first()){
+            $last = \DB::table('projects')->latest()->first()->id + 1;
+        }else{
+            $last=0;
+        }
+        
         // dd($last->id);
         if($request->hasfile('image'))
         {
