@@ -15,7 +15,6 @@
 
     <div class="col-12 col-md-9">
       <p class="h4">Edit project</p>
-      {{ $project }}
       <form method="POST" enctype="multipart/form-data" class="project-form" action="{{route('projects.update',$project->id)}}">
             @csrf
             {{method_field('PUT')}}
@@ -88,8 +87,22 @@
 
 
             <div class="multiple-files">
-                @foreach (json_decode($project->image) as $image)
 
+                <!-- Input type file for cloning begin -->
+                <div class="input-group mb-3 increment clone d-none">
+                    <img src="" alt="" style="height: 37px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">File</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" name="image[0]" class="custom-file-input">
+                        <label class="custom-file-label"></label>
+                    </div>
+                    <button class="btn btn-danger" type="button">Remove</button>
+                </div>
+                <!-- Input type file for cloning begin -->
+
+                @foreach (json_decode($project->image) as $i_key => $image)
                 <!-- Input type file style -->
                 <div class="input-group mb-3 increment">
                     <img src="{{ URL::to('/') }}/images/project{{$project->id}}/{{$image}}" alt="" style="height: 37px;">
@@ -97,12 +110,15 @@
                         <span class="input-group-text">File</span>
                     </div>
                     <div class="custom-file">
-                        <input type="file" name="image[]" required="false" class="custom-file-input">
+                        <input type="file" name="image[{{$i_key}}]" class="custom-file-input">
+                        <input type="hidden" name="isset_image[{{$i_key}}]" value="{{$image}}" class="form-control">
                         <label class="custom-file-label">{{$image}}</label>
                     </div>
                     <button class="btn btn-danger" type="button">Remove</button>
                 </div>
+                <!-- Input type file style -->
                 @endforeach
+
             </div>
 
             <!-- Input type file style -->

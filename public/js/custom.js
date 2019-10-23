@@ -105,7 +105,10 @@ $(document).ready(function () {
   //     });
   // },0);
   $(".add-new-file").click(function () {
-    $('.increment').clone().first().appendTo('.multiple-files'); // var html = $(".clone").html();
+    $('.increment.clone').clone().first().addClass('increment-cloned').appendTo('.multiple-files');
+    $('.increment-cloned .custom-file-input').attr('name', 'image[]');
+    $('.increment-cloned .custom-file-input + input').remove();
+    $('.increment-cloned').removeClass('d-none'); // var html = $(".clone").html();
     // $(".increment").after(html);
   });
   $("body").on("click", ".project-form .btn-danger", function () {

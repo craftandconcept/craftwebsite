@@ -15,7 +15,11 @@ $(document).ready(function() {
 
     $(".add-new-file").click(function(){
 
-        $('.increment').clone().first().appendTo('.multiple-files');
+        $('.increment.clone').clone().first().addClass('increment-cloned').appendTo('.multiple-files');
+
+        $('.increment-cloned .custom-file-input').attr('name', 'image[]');
+        $('.increment-cloned .custom-file-input + input').remove();
+        $('.increment-cloned').removeClass('d-none');
 
         // var html = $(".clone").html();
         // $(".increment").after(html);

@@ -72,6 +72,22 @@
             <!-- end row -->
             <p class="h5">Choose image</p>
             <div class="multiple-files">
+
+
+                <!-- Input type file for cloning begin -->
+                <div class="input-group mb-3 increment clone d-none">
+                    <img src="" alt="" style="height: 37px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">File</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" name="image[0]" class="custom-file-input">
+                        <label class="custom-file-label"></label>
+                    </div>
+                    <button class="btn btn-danger" type="button">Remove</button>
+                </div>
+                <!-- Input type file for cloning begin -->
+
                 <!-- Input type file style -->
                 <div class="input-group mb-3 increment">
                     <div class="input-group-prepend">
@@ -83,21 +99,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- hide begin -->
-            <div class="input-group mb-3 clone hide">
-
-                <div class="input-group-prepend">
-                    <span class="input-group-text">File</span>
-                </div>
-                <div class="custom-file mr-2">
-                    <input type="file" name="image[]" class="custom-file-input">
-                    <label class="custom-file-label">Choose file</label>
-                </div>
-                <button class="btn btn-danger" type="button">Remove</button>
-
-            </div>
-            <!-- hide end -->
 
             <!-- Input type file style -->
 

@@ -130,28 +130,34 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        // dd($request);
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            'image' => 'required',
+            // 'image' => 'required',
             'creator' => 'required',
         ]);
+        $data = array();
+        $data_isset_image=array();
         if($request->hasfile('image'))
         {
-            
-            foreach($request->file('image') as $image)
+            foreach($request->file('image') as $i_key => $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/project'.$project->id.'/', $name);  
-                $data[] = $name;  
+                $image->move(public_path().'/images/project'.$project->id.'/', $name);
+                $data[$i_key] = $name;
             }
         }
-
+        if($request->isset_image){
+            foreach($request->isset_image as $is_key => $isset_image)
+            {
+                $data_isset_image[$is_key] = $isset_image;
+            }
+        }
+        $imagedata = array_replace($data_isset_image,$data);
         $project->update([
             'name' => request('name'),
             'country_id' => request('country'),
-            'image' => json_encode($data),
+            'image' => json_encode($imagedata),
             'creator_id' => request('creator'),
         ]);
         $project->categories()->detach();

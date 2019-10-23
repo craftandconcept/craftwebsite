@@ -11728,8 +11728,16 @@ ul {
   display: none !important;
 }
 
+.project-form label {
+  word-break: break-word;
+}
+
 .t-custom .t-custom-td {
   word-break: break-word;
+}
+
+.increment .btn-danger {
+  border-radius: 0 4px 4px 0 !important;
 }
 
 #navbarSupportedContent {
