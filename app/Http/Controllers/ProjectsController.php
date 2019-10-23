@@ -55,17 +55,29 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if(\DB::table('projects')->latest()->first()){
+            $last = \DB::table('projects')->latest()->first()->id + 1;
+        }else{
+            $last=0;
+        }
+
+        $validdata = $request->validate([
+            'name' => 'required|min:2',
+            'country' => 'required',
+            'image' => 'required',
+            'creator' => 'required',
+        ]);
         if($request->hasfile('image'))
         {
             
             foreach($request->file('image') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/', $name); 
+                $image->move(public_path().'/images/project'.$last.'/', $name); 
                 $data[] = $name;  
             }
         }
+        
         
         $project = Project::create([
             'name' => request('name'),
@@ -118,13 +130,20 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        // dd($request);
+        $validdata = $request->validate([
+            'name' => 'required|min:2',
+            'country' => 'required',
+            'image' => 'required',
+            'creator' => 'required',
+        ]);
         if($request->hasfile('image'))
         {
             
             foreach($request->file('image') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/', $name);  
+                $image->move(public_path().'/images/project'.$project->id.'/', $name);  
                 $data[] = $name;  
             }
         }

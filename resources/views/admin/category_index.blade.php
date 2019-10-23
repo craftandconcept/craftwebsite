@@ -1,26 +1,55 @@
 @extends('layouts.app')
 @section('content')
-        <h1>Your categories</h1>
-  <ul class="list-group">
-@foreach ($categories as $category)
-  <li class="list-group-item" >
-      <a href="categories/{{ $category->id }}">
-          Name: {{$category->category_name}}
-      </a>
-      <div>
-        <a href="{{route('categories.edit',$category->id)}}">
-          <button class="btn btn-primary" type="submit">Edit</button>
-      </a>
-      <form style="display: inline" method="POST" action="{{route('categories.destroy',$category->id)}}">
-        @csrf
-        {{method_field('DELETE')}}        
-        <button class="btn btn-danger" type="submit">Delete</button>
-      </form>
-      </div>
-  </li>
 
-@endforeach
-  </ul>
-  <a href="{{route('categories.create')}}"><button class="btn btn-primary" type="submit">Create new one</button></a>
-  <a href="{{route('projects.index')}}"><button class="btn btn-primary" type="submit">Check Project list</button></a>
+
+<div class="container">
+
+  <!-- begin row -->
+  <div class="row">
+
+    <div class="col-12 col-md-3 mb-3">
+      <div class="list-group">
+        <a href="{{route('projects.index')}}" class="list-group-item list-group-item-action">All projects</a>
+        <a href="{{route('categories.index')}}" class="list-group-item list-group-item-action">Categories</a>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-9">
+      <div class="d-flex justify-content-between mb-2">
+        <p class="h4">Your categories</p>
+        <a href="{{route('categories.create')}}" class="btn btn-primary">Create new one</a>
+      </div>
+
+      <table class="table table-striped t-custom">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col" style="width: 1px;"></th>
+            <th scope="col" style="width: 1px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($categories as $category)
+            <tr>
+              <td class="t-custom-td">{{$category->category_name}}</td>
+              <td><a href="{{route('categories.edit',$category->id)}}" class="btn btn-primary">Edit</a></td>
+              <td>
+              <form style="display: inline" method="POST" action="{{route('categories.destroy',$category->id)}}">
+                @csrf
+                {{method_field('DELETE')}}        
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+  <!-- end row -->
+
+</div>
+
 @endsection

@@ -11,5 +11,18 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js');
+mix.js('resources/js/custom.js', 'public/js');
+mix.sass('resources/sass/app.sass', 'public/css').options({
+    postCss: [
+        require('autoprefixer')({
+            overrideBrowserslist: [
+                'last 20 versions',
+                'iOS >= 8',
+                'Safari >= 8',
+            ],
+            cascade: false,
+            flexbox: "no-2009"
+        }),
+    ]
+});

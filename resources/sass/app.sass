@@ -1,0 +1,49 @@
+// Fonts
+@import 'fonts'
+
+// Variables
+@import 'variables'
+
+// reset default browsers styles
+@import '~normalize.css/normalize'
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap'
+
+// base styles begin
+body
+    font-family: 'Core-Sans-Regular', sans-serif!important
+
+.site-logo
+    max-width: 50px
+ul
+    padding-left: 0
+.nav__list
+    margin-bottom: 0
+    text-align: right
+    display: flex
+    justify-content: flex-end
+
+.btn.btn-dark:hover
+    color: #fff!important
+
+.multiple-files
+    .custom-file-label
+        white-space: nowrap
+        overflow: hidden
+        &::after
+            display: none!important
+
+.t-custom
+    .t-custom-td
+        word-break: break-word
+
+// .form-check-label
+//     padding-left: 20px
+
+#navbarSupportedContent
+    display: block!important
+
+.table td
+    vertical-align: middle
+// base styles end
