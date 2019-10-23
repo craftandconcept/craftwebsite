@@ -8,5 +8,8 @@
                 <input name="name" class="form-control" type="text">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            @if($errors->any())
+        {{implode (' ', $errors->all(':message'))}}
+        @endif
         </form>
 @endsection

@@ -60,8 +60,13 @@ class ProjectsController extends Controller
         }else{
             $last=0;
         }
-        
-        // dd($last->id);
+
+        $data = $request->validate([
+            'name' => 'required|min:2',
+            'country' => 'required',
+            'image' => 'required',
+            'creator' => 'required',
+        ]);
         if($request->hasfile('image'))
         {
             
@@ -72,6 +77,7 @@ class ProjectsController extends Controller
                 $data[] = $name;  
             }
         }
+        
         
         $project = Project::create([
             'name' => request('name'),
@@ -124,6 +130,13 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+
+        $data = $request->validate([
+            'name' => 'required|min:2',
+            'country' => 'required',
+            'image' => 'required',
+            'creator' => 'required',
+        ]);
         if($request->hasfile('image'))
         {
             

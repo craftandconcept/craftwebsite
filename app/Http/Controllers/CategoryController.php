@@ -40,6 +40,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate([
+            'name' => 'required|min:2',
+        ]);
         Category::create([
             'category_name' => request('name')
         ]);
@@ -80,6 +83,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $data = $request->validate([
+            'name' => 'required|min:2',
+        ]);
         $category->update([
             'category_name' => request('name')
         ]);

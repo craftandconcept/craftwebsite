@@ -33,7 +33,7 @@
                 </select>
             </div>
             <div class="input-group control-group increment" >
-                    <label for="creator">File</label>
+                    <label for="file">File</label>
                     <input type="file" name="image[]" class="form-control">
                     <div class="input-group-btn"> 
                       <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
@@ -51,6 +51,9 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
+        @if($errors->any())
+        {{implode (' ', $errors->all(':message'))}}
+        @endif
 <script type="text/javascript">
 
     $(document).ready(function() {
