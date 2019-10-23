@@ -25,7 +25,7 @@
                     <option value="">Please select</option>
                     @foreach ($countries as $country)
                     <option value="{{$country->id}}"
-                        @if($project->countries->where('id',$country->id)->count())
+                        @if($project->country_id == $country->id)
                         selected="selected"
                         @endif
                         >{{$country->country_name}}</option>
@@ -38,7 +38,7 @@
                     <option value="">Please select</option>
                     @foreach ($creators as $creator)
                     <option value="{{$creator->id}}"
-                        @if($project->creators->where('id',$creator->id)->count())
+                        @if($project->creator_id == $creator->id)
                         selected="selected"
                         @endif
                         >{{$creator->creator_name}}</option>

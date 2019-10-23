@@ -111,7 +111,7 @@ class ProjectsController extends Controller
         $countries = Country::all();       
         $creators = Creator::all();       
         $categories = Category::all();   
-        
+
         return view('admin.project_edit', compact('project','countries','creators','categories'));
     }
 
