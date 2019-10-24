@@ -36,7 +36,7 @@
               <td>
               <form style="display: inline" method="POST" action="{{route('categories.destroy',$category->id)}}">
                 @csrf
-                {{method_field('DELETE')}}        
+                {{method_field('DELETE')}}
                 <button class="btn btn-danger" type="submit">Delete</button>
               </form>
               </td>

@@ -17,7 +17,7 @@
 
       <div class="d-flex justify-content-between mb-2 align-items-center">
         <p class="h4">{{$category->category_name}} Projects</p>
-        
+
         <a href="{{route('projects.create')}}" class="btn btn-primary">Create new one</a>
       </div>
 
@@ -31,13 +31,13 @@
           </thead>
           <tbody>
            @if($category->projects->isEmpty())
-            
+
             <tr>
               <td>There are no projects in this category yet</td>
               <td></td>
               <td></td>
             </tr>
-            
+
            @else
            @foreach ($category->projects as $project)
             <tr>

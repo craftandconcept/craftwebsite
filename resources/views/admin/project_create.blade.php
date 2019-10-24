@@ -112,7 +112,7 @@
                     {{implode (' ', $errors->all(':message'))}}
                 </div>
             @endif
-            
+
         </form>
     </div>
 

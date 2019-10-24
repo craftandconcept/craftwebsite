@@ -37,17 +37,17 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $countries = Country::all();       
-        $creators = Creator::all();       
-        $categories = Category::all();       
-        
+    {   $countries = Country::all();
+        $creators = Creator::all();
+        $categories = Category::all();
+
         return view('admin.project_create', compact('countries','creators','categories'));
     }
 
     /**
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,16 +69,16 @@ class ProjectsController extends Controller
         ]);
         if($request->hasfile('image'))
         {
-            
+
             foreach($request->file('image') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/project'.$last.'/', $name); 
-                $data[] = $name;  
+                $image->move(public_path().'/images/project'.$last.'/', $name);
+                $data[] = $name;
             }
         }
-        
-        
+
+
         $project = Project::create([
             'name' => request('name'),
             'country_id' => request('country'),
@@ -90,7 +90,7 @@ class ProjectsController extends Controller
             $project->categories()->attach($request->input('categories'));
         }
 
-        
+
         return redirect('/admin/projects');
     }
 
@@ -102,7 +102,7 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
-        // 
+        //
         return view('admin.project_show', compact('project'));
     }
 
@@ -114,10 +114,10 @@ class ProjectsController extends Controller
      */
     public function edit(Project $project)
     {
-        $countries = Country::all();       
-        $creators = Creator::all();       
-        $categories = Category::all();   
-        
+        $countries = Country::all();
+        $creators = Creator::all();
+        $categories = Category::all();
+
         return view('admin.project_edit', compact('project','countries','creators','categories'));
     }
 
@@ -130,16 +130,17 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            // 'image' => 'required',
-            'creator' => 'required',
+            'creator' => 'required'
         ]);
         $data = array();
         $data_isset_image=array();
         if($request->hasfile('image'))
         {
+
             foreach($request->file('image') as $i_key => $image)
             {
                 $name=$image->getClientOriginalName();
@@ -153,7 +154,9 @@ class ProjectsController extends Controller
                 $data_isset_image[$is_key] = $isset_image;
             }
         }
+
         $imagedata = array_replace($data_isset_image,$data);
+
         $project->update([
             'name' => request('name'),
             'country_id' => request('country'),
@@ -178,6 +181,8 @@ class ProjectsController extends Controller
     {
         $project->categories()->detach();
         $project->delete();
+        $path= public_path().'/images/project'.$project->id.'/';
+        if (\File::exists($path)) \File::deleteDirectory($path);
         return redirect ('/admin/projects');
     }
 }
