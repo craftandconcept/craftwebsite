@@ -22,7 +22,7 @@
               <label for="name">Name</label>
               <input name="name" class="form-control" type="text" value="{{$category->category_name}}">
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary">Save</button>
             @if($errors->any())
                 <div class="alert alert-danger mt-2" role="alert">
                     {{implode (' ', $errors->all(':message'))}}

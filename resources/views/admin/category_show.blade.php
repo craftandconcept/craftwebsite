@@ -14,19 +14,48 @@
     </div>
 
     <div class="col-12 col-md-9">
-        <p class="h4">Projects</p>
-        <ul class="list-group mb-2">
-          @foreach ($category->projects as $project)
-            <li class="list-group-item">
-                <a href="{{route('projects.edit',$category->id)}}">
-                    {{$project->name}}
-                </a>
-            </li>
-          @endforeach
-        </ul>
-        <div class="text-right">
-          <a href="{{route('projects.create')}}" class="btn btn-primary">Create new one</a>
-        </div>
+
+      <div class="d-flex justify-content-between mb-2 align-items-center">
+        <p class="h4">{{$category->category_name}} Projects</p>
+        
+        <a href="{{route('projects.create')}}" class="btn btn-primary">Create new one</a>
+      </div>
+
+      <table class="table table-striped t-custom">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col" style="width: 1px;"></th>
+              <th scope="col" style="width: 1px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+           @if($category->projects->isEmpty())
+            
+            <tr>
+              <td>There are no projects in this category yet</td>
+              <td></td>
+              <td></td>
+            </tr>
+            
+           @else
+           @foreach ($category->projects as $project)
+            <tr>
+              <td class="t-custom-td">{{$project->name}}</td>
+              <td><a href="{{route('projects.edit',$project->id)}}" class="btn btn-primary">Edit</a></td>
+              <td>
+                <form style="display: inline" method="POST" action="{{route('projects.destroy',$project->id)}}">
+                  @csrf
+                  {{method_field('DELETE')}}
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+            @endforeach
+           @endif
+
+          </tbody>
+        </table>
     </div>
 
   </div>

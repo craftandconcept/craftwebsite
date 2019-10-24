@@ -96,7 +96,7 @@
                     </div>
                     <div class="custom-file">
                         <input type="file" name="image[0]" class="custom-file-input">
-                        <label class="custom-file-label"></label>
+                        <label class="custom-file-label">Choose file</label>
                     </div>
                     <button class="btn btn-danger" type="button">Remove</button>
                 </div>
@@ -125,7 +125,7 @@
 
             <div class="text-right">
                 <button class="btn btn-success add-new-file mr-1" type="button">Add Image</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
 
             @if($errors->any())

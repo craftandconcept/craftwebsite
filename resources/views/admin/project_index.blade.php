@@ -14,10 +14,17 @@
     </div>
 
     <div class="col-12 col-md-9">
-      <div class="d-flex justify-content-between mb-2">
-        <p class="h4">Your Projects</p>
+
+      <div class="d-flex justify-content-between mb-2 align-items-center">
+
+        <div>
+          <p class="h4">Your Projects</p>
+        </div>
+
         <a href="{{route('projects.create')}}" class="btn btn-primary">Create new one</a>
+
       </div>
+
       <table class="table table-striped t-custom">
         <thead class="thead-dark">
           <tr>
