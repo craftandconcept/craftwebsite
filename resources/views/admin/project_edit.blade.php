@@ -46,7 +46,12 @@
                 </select>
             </div>
             <div class="input-group control-group increment" >
-                    <input type="file" name="image[]" class="form-control">
+                @foreach (json_decode($project->image) as $i_key => $image)
+            <img src="{{ URL::to('/') }}/images/project{{$project->id}}/{{$image}}" alt="">
+                
+                    <input type="file" name="image[{{$i_key}}]" class="form-control">
+            <input type="hidden" name="isset_image[{{$i_key}}]" value="{{$image}}" class="form-control">
+                    @endforeach
                     <div class="input-group-btn"> 
                       <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                     </div>

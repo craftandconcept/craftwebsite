@@ -61,7 +61,7 @@ class ProjectsController extends Controller
             $last=0;
         }
 
-        $data = $request->validate([
+        $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
             'image' => 'required',
@@ -117,7 +117,7 @@ class ProjectsController extends Controller
         $countries = Country::all();       
         $creators = Creator::all();       
         $categories = Category::all();   
-
+        
         return view('admin.project_edit', compact('project','countries','creators','categories'));
     }
 
@@ -131,27 +131,36 @@ class ProjectsController extends Controller
     public function update(Request $request, Project $project)
     {
 
-        $data = $request->validate([
+        $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            'image' => 'required',
-            'creator' => 'required',
+            'creator' => 'required'
         ]);
+        $data = array();
+        $data_isset_image=array();
         if($request->hasfile('image'))
         {
             
-            foreach($request->file('image') as $image)
+            foreach($request->file('image') as $i_key => $image)
             {
                 $name=$image->getClientOriginalName();
                 $image->move(public_path().'/images/project'.$project->id.'/', $name);  
-                $data[] = $name;  
+                $data[$i_key] = $name;  
+            }
+        }
+        if($request->isset_image){
+            foreach($request->isset_image as $is_key => $isset_image)
+            {
+                $data_isset_image[$is_key] = $isset_image;  
             }
         }
 
+        $imagedata = array_replace($data_isset_image,$data);
+        
         $project->update([
             'name' => request('name'),
             'country_id' => request('country'),
-            'image' => json_encode($data),
+            'image' => json_encode($imagedata),
             'creator_id' => request('creator'),
         ]);
         $project->categories()->detach();
@@ -172,6 +181,8 @@ class ProjectsController extends Controller
     {
         $project->categories()->detach();
         $project->delete();
+        $path= public_path().'/images/project'.$project->id.'/';
+        if (\File::exists($path)) \File::deleteDirectory($path);
         return redirect ('/admin/projects');
     }
 }
