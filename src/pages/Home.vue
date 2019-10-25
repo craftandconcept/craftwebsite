@@ -168,6 +168,7 @@ export default {
       line-height: 79px;
       color: #000000;
       padding-right: 50px;
+      font-weight: 700;
       white-space: nowrap;
     }
     .text-story{
