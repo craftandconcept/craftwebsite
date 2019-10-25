@@ -19,14 +19,14 @@
             <p>{{$t('want-to-schedule-a-meeting-text-us-under-chat')}}</p>
           </div>
         </div>
-        <div class="col-5">
+        <!-- <div class="col-5">
           <div class="contact-us">
             <h2>{{$t('have-an-idea-for-new-design?')}}</h2>
             <div class="d-flex justify-content-end">
               <button class="btn-footer">{{$t('contact-us')}}</button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="copirating">
         <p><a href="#">{{$t('terms-and-conditions')}}</a></p>

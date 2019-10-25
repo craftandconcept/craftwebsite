@@ -1,9 +1,10 @@
 <template>
+<div>1221</div>
 </template>
 
 <script>
 export default {
-  name: 'Category',
+  name: 'Category'
 }
 </script>
 

@@ -169,6 +169,7 @@ export default {
       color: #000000;
       padding-right: 50px;
       font-weight: 700;
+      white-space: nowrap;
     }
     .text-story{
       padding-top: 100px;
@@ -214,12 +215,15 @@ export default {
 }
 @media(max-width: 1200px) {
   .main-wrap{
-    padding-left: 100px;
+    padding-left: 80px;
     &.open{
-      padding-left: 350px;
+      padding-left: 330px;
     }
     .project-counter{
       padding-left: 5%;
+      .project-col {
+        margin-right: 9%;
+      }
     }
     .our-story{
       flex-direction: column;
@@ -232,19 +236,19 @@ export default {
 }
 @media(max-width: 992px) {
   .main-wrap{
-    padding-left: 80px;
     &.open{
       padding-left: 295px;
     }
     .project-counter{
       padding-left: 0;
       .project-col {
-        margin-right: 1%;
+        margin-right: 5vw;
+        min-width: 11vw;
         h3{
-          font-size: 45px;
+          font-size: 6vw;
         }
         p{
-          font-size: 15px;
+          font-size: 1.8vw;
         }
       }
     }
@@ -258,10 +262,26 @@ export default {
     }
   }
 }
-@media(max-width: 768px) {
-  
+@media(max-width: 767px) {
+  .main-wrap{
+    &.open{
+      padding-left: 80px;
+    }
+    .project-counter{
+      flex-wrap: wrap;
+      .project-col{
+        min-width: 0;
+        width: 45%;
+        margin-right: 10%;
+        &:nth-child(2n){
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
 }
 @media(max-width: 576px) {
-  
+
 }
 </style>
