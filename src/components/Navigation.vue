@@ -16,6 +16,9 @@
                 <a href="#">
                     <img src="../assets/img/linkedin.png" alt="linkedin" />
                 </a>
+                <div class="shield">
+                    <Shield />
+                </div>
             </div>
         </div>
         <div class="navigation-right">
@@ -24,8 +27,8 @@
                     <li><a href="#">{{$t('our-story')}}</a></li>
                     <li><router-link to="/category/architecture">— {{$t('architecture')}}</router-link></li>
                     <li><router-link to="/category/interior-design">— {{$t('interior-design')}}</router-link></li>
-                    <li><router-link to="/category/individual-object">— {{$t('individual-objects')}}</router-link></li>
-                    <li><router-link to="/category/3d-rendering">— {{$t('3D-rendering')}}</router-link></li>
+                    <li><router-link to="/category/individual-objects">— {{$t('individual-objects')}}</router-link></li>
+                    <li><router-link to="/category/3d-rendering">— {{$t('3d-rendering')}}</router-link></li>
                     <li><router-link to="/category/brand-development">— {{$t('brand-development')}}</router-link></li>
                     <li><router-link to="/category/production-facilities">— {{$t('production-facilities')}}</router-link></li>
                     <li><a href="#">{{$t('team-&-creators')}}</a></li>
@@ -34,18 +37,19 @@
                 </ul>
             </div>
         </div>
-        <div class="shield">
-            <img src="../assets/img/shield.png" alt="shield">
-        </div>
     </div>
 </template>
 
 <script>
+import Shield from '@/components/Shield.vue'
 export default {
   name: 'Navigation',
   data: () => ({
     isOpen: false
   }),
+  components: {
+    Shield
+  },
   methods: {
     toggleMenu () {
       this.isOpen = !this.isOpen
@@ -77,8 +81,19 @@ export default {
             .social-link{
                 display: flex;
                 flex-direction: column;
+                align-items: flex-end;
                 a{
                     margin-bottom: 28px;
+                }
+                .shield{
+                    margin-top: 20px;
+                    svg {
+                        height: 46px;
+                        width: auto;
+                        path{
+                            fill: #a3a3a3;
+                        }
+                    }
                 }
             }
             .burger {
@@ -178,13 +193,14 @@ export default {
             .navigation-right{
                 width: 270px;
             }
+            .navigation-left .social-link .shield{
+                margin-top: 20px;
+                svg {
+                    height: 46px;
+                    width: auto;
+                }
+            }
         }
-    }
-    .shield{
-        position: fixed;
-        right: 30px;
-        bottom: 100px;
-        z-index: 10;
     }
     @media(max-width: 1200px) {
         .navigation-wrap{
@@ -238,10 +254,6 @@ export default {
                     .text-menu ul li{
                         text-align: center;
                     }
-                }
-                .shield{
-                    opacity: 0;
-                    transition-delay: 0.2s;
                 }
             }
         }

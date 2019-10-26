@@ -30,7 +30,7 @@
       </div>
       <div class="copirating">
         <p><a href="#">{{$t('terms-and-conditions')}}</a></p>
-        <p>{{$t('©-2017-CRAFT-&-CONCEPT.all-rights-reserved')}}</p>
+        <p><span>{{$t('©-2017-craft-&-concept.')}}</span> {{$t('all-rights-reserved')}}</p>
       </div>
     </div>
   </footer>
@@ -112,6 +112,9 @@ export default {
         margin: 0;
         &:last-child{
           margin-top: 20px;
+        }
+        span{
+          text-transform: uppercase;
         }
       }
     }

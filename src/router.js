@@ -4,6 +4,7 @@ import Home from './pages/Home.vue'
 import Root from './pages/Root.vue'
 import Login from './pages/Login.vue'
 import Category from './pages/Category.vue'
+import Project from './pages/ProjectPage.vue'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
           path: 'category/:name',
           name: 'Category',
           component: Category
+        },
+        {
+          path: 'project/:id',
+          name: 'Project',
+          component: Project
         }
       ]
     },

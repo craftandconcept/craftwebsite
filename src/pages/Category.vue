@@ -1,11 +1,11 @@
 <template>
 <div class="category-wrap">
   <div class="titel-ah">
-    <h2>_Architecture</h2>
+    <h2>_{{$t($route.params.name)}}</h2>
   </div>
   <div class="gallery d-flex flex-wrap">
     <div class="gallery-block project">
-      <router-link to="/category/architecture">
+      <router-link :to="{name: 'Project', params: {id: 431321}}">
         <div class="overflow">
           <img src="../assets/img/gallery-1.png" alt="gallery" />
         </div>
@@ -15,7 +15,7 @@
       </router-link>
     </div>
     <div class="gallery-block project">
-      <router-link to="/category/architecture">
+      <router-link :to="{name: 'Project', params: {id: 431321}}">
         <div class="overflow">
           <img src="../assets/img/gallery-2.png" alt="gallery" />
         </div>
@@ -25,7 +25,7 @@
       </router-link>
     </div>
     <div class="gallery-block project">
-      <router-link to="/category/architecture">
+      <router-link :to="{name: 'Project', params: {id: 431321}}">
         <div class="overflow">
           <img src="../assets/img/gallery-3.png" alt="gallery" />
         </div>
@@ -35,7 +35,7 @@
       </router-link>
     </div>
     <div class="gallery-block project">
-      <router-link to="/category/architecture">
+      <router-link :to="{name: 'Project', params: {id: 431321}}">
         <div class="overflow">
           <img src="../assets/img/gallery-4.png" alt="gallery" />
         </div>
@@ -45,7 +45,7 @@
       </router-link>
     </div>
     <div class="gallery-block project">
-      <router-link to="/category/architecture">
+      <router-link :to="{name: 'Project', params: {id: 431321}}">
         <div class="overflow">
           <img src="../assets/img/gallery-5.png" alt="gallery" />
         </div>
@@ -55,7 +55,7 @@
       </router-link>
     </div>
     <div class="gallery-block project">
-      <router-link to="/category/architecture">
+      <router-link :to="{name: 'Project', params: {id: 431321}}">
         <div class="overflow">
           <img src="../assets/img/gallery-6.png" alt="gallery" />
         </div>
@@ -118,6 +118,18 @@ export default {
     &:hover a .hover-block{
       opacity: 1;
     }
+  }
+}
+@media(max-width: 767px) {
+  .category-wrap .titel-ah h2{
+    font-size: 44px;
+    line-height: 1.2;
+  }
+}
+@media(max-width: 575px) {
+  .category-wrap .titel-ah h2{
+    font-size: 24px;
+    line-height: 1.2;
   }
 }
 </style>

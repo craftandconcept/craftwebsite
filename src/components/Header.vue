@@ -8,7 +8,7 @@
           </router-link>
         </div>
         <div class="right d-flex">
-          <div class="translator d-flex">
+          <div class="translator d-flex" v-if="false">
             <router-link :to="{name: 'Home'}" class="active">{{$t('eng')}}</router-link>
             <br />
             <router-link :to="{name: 'Home-fr'}">{{$t('fre')}}</router-link>
@@ -66,16 +66,17 @@ export default {
   @media(max-width: 576px) {
     .header{
       .left img{
-        height: 28px;
+        height: 25px;
       }
       .two-s img{
-        width: 57px;
-        height: 57px;
+        width: 50px;
+        height: 50px;
       }
       .translator {
         margin-right: 3px;
         a{
           margin-right: 5px;
+          font-size: 14px;
         }
       }
     }
