@@ -169,6 +169,7 @@ export default {
       color: #000000;
       text-transform: uppercase;
       padding-right: 50px;
+      font-weight: 700;
       white-space: nowrap;
     }
     .text-story{

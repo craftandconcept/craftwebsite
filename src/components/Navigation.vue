@@ -42,18 +42,23 @@
 
 <script>
 import Shield from '@/components/Shield.vue'
+import {mapMutations} from 'vuex'
 export default {
   name: 'Navigation',
   data: () => ({
-    isOpen: false
+        isOpen: false
   }),
   components: {
     Shield
   },
   methods: {
+    ...mapMutations({
+        toggleNav: 'toggleNav'
+    }),
     toggleMenu () {
-      this.isOpen = !this.isOpen
-      this.$emit('toggleMenu', this.isOpen)
+        this.toggleNav()
+        this.isOpen = !this.isOpen
+        this.$emit('toggleMenu', this.isOpen)
     }
   }
 }
