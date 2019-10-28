@@ -10,7 +10,10 @@ stages:
 
 before_script:
   - echo "Before script"
+  - echo $CI_PROJECT_DIR
+  - exit 0
   - cd /opt/$CI_PROJECT_NAME
+#  - cp -R $CI_PROJECT_DIR /opt/$CI_PROJECT_NAME
 install-deps:
   stage: install-deps
   script:
