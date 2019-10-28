@@ -9,9 +9,8 @@ stages:
   - build
   - smoke-test
 
-job:
-  stage: .pre
-  script:
+.pre:
+  before_script:
     - cp -R $CI_PROJECT_DIR/* /opt/$CI_PROJECT_NAME
     - cd /opt/$CI_PROJECT_NAME
   only:
