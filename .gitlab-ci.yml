@@ -2,6 +2,7 @@ variables:
   SMOKE_TEST_HOST: https://frontend.dev.concept-and-craft.develop-test-alterrasoft.com/
   SMOKE_TEST_URI: /
   SMOKE_TEST_EXPECTED_STATUS_CODE: 200
+  CI_BUILDS_DIR: /opt/$CI_PROJECT_NAME
 
 stages:
   - install-deps
