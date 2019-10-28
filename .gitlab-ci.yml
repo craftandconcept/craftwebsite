@@ -16,7 +16,6 @@ before_script:
 install-deps:
   stage: install-deps
   script:
-    - git pull origin dev
     - composer install
     - npm install
 building:
