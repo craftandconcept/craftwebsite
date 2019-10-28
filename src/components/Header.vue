@@ -8,7 +8,7 @@
           </router-link>
         </div>
         <div class="right d-flex">
-          <div class="translator d-flex">
+          <div class="translator d-flex" v-if="false">
             <router-link :to="{name: 'Home'}" class="active">{{$t('eng')}}</router-link>
             <br />
             <router-link :to="{name: 'Home-fr'}">{{$t('fre')}}</router-link>
@@ -45,6 +45,38 @@ export default {
           color: #269DC3;
           font-weight: 700;
           text-decoration: none;
+        }
+      }
+    }
+  }
+  @media(max-width: 767px) {
+    .header{
+      .left img{
+        height: 45px;
+      }
+      .two-s img{
+        width: 80px;
+        height: 80px;
+      }
+      .translator {
+        margin-right: 50px;
+      }
+    }
+  }
+  @media(max-width: 576px) {
+    .header{
+      .left img{
+        height: 25px;
+      }
+      .two-s img{
+        width: 50px;
+        height: 50px;
+      }
+      .translator {
+        margin-right: 3px;
+        a{
+          margin-right: 5px;
+          font-size: 14px;
         }
       }
     }

@@ -2,23 +2,23 @@
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 400;
-  src: url(CoreSansD35Regular.eot) format('eot');
+  src: url('./CoreSansD35Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 800;
-  src: url(CoreSansD65Heavy.eot) format('eot');
+  src: url('./CoreSansD65Heavy.woff') format('woff');
 }
 @font-face {
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 700;
-  src: url(CoreSansD65Heavy.eot) format('eot');
+  src: url('./CoreSansD65Heavy.woff') format('woff');
 }
 @font-face {
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 500;
-  src: url(CoreSansD45Medium.eot) format('eot');
+  src: url('CoreSansD45Medium.woff') format('woff');
 }

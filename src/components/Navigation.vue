@@ -16,6 +16,9 @@
                 <a href="#">
                     <img src="../assets/img/linkedin.png" alt="linkedin" />
                 </a>
+                <div class="shield">
+                    <Shield />
+                </div>
             </div>
         </div>
         <div class="navigation-right">
@@ -24,11 +27,11 @@
                     <li><a href="#">{{$t('our-story')}}</a></li>
                     <li><router-link to="/category/architecture">— {{$t('architecture')}}</router-link></li>
                     <li><router-link to="/category/interior-design">— {{$t('interior-design')}}</router-link></li>
-                    <li><router-link to="/category/individual-object">— {{$t('individual-objects')}}</router-link></li>
-                    <li><router-link to="/category/3d-rendering">— {{$t('3D-rendering')}}</router-link></li>
+                    <li><router-link to="/category/individual-objects">— {{$t('individual-objects')}}</router-link></li>
+                    <li><router-link to="/category/3d-rendering">— {{$t('3d-rendering')}}</router-link></li>
                     <li><router-link to="/category/brand-development">— {{$t('brand-development')}}</router-link></li>
                     <li><router-link to="/category/production-facilities">— {{$t('production-facilities')}}</router-link></li>
-                    <li><a href="#">{{$t('team-&-creators')}}</a></li>
+                    <li><router-link :to="{name: 'Teams'}">{{$t('team-&-creators')}}</router-link></li>
                     <li><a href="#">{{$t('collaborators')}}</a></li>
                     <li><a href="#">{{$t('contact-us')}}</a></li>
                 </ul>
@@ -38,13 +41,22 @@
 </template>
 
 <script>
+import Shield from '@/components/Shield.vue'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Navigation',
   data: () => ({
     isOpen: false
   }),
+  components: {
+    Shield
+  },
   methods: {
+    ...mapMutations({
+      toggleNav: 'toggleNav'
+    }),
     toggleMenu () {
+      this.toggleNav()
       this.isOpen = !this.isOpen
       this.$emit('toggleMenu', this.isOpen)
     }
@@ -54,6 +66,7 @@ export default {
 
 <style lang="scss">
     .navigation-wrap{
+        z-index: 1;
         position: fixed;
         height: 100vh;
         left: 0;
@@ -73,8 +86,19 @@ export default {
             .social-link{
                 display: flex;
                 flex-direction: column;
+                align-items: flex-end;
                 a{
                     margin-bottom: 28px;
+                }
+                .shield{
+                    margin-top: 20px;
+                    svg {
+                        height: 46px;
+                        width: auto;
+                        path{
+                            fill: #a3a3a3;
+                        }
+                    }
                 }
             }
             .burger {
@@ -174,12 +198,21 @@ export default {
             .navigation-right{
                 width: 270px;
             }
+            .navigation-left .social-link .shield{
+                margin-top: 20px;
+                svg {
+                    height: 46px;
+                    width: auto;
+                }
+            }
         }
     }
     @media(max-width: 1200px) {
         .navigation-wrap{
             .navigation-left{
-                width: 100px;
+                width: 80px;
+                padding: 50px 15px;
+                align-items: center;
             }
              &.open{
             background: #424647;
@@ -188,12 +221,11 @@ export default {
                 }
             }
         }
-        
+
     }
     @media(max-width: 992px) {
         .navigation-wrap{
             .navigation-left{
-                width: 80px;
                 .burger{
                     width: 40px;
                     height: 40px;
@@ -216,9 +248,23 @@ export default {
         }
     }
     @media(max-width: 768px) {
-  
+        .navigation-wrap{
+            .shield{
+                opacity: 1;
+                transition-delay: 0s;
+            }
+            &.open{
+                .navigation-right{
+                    width: calc(100vw - 80px);
+                    .text-menu ul li{
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
     }
     @media(max-width: 576px) {
-  
+
     }
 </style>

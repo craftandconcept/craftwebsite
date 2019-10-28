@@ -1,10 +1,12 @@
 <template>
   <div :class="{'no-scroll': isLoaderVisible}">
-    <div class="main-wrap" :class="{'open': menuIsOpen}">
+    <div class="main-wrap" id="wrap" :class="{'open': menuIsOpen}">
       <Header />
       <Navigation @toggleMenu="status => menuIsOpen = status" />
       <main class="container-fluid">
-        <router-view/>
+        <transition name="fade">
+          <router-view/>
+        </transition>
       </main>
       <Footer />
     </div>

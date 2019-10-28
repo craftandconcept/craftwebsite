@@ -4,26 +4,26 @@
     <div class="project-counter d-flex" id="number">
       <div class="project-col">
         <h3>{{numberAnimation[0]}}</h3>
-        <p>{{$t('Country-of-Operations')}}</p>
+        <p>{{$t('country-of-operations')}}</p>
       </div>
       <div class="project-col">
         <h3>{{numberAnimation[1]}}</h3>
-        <p>{{$t('Projects')}}</p>
+        <p>{{$t('projects')}}</p>
       </div>
       <div class="project-col">
         <h3>{{numberAnimation[2]}}</h3>
-        <p>{{$t('Realized-Project')}}</p>
+        <p>{{$t('realized-project')}}</p>
       </div>
       <div class="project-col">
         <h3>{{numberAnimation[3]}}</h3>
-        <p>{{$t('Creators-and-Team')}}</p>
+        <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
     <div class="our-story d-flex">
       <div class="title-story left d-flex">
         <h2>
-          — {{$t('OUR')}} <br />
-          {{$t('STORY')}}
+          — {{$t('our')}} <br />
+          {{$t('story')}}
         </h2>
       </div>
       <div class="text-story right align-items-center ">
@@ -35,37 +35,37 @@
     </div>
     <div class="gallery d-flex flex-wrap">
       <router-link to="/category/architecture" class="gallery-block">
-        <h3>_{{$t('Architecture')}}</h3>
+        <h3>_{{$t('architecture')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-1.png" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/interior-design" class="gallery-block">
-        <h3>_{{$t('Interior-Design')}}</h3>
+        <h3>_{{$t('interior-design')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-2.png" alt="gallery" />
         </div>
       </router-link>
-      <router-link to="/category/individual-object" class="gallery-block">
-        <h3>_{{$t('Individual-Objects')}}</h3>
+      <router-link to="/category/individual-objects" class="gallery-block">
+        <h3>_{{$t('individual-objects')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-3.png" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/brand-development" class="gallery-block">
-        <h3>_{{$t('Brand-Development')}}</h3>
+        <h3>_{{$t('brand-development')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-4.png" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/3d-rendering" class="gallery-block">
-        <h3>_{{$t('3D-Rendering')}}</h3>
+        <h3>_{{$t('3d-rendering')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-5.png" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/production-facilities" class="gallery-block">
-        <h3>_{{$t('Production-facilities')}}</h3>
+        <h3>_{{$t('production-facilities')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-6.png" alt="gallery" />
         </div>
@@ -167,8 +167,10 @@ export default {
       font-size: 64px;
       line-height: 79px;
       color: #000000;
+      text-transform: uppercase;
       padding-right: 50px;
       font-weight: 700;
+      white-space: nowrap;
     }
     .text-story{
       padding-top: 100px;
@@ -214,12 +216,15 @@ export default {
 }
 @media(max-width: 1200px) {
   .main-wrap{
-    padding-left: 100px;
+    padding-left: 80px;
     &.open{
-      padding-left: 350px;
+      padding-left: 330px;
     }
     .project-counter{
       padding-left: 5%;
+      .project-col {
+        margin-right: 9%;
+      }
     }
     .our-story{
       flex-direction: column;
@@ -232,19 +237,19 @@ export default {
 }
 @media(max-width: 992px) {
   .main-wrap{
-    padding-left: 80px;
     &.open{
       padding-left: 295px;
     }
     .project-counter{
       padding-left: 0;
       .project-col {
-        margin-right: 1%;
+        margin-right: 5vw;
+        min-width: 11vw;
         h3{
-          font-size: 45px;
+          font-size: 6vw;
         }
         p{
-          font-size: 15px;
+          font-size: 1.8vw;
         }
       }
     }
@@ -258,10 +263,76 @@ export default {
     }
   }
 }
-@media(max-width: 768px) {
-  
+@media(max-width: 767px) {
+  .header{
+    margin-bottom: 16px;
+  }
+  .main-wrap{
+    &.open{
+      padding-left: 80px;
+    }
+    .project-counter{
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+      margin-top: 25px;
+      .project-col{
+        max-width: unset;
+        width: 45%;
+        margin-right: 10%;
+        &:nth-child(2n){
+          margin-right: 0;
+        }
+        h3{
+          font-size: 60px;
+        }
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+    .our-story .text-story {
+      padding-top: 25px;
+    }
+    .gallery{
+      margin-top: 50px;
+      margin-bottom: 0px;
+      .gallery-block{
+        width: 100%;
+        h3{
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
 @media(max-width: 576px) {
-  
+  .main-wrap{
+    .header {
+      padding: 7px 0 0;
+    }
+    .project-counter{
+      flex-wrap: wrap;
+     .project-col{
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+        h3{
+          font-size: 40px;
+        }
+        p{
+          font-size: 14px;
+        }
+      }
+    }
+    .our-story{
+      .title-story h2{
+        font-size: 40px;
+        padding-right: 0;
+      }
+      .text-story p {
+        font-size: 14px;
+      }
+    }
+  }
 }
 </style>
