@@ -10,11 +10,13 @@ stages:
   - build
   - smoke-test
 
+before_script:
+  - cd /opt/$CI_PROJECT_NAME
+
 clone:
   stage: clone
   script:
     - cp -R $CI_PROJECT_DIR/* /opt/$CI_PROJECT_NAME
-    - cd /opt/$CI_PROJECT_NAME
   only:
     refs:
       - dev
