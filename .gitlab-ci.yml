@@ -3,6 +3,7 @@ variables:
   SMOKE_TEST_URI: /
   SMOKE_TEST_EXPECTED_STATUS_CODE: 200
   GIT_CLONE_PATH: /opt/$CI_PROJECT_NAME
+  CI_BUILDS_DIR: /opt/$CI_PROJECT_NAME
 
 stages:
   - install-deps
