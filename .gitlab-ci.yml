@@ -2,8 +2,6 @@ variables:
   SMOKE_TEST_HOST: https://frontend.dev.concept-and-craft.develop-test-alterrasoft.com/
   SMOKE_TEST_URI: /
   SMOKE_TEST_EXPECTED_STATUS_CODE: 200
-  GIT_CLONE_PATH: /opt/$CI_PROJECT_NAME
-  CI_BUILDS_DIR: /opt/$CI_PROJECT_NAME
 
 stages:
   - install-deps
@@ -13,6 +11,7 @@ stages:
 job:
   stage: .pre
   script:
+    - cp -R $CI_PROJECT_DIR/* /opt/$CI_PROJECT_NAME
     - cd /opt/$CI_PROJECT_NAME
   only:
     refs:
