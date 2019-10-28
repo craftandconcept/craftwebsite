@@ -219,7 +219,7 @@ export default {
         font-size: 21px;
         line-height: 1.2;
       }
-    } 
+    }
     .info-project{
       .left, .right{
         .categories p{
@@ -238,6 +238,6 @@ export default {
     .img-project .wrap-img-project p {
       padding-left: 0;
     }
-  } 
+  }
 }
 </style>

@@ -31,7 +31,7 @@
                     <li><router-link to="/category/3d-rendering">— {{$t('3d-rendering')}}</router-link></li>
                     <li><router-link to="/category/brand-development">— {{$t('brand-development')}}</router-link></li>
                     <li><router-link to="/category/production-facilities">— {{$t('production-facilities')}}</router-link></li>
-                    <li><a href="#">{{$t('team-&-creators')}}</a></li>
+                    <li><router-link :to="{name: 'Teams'}">{{$t('team-&-creators')}}</router-link></li>
                     <li><a href="#">{{$t('collaborators')}}</a></li>
                     <li><a href="#">{{$t('contact-us')}}</a></li>
                 </ul>
@@ -42,23 +42,23 @@
 
 <script>
 import Shield from '@/components/Shield.vue'
-import {mapMutations} from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Navigation',
   data: () => ({
-        isOpen: false
+    isOpen: false
   }),
   components: {
     Shield
   },
   methods: {
     ...mapMutations({
-        toggleNav: 'toggleNav'
+      toggleNav: 'toggleNav'
     }),
     toggleMenu () {
-        this.toggleNav()
-        this.isOpen = !this.isOpen
-        this.$emit('toggleMenu', this.isOpen)
+      this.toggleNav()
+      this.isOpen = !this.isOpen
+      this.$emit('toggleMenu', this.isOpen)
     }
   }
 }
