@@ -1,0 +1,29 @@
+variables:
+  SMOKE_TEST_HOST: https://backend.dev.concept-and-craft.develop-test-alterrasoft.com
+  SMOKE_TEST_URI: /login
+  SMOKE_TEST_EXPECTED_STATUS_CODE: 200
+
+stages:
+  - install-deps
+  - migrate
+  - smoke-test
+
+before_script:
+  - echo "Before script"
+  - cp -R $CI_PROJECT_DIR/* /opt/$CI_PROJECT_NAME
+  - cd /opt/$CI_PROJECT_NAME
+
+install-deps:
+  stage: install-deps
+  script:
+    - composer install
+    - npm install
+building:
+  stage: migrate
+  script:
+    - php artisan migrate
+    - php artisan db:seed
+smoke-test:
+  stage: smoke-test
+  script:
+    - "[[ $(curl -I $SMOKE_TEST_HOST$SMOKE_TEST_URI 2>/dev/null | head -n 1 | cut -d$' ' -f2) == *$SMOKE_TEST_EXPECTED_STATUS_CODE* ]] || exit 1"
