@@ -24,7 +24,7 @@
         <div class="navigation-right">
             <div class="text-menu">
                 <ul>
-                    <li><a href="#">{{$t('our-story')}}</a></li>
+                    <li><router-link :to="{name: 'Story'}">{{$t('our-story')}}</router-link></li>
                     <li><router-link to="/category/architecture">— {{$t('architecture')}}</router-link></li>
                     <li><router-link to="/category/interior-design">— {{$t('interior-design')}}</router-link></li>
                     <li><router-link to="/category/individual-objects">— {{$t('individual-objects')}}</router-link></li>

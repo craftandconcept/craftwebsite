@@ -6,6 +6,7 @@ import Login from './pages/admin/Login.vue'
 import Category from './pages/Category.vue'
 import Project from './pages/ProjectPage.vue'
 import Teams from './pages/Teams.vue'
+import OurStory from './pages/OurStory.vue'
 import Admin from './pages/admin/Admin.vue'
 import Dashboard from './pages/admin/Dashboard.vue'
 import NewProject from './pages/admin/NewProject.vue'
@@ -64,6 +65,11 @@ export default new Router({
           path: '/teams',
           name: 'Teams',
           component: Teams
+        },
+        {
+          path: '/story',
+          name: 'Story',
+          component: OurStory
         }
       ]
     },
