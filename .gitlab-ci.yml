@@ -5,12 +5,14 @@ variables:
   CI_BUILDS_DIR: /opt/$CI_PROJECT_NAME
 
 stages:
+  - clone
   - install-deps
   - build
   - smoke-test
 
-.pre:
-  before_script:
+clone:
+  stage: clone
+  script:
     - cp -R $CI_PROJECT_DIR/* /opt/$CI_PROJECT_NAME
     - cd /opt/$CI_PROJECT_NAME
   only:
