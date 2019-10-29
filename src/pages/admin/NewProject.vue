@@ -89,7 +89,7 @@ export default {
         } else {
           this.tags.push(this.newTag)
         }
-        this.newTag =  {
+        this.newTag = {
           title: '',
           text: ''
         }

@@ -1,6 +1,6 @@
 <template>
   <div :class="{'no-scroll': isLoaderVisible}">
-    <div class="main-wrap" id="wrap" :class="{'open': menuIsOpen}">
+    <div class="main-wrap" id="wrap" :class="{'open': menuIsOpen, 'unset-padding-left': !paddingLeft}">
       <Header />
       <Navigation @toggleMenu="status => menuIsOpen = status" />
       <main class="container-fluid">
@@ -30,7 +30,8 @@ export default {
   },
   data: () => ({
     menuIsOpen: false,
-    isLoaderVisible: false
+    isLoaderVisible: false,
+    paddingLeft: true
   }),
   created () {
     this.isLoaderVisible = true
@@ -40,13 +41,18 @@ export default {
       this.$i18n.locale = 'fr'
     }
     setTimeout(() => { this.isLoaderVisible = false }, 2000)
+    if (this.$route.name === 'Teams') {
+      this.paddingLeft = false
+    } else {
+      this.paddingLeft = true
+    }
   },
   watch: {
     '$route.name' () {
-      if (this.$route.name !== 'Home-fr') {
-        this.$i18n.locale = 'en'
+      if (this.$route.name === 'Teams') {
+        this.paddingLeft = false
       } else {
-        this.$i18n.locale = 'fr'
+        this.paddingLeft = true
       }
     }
   }

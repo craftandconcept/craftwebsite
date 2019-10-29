@@ -23,8 +23,8 @@
         </div>
         <div class="navigation-right">
             <div class="text-menu">
-                <ul>
-                    <li><a href="#">{{$t('our-story')}}</a></li>
+                <ul @click.prevent="toggleMenu">
+                    <li><router-link :to="{name: 'Story'}">{{$t('our-story')}}</router-link></li>
                     <li><router-link to="/category/architecture">— {{$t('architecture')}}</router-link></li>
                     <li><router-link to="/category/interior-design">— {{$t('interior-design')}}</router-link></li>
                     <li><router-link to="/category/individual-objects">— {{$t('individual-objects')}}</router-link></li>
@@ -66,7 +66,7 @@ export default {
 
 <style lang="scss">
     .navigation-wrap{
-        z-index: 1;
+        z-index: 4;
         position: fixed;
         height: 100vh;
         left: 0;
@@ -170,6 +170,7 @@ export default {
                             position: relative;
                             text-decoration: none;
                             font-size: 18px;
+                            font-weight: 400;
                             line-height: 22px;
                             color: #F7F7F7;
                             white-space: nowrap;

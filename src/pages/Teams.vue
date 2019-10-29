@@ -3,10 +3,9 @@
     <carousel
       :autoplayHoverPause="true"
       :dots="false"
-      :items="4"
-      :stagePadding="11"
       :margin="11"
       :uRLhashListener="true"
+      :responsive="{0:{items:1},550:{items:2}, 800: {items:3}, 1300: {items: 4}}"
     >
       <team-item
         v-for="(item, index) in teams"
@@ -15,7 +14,7 @@
         @openModal="openModal(index)"
       />
     </carousel>
-    <team-modal :option="activeItem" v-show="activeItem" @close="activeItem = null"/>
+    <team-modal :option="activeItem" v-if="activeItem" @close="activeItem = null"/>
   </div>
 </template>
 <script>
@@ -89,7 +88,8 @@ export default {
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       }
     ],
-    activeItem: null
+    activeItem: null,
+    canDraw: false
   }),
   methods: {
     openModal (index) {
@@ -103,5 +103,11 @@ export default {
 .team-page{
   max-width: 80%;
   width: 80%;
+}
+@media(max-width: 1400px) {
+  .team-page{
+    width: 100%;
+    max-width: 100%;
+  }
 }
 </style>

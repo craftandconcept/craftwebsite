@@ -2,14 +2,14 @@
   <div>
     <div class="team-modal-wrap">
       <div class="photo-team">
-        <img src="../assets/img/team/1.1.png" alt="1.1">
+        <img :src="require(`../assets/img/team/${option.img}`)" :alt="option.firstName + option.lastName">
       </div>
       <div class="info-team">
-        <h2>_Designer</h2>
-        <h3>VIKTOR ZAHARCHENKO</h3>
-        <p>He always wanted to be a fireman, but got acquainted with Frank Lloyd Wright’s works (without which it’s hard to imagine modern architecture) – and went astray. He has more than 10 years of experience in designing complex objects: floating restaurants, hotels, social institutions. Even his service in ATO couldn’t split him with architecture – his knowledge was used for the establishment of a protective construction. Brings up a daughter and son, time spent with his family is the most precious for him.</p>
+        <h2>_{{option.profesion}}</h2>
+        <h3>{{option.firstName + ' ' + option.lastName}}</h3>
+        <p>{{option.description}}</p>
       </div>
-      <span class="close"></span>
+      <span class="close" @click="$emit('close')"></span>
     </div>
     <div class="overlay" @click="$emit('close')"></div>
   </div>
@@ -31,10 +31,10 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1200px;
-    // max-width: 600px;
-    // min-height: 200px;
+    max-height: 90vh;
     background: #F8F8F8;
-    z-index: 3;
+    z-index: 5;
+    overflow: hidden;
     .photo-team{
       display: inline-block;
       vertical-align: top;
@@ -78,10 +78,10 @@ export default {
       position: absolute;
       right: 32px;
       top: 32px;
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       opacity: 0.3;
-      
+      cursor: pointer;
       &:hover{
         opacity: 1;
       }
@@ -93,13 +93,13 @@ export default {
         height: 33px;
         width: 2px;
         background-color: #424647;
-        
+
       }
       &:before{
         transform: rotate(45deg);
       }
       &:after{
-        transform: rotate(-45deg); 
+        transform: rotate(-45deg);
       }
     }
   }
@@ -110,6 +110,63 @@ export default {
     width: 100vw;
     height: 100vh;
     background: rgba(0,0,0,0.2);
-    z-index: 2;
+    z-index: 4;
+  }
+  @media(max-width: 1200px){
+    .team-modal-wrap{
+      max-width: 910px;
+      .info-team{
+        h3{
+          font-size: 55px;
+        }
+      }
+    }
+  }
+  @media(max-width: 992px){
+    .team-modal-wrap{
+      max-width: 740px;
+      .info-team{
+        padding: 50px 20px;
+        h3{
+          font-size: 40px;
+          margin-bottom: 7px;
+        }
+        p{
+          font-size: 15px;
+        }
+      }
+      .close{
+        &:before,
+        &:after{
+          height: 27px;
+        }
+      }
+    }
+  }
+  @media(max-width: 767px){
+    .team-modal-wrap{
+      overflow: auto;
+      max-height: 100vh;
+      width: 100%;
+      max-width: 470px;
+      .photo-team{
+        display: block;
+        width: 100%;
+        height: 350px;
+        max-height: 50vh;
+        img{
+          width: 100%;
+        }
+      }
+      .info-team{
+        display: block;
+        width: 100%;
+        padding: 30px;
+
+      }
+    }
+  }
+  @media(max-width: 576px){
+
   }
 </style>

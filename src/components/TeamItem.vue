@@ -34,7 +34,8 @@ export default {
     z-index: 3;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     opacity: 1;
     transition: all 0.4s;
     transition-delay: 0.1s;
