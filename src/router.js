@@ -64,7 +64,12 @@ export default new Router({
         {
           path: '/teams',
           name: 'Teams',
-          component: Teams
+          component: Teams,
+          beforeEnter: (to, from, next) => {
+            setTimeout(() => {
+              next()
+            }, 400)
+          }
         },
         {
           path: '/story',

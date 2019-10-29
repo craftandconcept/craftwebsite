@@ -6,7 +6,7 @@
     <div class="info-project">
       <div class="left">
         <div class="categories">
-          <p><span>Architecture</span> Project: Aloft</p>
+          <p><span>Architecture Project:</span> Aloft</p>
           <p><span>Category:</span> Architecture</p>
           <p><span>Creators:</span> Drozdov&Partners</p>
           <p><span>Collaborators:</span> Jestico +Whiles, RD Engineering</p>
@@ -59,6 +59,7 @@ export default {
 <style lang="scss">
 .project-page{
   .title-bake{
+    font-weight: 700;
     margin-top: 85px;
     margin-bottom: 60px;
     h2{
@@ -84,10 +85,11 @@ export default {
           font-size: 12px;
           line-height: 15px;
           text-transform: uppercase;
-          color: #424647;
-          font-weight: 700;
+          color: #000000;
+          font-weight: 500;
           span{
             font-weight: 400;
+            color: #424647;
             display: block;
             min-width: 120px;
             margin-right: 10px;
@@ -100,6 +102,7 @@ export default {
     margin-top: 70px;
     p{
       font-size: 16px;
+      font-weight: 400;
       line-height: 24px;
       text-transform: capitalize;
       color: #424647;
@@ -121,6 +124,7 @@ export default {
       p{
         padding-top: 10px;
         margin: 0;
+        font-weight: 400;
         padding-left: 15px;
         font-size: 14px;
         line-height: 18px;

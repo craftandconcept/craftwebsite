@@ -84,19 +84,23 @@ export default {
   data: () => ({
     numberAnimation: [0, 0, 0, 0]
   }),
-  mounted () {
-    let animationStart = false
-    let clientHeight = document.documentElement.clientHeight
-    let scrollToTopFromElement = document.getElementById('number').offsetTop
-    document.addEventListener('scroll', (e) => {
-      let currentScrollToTop = window.pageYOffset
-      if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
-        this.animateNumber()
-        animationStart = true
-      }
-    })
+  async mounted () {
+    // fix for router animation
+    setTimeout(this.initialization, 600)
   },
   methods: {
+    initialization() {
+      let animationStart = false
+      let clientHeight = document.documentElement.clientHeight
+      let scrollToTopFromElement = document.getElementById('number').offsetTop
+      document.addEventListener('scroll', (e) => {
+        let currentScrollToTop = window.pageYOffset
+        if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
+          this.animateNumber()
+          animationStart = true
+        }
+      })
+    },
     animateNumber () {
       let step = 5
       let values = [8, 500, 450, 12]
@@ -127,6 +131,9 @@ export default {
   background: #f7f7f7;
   &.open{
     padding-left: 420px;
+    &.unset-padding-left{
+      padding-left: 150px;
+    }
   }
   main{
     min-height: calc(100vh - 379px);
@@ -146,14 +153,15 @@ export default {
       text-align: left;
       max-width: 130px;
       min-width: 110px;
-
       h3{
         font-size: 64px;
+        font-weight: 700;
         line-height: 79px;
         color: #000000;
       }
       p{
         font-size: 18px;
+        font-weight: 400;
         line-height: 22px;
         text-transform: uppercase;
         color: #424647;
@@ -176,6 +184,7 @@ export default {
       padding-top: 100px;
       p{
         max-width: 600px;
+        font-weight: 400;
         font-size: 16px;
         line-height: 24px;
         text-transform: capitalize;
@@ -202,6 +211,7 @@ export default {
       }
       h3{
         font-size: 12px;
+        font-weight: 500;
         line-height: 15px;
         text-transform: uppercase;
         color: #000000;
@@ -219,6 +229,9 @@ export default {
     padding-left: 80px;
     &.open{
       padding-left: 330px;
+      &.unset-padding-left{
+        padding-left: 80px;
+      }
     }
     .project-counter{
       padding-left: 5%;
@@ -239,6 +252,9 @@ export default {
   .main-wrap{
     &.open{
       padding-left: 295px;
+      &.unset-padding-left{
+        padding-left: 80px;
+      }
     }
     .project-counter{
       padding-left: 0;

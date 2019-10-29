@@ -80,9 +80,10 @@ export default {
     margin-top: 60px;
   }
   .titel-ah {
-    margin-top: 90px;
+    margin-top: 85px;
     h2{
       font-size: 64px;
+      font-weight: 700;
       line-height: 79px;
       text-transform: uppercase;
       color: #000000;
@@ -106,6 +107,7 @@ export default {
         background: linear-gradient(0deg, rgba(38, 157, 195, 0.65), rgba(38, 157, 195, 0.65));
         h2{
           font-size: 32px;
+          font-weight: 500;
           line-height: 40px;
           text-align: center;
           text-transform: uppercase;

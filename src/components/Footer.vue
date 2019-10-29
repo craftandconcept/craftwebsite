@@ -54,6 +54,7 @@ export default {
       .e-mail a,
       .text-footer{
         font-size: 14px;
+        font-weight: 400;
         line-height: 17px;
         color: #F7F7F7;
         text-decoration: none;
@@ -107,6 +108,7 @@ export default {
       a{
         text-decoration: none;
         font-size: 12px;
+        font-weight: 400;
         line-height: 15px;
         color: rgba(247, 247, 247, 0.7);
         margin: 0;
