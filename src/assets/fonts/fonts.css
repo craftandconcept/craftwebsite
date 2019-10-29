@@ -2,23 +2,31 @@
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 400;
-  src: url('./CoreSansD35Regular.woff') format('woff');
+  src: url('./CoreSansD35Regular.woff') format('woff'),
+    url('./CoreSansD35Regular.ttf') format('ttf'),
+    url('./CoreSansD35Regular.eot') format('eot');
 }
 @font-face {
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 800;
-  src: url('./CoreSansD65Heavy.woff') format('woff');
+  src: url('./CoreSansD65Heavy.woff') format('woff'),
+    url('./CoreSansD65Heavy.ttf') format('ttf')
+    url('./CoreSansD65Heavy.eot') format('eot');
 }
 @font-face {
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 700;
-  src: url('./CoreSansD65Heavy.woff') format('woff');
+  src: url('./CoreSansD65Heavy.woff') format('woff'),
+    url('./CoreSansD65Heavy.ttf') format('ttf')
+    url('./CoreSansD65Heavy.eot') format('eot');
 }
 @font-face {
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 500;
-  src: url('CoreSansD45Medium.woff') format('woff');
+  src: url('CoreSansD45Medium.woff') format('woff'),
+    url('./CoreSansD55Bold.ttf') format('ttf')
+    url('./CoreSansD45Medium.eot') format('eot');
 }
