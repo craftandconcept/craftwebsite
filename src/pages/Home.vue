@@ -89,7 +89,7 @@ export default {
     setTimeout(this.initialization, 600)
   },
   methods: {
-    initialization() {
+    initialization () {
       let animationStart = false
       let clientHeight = document.documentElement.clientHeight
       let scrollToTopFromElement = document.getElementById('number').offsetTop

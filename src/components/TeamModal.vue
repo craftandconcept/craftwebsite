@@ -136,7 +136,7 @@ export default {
         }
       }
       .close{
-        &:before, 
+        &:before,
         &:after{
           height: 27px;
         }
