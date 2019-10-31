@@ -144,7 +144,7 @@
                 <!-- Input type file for cloning begin -->
 
                 <!-- Input type file style -->
-                <div class="mb-3 increment">
+                <div class="mb-3">
 
                     <div class="input-wrap-flex d-flex align-items-center">
 
