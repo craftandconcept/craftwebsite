@@ -15,10 +15,15 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('name');
+            $table->string('name');
             $table->bigInteger('creator_id');
+            $table->string('collaborators');
+            $table->string('function');
+            $table->string('size');
+            $table->string('status');
+            $table->string('photos_by');
             $table->bigInteger('country_id');
-            $table->string('image');
+            $table->string('main_image');
             $table->timestamps();
         });
     }

@@ -107,6 +107,8 @@ $(document).ready(function () {
   $(".add-new-file").click(function () {
     $('.increment.clone').clone().first().addClass('increment-cloned').appendTo('.multiple-files');
     $('.increment-cloned .custom-file-input').attr('name', 'image[]');
+    $('.increment-cloned .custom-text-input').attr('name', 'text_image[]');
+    $('.increment-cloned .custom-check-input').attr('name', 'full_image[]');
     $('.increment-cloned .custom-file-input + input').remove();
     $('.increment-cloned').removeClass('d-none'); // var html = $(".clone").html();
     // $(".increment").after(html);
@@ -132,7 +134,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Work-Intent-Solutions\Docker\cnc-web\cnc-website\resources\js\custom.js */"./resources/js/custom.js");
+module.exports = __webpack_require__(/*! /home/intent15/project/cnc-web/php/cnc/resources/js/custom.js */"./resources/js/custom.js");
 
 
 /***/ })

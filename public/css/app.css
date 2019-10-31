@@ -11755,3 +11755,21 @@ ul {
   vertical-align: middle;
 }
 
+.ws-nowrap {
+  white-space: nowrap;
+  margin: 0 10px;
+}
+
+.clone.increment-cloned,
+.increment {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+
+.increment-fields {
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+

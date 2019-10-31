@@ -6,12 +6,17 @@ use App\Project;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProjectCollection;
+use App\Http\Resources\ProjectResource;
 
 class ProjectApiController extends Controller
 {
     //
     public function index(){
         return new ProjectCollection(Project::all());
+    }
+
+    public function getProject(Project $project){
+        return new ProjectResource($project);
     }
 
     public function projectfilter(Request $request){

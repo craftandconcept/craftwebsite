@@ -39,6 +39,11 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="collaborators">Collaborators</label>
+                <input name="collaborators" class="form-control" type="text" value="{{$project->collaborators}}">
+            </div>
+
             <div class="row">
 
                 <div class="input-group mb-3 col-12 col-md-6">
@@ -82,39 +87,113 @@
             </div>
 
             <!-- end row -->
-            <p class="h5">Choose image</p>
+
+            <div class="form-group">
+                <label for="function">Function</label>
+                <input name="function" class="form-control" type="text" value="{{$project->function}}">
+            </div>
+
+            <div class="form-group">
+                <label for="size">Size</label>
+                <input name="size" class="form-control" type="text" value="{{$project->size}}">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                <input name="status" class="form-control" type="text" value="{{$project->status}}">
+            </div>
+
+            <div class="form-group">
+                <label for="photos_by">Photos by</label>
+                <input name="photos_by" class="form-control" type="text" value="{{$project->photos_by}}">
+            </div>
+
+            <p class="h5">Choose Main image</p>
+            <div class="input-group mb-3 increment">
+                <img src="{{ URL::to('/') }}/images/project{{$project->id}}/{{$project->main_image}}" alt="" style="height: 37px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">File</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" name="main_image" class="custom-file-input">
+                    <input type="hidden" name="isset_main_image" value="{{$project->main_image}}" class="form-control">
+                    <label class="custom-file-label">{{$project->main_image}}</label>
+                </div>
+            </div>
+
+            <p class="h5">Choose Additional image</p>
 
 
 
             <div class="multiple-files">
 
                 <!-- Input type file for cloning begin -->
-                <div class="input-group mb-3 increment clone d-none">
-                    <img src="" alt="" style="height: 37px;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">File</span>
+                <div class="mb-3 increment clone d-none">
+
+                        <div class="increment-fields">
+    
+                            <div class="input-wrap-flex d-flex align-items-center">
+    
+                                <img src="" alt="" style="height: 37px;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">File</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" name="image[0]" class="custom-file-input">
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                                <div class="d-flex">
+                                    <label for="full_image" class="ws-nowrap">Full size</label>
+                                    <input type="hidden" class="custom-check-input" name="full_image[0]" value="0">
+                                    <input name="full11_image[0]" class="custom-check-input" onclick="this.previousSibling.previousSibling.value=1-this.previousSibling.previousSibling.value" type="checkbox" value="1">
+                                </div>
+    
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="text_image">Image text</label>
+                                <input name="text_image[0]" class="form-control custom-text-input" type="text" value="">
+                            </div>
+                        </div>
+    
+                        <button class="btn btn-danger ml-4 mb-3" type="button">Remove</button>
                     </div>
-                    <div class="custom-file">
-                        <input type="file" name="image[0]" class="custom-file-input">
-                        <label class="custom-file-label">Choose file</label>
-                    </div>
-                    <button class="btn btn-danger" type="button">Remove</button>
-                </div>
                 <!-- Input type file for cloning begin -->
 
-                @foreach (json_decode($project->image) as $i_key => $image)
+                @foreach (json_decode($project->photos) as $i_key => $photo)
                 <!-- Input type file style -->
-                <div class="input-group mb-3 increment">
-                    <img src="{{ URL::to('/') }}/images/project{{$project->id}}/{{$image}}" alt="" style="height: 37px;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">File</span>
+                <div class="mb-3 increment">
+
+                    <div class="increment-fields">
+                        <div class="input-wrap-flex d-flex align-items-center">
+                            <img src="{{ URL::to('/') }}/images/project{{$project->id}}/{{$photo->img}}" alt="" style="height: 37px;">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">File</span>
+                            </div>
+                            <div class="custom-file">
+                            <input type="hidden" name="photo_id[]" value="{{$photo->id}}">
+                                <input type="file" name="image[{{$i_key}}]" class="custom-file-input">
+                                <input type="hidden" name="isset_image[{{$i_key}}]" value="{{$photo->img}}" class="form-control">
+                                <label class="custom-file-label">{{$photo->img}}</label>
+                            </div>
+                            <div class="d-flex">
+                                <label for="full_image" class="ws-nowrap">Full size</label>
+                                <input type="hidden" class="custom-check-input" name="full_image[{{$i_key}}]" value="{{$photo->full}}">
+                                <input name="full11_image[{{$i_key}}]" class="custom-check-input" onclick="this.previousSibling.previousSibling.value=1-this.previousSibling.previousSibling.value" type="checkbox" value="1"
+                                @if($photo->full)
+                                checked="checked"
+                                @endif
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="text_image">Image text</label>
+                            <input name="text_image[{{$i_key}}]" class="form-control custom-text-imput" type="text" value="{{$photo->text}}">
+                        </div>
                     </div>
-                    <div class="custom-file">
-                        <input type="file" name="image[{{$i_key}}]" class="custom-file-input">
-                        <input type="hidden" name="isset_image[{{$i_key}}]" value="{{$image}}" class="form-control">
-                        <label class="custom-file-label">{{$image}}</label>
-                    </div>
-                    <button class="btn btn-danger" type="button">Remove</button>
+
+                    <button class="btn btn-danger ml-4 mb-3" type="button">Remove</button>
                 </div>
                 <!-- Input type file style -->
                 @endforeach

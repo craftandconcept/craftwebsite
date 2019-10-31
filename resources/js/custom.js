@@ -16,8 +16,9 @@ $(document).ready(function() {
     $(".add-new-file").click(function(){
 
         $('.increment.clone').clone().first().addClass('increment-cloned').appendTo('.multiple-files');
-
         $('.increment-cloned .custom-file-input').attr('name', 'image[]');
+        $('.increment-cloned .custom-text-input').attr('name', 'text_image[]');
+        $('.increment-cloned .custom-check-input').attr('name', 'full_image[]');
         $('.increment-cloned .custom-file-input + input').remove();
         $('.increment-cloned').removeClass('d-none');
 

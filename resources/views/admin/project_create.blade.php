@@ -35,6 +35,11 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="collaborators">Collaborators</label>
+                <input name="collaborators" class="form-control" type="text">
+            </div>
+
             <div class="row">
 
                 <div class="input-group mb-3 col-12 col-md-6">
@@ -68,35 +73,103 @@
                 </div>
 
             </div>
-
             <!-- end row -->
-            <p class="h5">Choose image</p>
+
+            <div class="form-group">
+                <label for="function">Function</label>
+                <input name="function" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="size">Size</label>
+                <input name="size" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                <input name="status" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="photos_by">Photos by</label>
+                <input name="photos_by" class="form-control" type="text">
+            </div>
+
+            <p class="h5">Choose Main image</p>
+            <div class="input-group mb-3 increment">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Main Image</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" name="main_image" class="custom-file-input">
+                    <label class="custom-file-label">Choose file</label>
+                </div>
+            </div>
+            
+            <p class="h5">Choose additional images</p>
             <div class="multiple-files">
 
 
                 <!-- Input type file for cloning begin -->
-                <div class="input-group mb-3 increment clone d-none">
-                    <img src="" alt="" style="height: 37px;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">File</span>
+                <div class="mb-3 increment clone d-none">
+
+                        <div class="increment-fields">
+    
+                            <div class="input-wrap-flex d-flex align-items-center">
+    
+                                <img src="" alt="" style="height: 37px;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">File</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" name="image[0]" class="custom-file-input">
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                                <div class="d-flex">
+                                    <label for="full_image" class="ws-nowrap">Full size</label>
+                                    <input type="hidden" class="custom-check-input" name="full_image[0]" value="0">
+                                    <input name="full11_image[0]" class="custom-check-input" onclick="this.previousSibling.previousSibling.value=1-this.previousSibling.previousSibling.value" type="checkbox" value="1">
+                                </div>
+    
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="text_image">Image text</label>
+                                <input name="text_image[0]" class="form-control custom-text-input" type="text" value="">
+                            </div>
+                        </div>
+    
+                        <button class="btn btn-danger ml-4 mb-3" type="button">Remove</button>
                     </div>
-                    <div class="custom-file">
-                        <input type="file" name="image[0]" class="custom-file-input">
-                        <label class="custom-file-label">Choose file</label>
-                    </div>
-                    <button class="btn btn-danger" type="button">Remove</button>
-                </div>
                 <!-- Input type file for cloning begin -->
 
                 <!-- Input type file style -->
-                <div class="input-group mb-3 increment">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">File</span>
+                <div class="mb-3 increment">
+
+                    <div class="input-wrap-flex d-flex align-items-center">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">File</span>
+                        </div>
+
+                        <div class="custom-file">
+                            <input type="file" name="image[]" class="custom-file-input">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+
+                        <div class="d-flex">
+                            <label for="full_image" class="ws-nowrap" style="white-space: ">Full size</label>
+                            <input type="hidden" class="custom-check-input" name="full_image[]" value="0">
+                            <input name="full11_image[]" class="custom-check-input" onclick="this.previousSibling.previousSibling.value=1-this.previousSibling.previousSibling.value" type="checkbox" value="1">
+                        </div>
+
                     </div>
-                    <div class="custom-file">
-                        <input type="file" name="image[]" class="custom-file-input">
-                        <label class="custom-file-label">Choose file</label>
+
+                    <div class="form-group">
+                        <label for="text_image">Image text</label>
+                        <input name="text_image[]" class="form-control custom-text-input" type="text" value="">
                     </div>
+
                 </div>
             </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Country;
 use App\Creator;
+use App\Photo;
 use App\Category;
 use App\Http\Resources\ProjectResource;
 use App\Http\Resources\ProjectCollection;
@@ -64,17 +65,37 @@ class ProjectsController extends Controller
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            'image' => 'required',
+            'main_image' => 'required',
             'creator' => 'required',
+            'collaborators' => 'required',
+            'function' => 'required',
+            'size' => 'required',
+            'status' => 'required',
+            'photos_by' => 'required',
         ]);
+        
+        if($request->hasfile('main_image')){
+            $main_image = $request->file('main_image');
+            $main_image_name = $main_image->getClientOriginalName();
+            $main_image->move(public_path().'/images/project'.$last.'/', $main_image_name);
+        }
+
+        
+        
         if($request->hasfile('image'))
         {
-
-            foreach($request->file('image') as $image)
+            foreach($request->file('image') as $i_key => $image)
             {
+                
+                // dd($request,$request->file('image'),$request->text_image,$request->full_image);
                 $name=$image->getClientOriginalName();
                 $image->move(public_path().'/images/project'.$last.'/', $name);
-                $data[] = $name;
+                Photo::create([
+                    'project_id' => $last,
+                    'img' => $name,
+                    'text' => !is_null($request->text_image[$i_key]) ? $request->text_image[$i_key] : '',
+                    'full' => !is_null($request->full_image[$i_key]) ? $request->full_image[$i_key] : '',
+                ]);
             }
         }
 
@@ -82,8 +103,13 @@ class ProjectsController extends Controller
         $project = Project::create([
             'name' => request('name'),
             'country_id' => request('country'),
-            'image' => json_encode($data),
+            'main_image' => $main_image_name,
             'creator_id' => request('creator'),
+            'collaborators' => request('collaborators'),
+            'function' => request('function'),
+            'size' => request('size'),
+            'status' => request('status'),
+            'photos_by' => request('photos_by'),
         ]);
 
         if($request->input('categories')){
@@ -117,7 +143,6 @@ class ProjectsController extends Controller
         $countries = Country::all();
         $creators = Creator::all();
         $categories = Category::all();
-
         return view('admin.project_edit', compact('project','countries','creators','categories'));
     }
 
@@ -134,35 +159,69 @@ class ProjectsController extends Controller
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            'creator' => 'required'
+            'creator' => 'required',
+            'collaborators' => 'required',
+            'function' => 'required',
+            'size' => 'required',
+            'status' => 'required',
+            'photos_by' => 'required',
         ]);
-        $data = array();
-        $data_isset_image=array();
-        if($request->hasfile('image'))
-        {
-
-            foreach($request->file('image') as $i_key => $image)
-            {
-                $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/project'.$project->id.'/', $name);
-                $data[$i_key] = $name;
-            }
-        }
-        if($request->isset_image){
-            foreach($request->isset_image as $is_key => $isset_image)
-            {
-                $data_isset_image[$is_key] = $isset_image;
-            }
+        
+        if($request->hasfile('main_image')){
+            $main_image = $request->file('main_image');
+            $main_image_name = $main_image->getClientOriginalName();
+            $main_image->move(public_path().'/images/project'.$project->id.'/', $main_image_name);
+        }else{
+            $main_image_name = $request->isset_main_image;
         }
 
-        $imagedata = array_replace($data_isset_image,$data);
+        
+        // $data = array();
+        // $data_isset_image=array();
+        // if($request->hasfile('image'))
+        // {
+            
+        //     foreach($request->file('image') as $i_key => $image)
+        //     {
+        //         $name=$image->getClientOriginalName();
+        //         $image->move(public_path().'/images/project'.$project->id.'/', $name);
+        //         $data[$i_key] = $name;
+        //     }
+        // }
+        // if($request->isset_image){
+        //     foreach($request->isset_image as $is_key => $isset_image)
+        //     {
+        //         $data_isset_image[$is_key] = $isset_image;
+        //     }
+        // }
+        
+        // $imagedata = array_replace($data_isset_image,$data);
+
+        if($request->photo_id){
+            foreach($request->photo_id as $p_key => $photo_id){
+                $model_for_update = Photo::where('id',$photo_id);
+                $model_for_update->update([
+                    'img' => $request->isset_image[$p_key],
+                    'text' => !is_null($request->text_image[$p_key]) ? $request->text_image[$p_key] : '',
+                    'full' => !is_null($request->full_image[$p_key]) ? $request->full_image[$p_key] : '',
+                ]);
+            }
+        }
+        // $updated = $project->photos->where('id',3);
+        
 
         $project->update([
             'name' => request('name'),
             'country_id' => request('country'),
-            'image' => json_encode($imagedata),
+            'main_image' => $main_image_name,
             'creator_id' => request('creator'),
+            'collaborators' => request('collaborators'),
+            'function' => request('function'),
+            'size' => request('size'),
+            'status' => request('status'),
+            'photos_by' => request('photos_by'),
         ]);
+
         $project->categories()->detach();
         if($request->input('categories')){
             $project->categories()->attach($request->input('categories'));
