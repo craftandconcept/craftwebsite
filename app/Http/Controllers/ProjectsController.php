@@ -176,18 +176,36 @@ class ProjectsController extends Controller
         }
 
         
-        // $data = array();
-        // $data_isset_image=array();
+        $data = array();
+        $data_isset_image=array();
         // if($request->hasfile('image'))
         // {
             
         //     foreach($request->file('image') as $i_key => $image)
-        //     {
+        //     {   dd($request->file('image'));
         //         $name=$image->getClientOriginalName();
         //         $image->move(public_path().'/images/project'.$project->id.'/', $name);
         //         $data[$i_key] = $name;
         //     }
         // }
+
+        if($request->hasfile('image'))
+        {
+            foreach($request->file('image') as $i_key => $image)
+            {
+                // dd($request->file('image'), $request->text_image);
+                // dd($request,$request->file('image'),$request->text_image,$request->full_image);
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/project'.$project->id.'/', $name);
+                Photo::create([
+                    'project_id' => $project->id,
+                    'img' => $name,
+                    'text' => !is_null($request->text_image[$i_key]) ? $request->text_image[$i_key] : '',
+                    'full' => !is_null($request->full_image[$i_key]) ? $request->full_image[$i_key] : '',
+                ]);
+            }
+        }
+
         // if($request->isset_image){
         //     foreach($request->isset_image as $is_key => $isset_image)
         //     {
