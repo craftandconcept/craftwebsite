@@ -9,7 +9,7 @@ export default {
   'individual-objects': 'Individual objects',
   'interior-design': 'Interior Design',
   '3d-rendering': '3D Rendering',
-  'brand-development': 'Brand Facilities',
+  'brand-development': 'Brand Development',
   'production-facilities': 'Production Facilities',
   'team-&-creators': ' Team & Creators',
   'collaborators': 'Collaborators',
@@ -30,5 +30,9 @@ export default {
   'country-of-operations': 'Country of operations',
   'projects': 'Projects',
   'realized-project': 'Realized project',
-  'creators-and-team': 'Creators and team'
+  'creators-and-team': 'Creators and team',
+  'text-5': 'Every craftsman is unique by nature. Each of them is a free and powerful creator who travels beyond all boundaries and is just limited to endless inner space.',
+  'text-6': 'They tend to stay on their own.',
+  'text-7': 'True masterminds are believed to work isolated. On rare occasions, they come out of their shells with blazes of remarkable creations. Destined to change (or not) the whole world.',
+  'text-8': 'Power to unite with the best.'
 }
