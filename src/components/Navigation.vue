@@ -33,7 +33,7 @@
                     <li><router-link to="/category/production-facilities">_{{$t('production-facilities')}}</router-link></li>
                     <li><router-link :to="{name: 'Teams'}">{{$t('team-&-creators')}}</router-link></li>
                     <li><a href="#">{{$t('collaborators')}}</a></li>
-                    <li><a href="#">{{$t('contact-us')}}</a></li>
+                    <li><a href="#" v-scroll-to="'#footer'">{{$t('contact-us')}}</a></li>
                 </ul>
             </div>
         </div>
