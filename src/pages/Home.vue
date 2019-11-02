@@ -103,7 +103,7 @@ export default {
     },
     animateNumber () {
       let step = 5
-      let values = [8, 500, 450, 12]
+      let values = [18, 500, 450, 26]
       let numberAnimationIsFinish = [false, false, false, false]
       this.numberAnimation = this.numberAnimation.map((num, i) => {
         if (num + 5 < values[i]) {
