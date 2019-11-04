@@ -4,26 +4,26 @@
     <div class="project-counter d-flex" id="number">
       <div class="project-col">
         <h3>{{numberAnimation[0]}}</h3>
-        <p>{{$t('Country-of-Operations')}}</p>
+        <p>{{$t('country-of-operations')}}</p>
       </div>
       <div class="project-col">
         <h3>{{numberAnimation[1]}}</h3>
-        <p>{{$t('Projects')}}</p>
+        <p>{{$t('projects')}}</p>
       </div>
       <div class="project-col">
         <h3>{{numberAnimation[2]}}</h3>
-        <p>{{$t('Realized-Project')}}</p>
+        <p>{{$t('realized-project')}}</p>
       </div>
       <div class="project-col">
         <h3>{{numberAnimation[3]}}</h3>
-        <p>{{$t('Creators-and-Team')}}</p>
+        <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
     <div class="our-story d-flex">
       <div class="title-story left d-flex">
         <h2>
-          — {{$t('OUR')}} <br />
-          {{$t('STORY')}}
+          — {{$t('our')}} <br />
+          {{$t('story')}}
         </h2>
       </div>
       <div class="text-story right align-items-center ">
@@ -35,37 +35,37 @@
     </div>
     <div class="gallery d-flex flex-wrap">
       <router-link to="/category/architecture" class="gallery-block">
-        <h3>_{{$t('Architecture')}}</h3>
+        <h3>_{{$t('architecture')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-1.png" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/interior-design" class="gallery-block">
-        <h3>_{{$t('Interior-Design')}}</h3>
+        <h3>_{{$t('interior-design')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-2.png" alt="gallery" />
         </div>
       </router-link>
-      <router-link to="/category/individual-object" class="gallery-block">
-        <h3>_{{$t('Individual-Objects')}}</h3>
+      <router-link to="/category/individual-objects" class="gallery-block">
+        <h3>_{{$t('individual-objects')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-3.png" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/brand-development" class="gallery-block">
-        <h3>_{{$t('Brand-Development')}}</h3>
+        <h3>_{{$t('brand-development')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-4.png" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/3d-rendering" class="gallery-block">
-        <h3>_{{$t('3D-Rendering')}}</h3>
+        <h3>_{{$t('3d-rendering')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-5.png" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/production-facilities" class="gallery-block">
-        <h3>_{{$t('Production-facilities')}}</h3>
+        <h3>_{{$t('production-facilities')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-6.png" alt="gallery" />
         </div>
@@ -76,6 +76,7 @@
 
 <script>
 import Map from '@/components/Map.vue'
+import axios from 'axios'
 export default {
   name: 'Home',
   components: {
@@ -84,22 +85,30 @@ export default {
   data: () => ({
     numberAnimation: [0, 0, 0, 0]
   }),
-  mounted () {
-    let animationStart = false
-    let clientHeight = document.documentElement.clientHeight
-    let scrollToTopFromElement = document.getElementById('number').offsetTop
-    document.addEventListener('scroll', (e) => {
-      let currentScrollToTop = window.pageYOffset
-      if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
-        this.animateNumber()
-        animationStart = true
-      }
-    })
+  async created () {
+    let projects = await axios.get(`${process.env.VUE_APP_API_URL}/api/v1`)
+    console.log(projects)
+  },
+  async mounted () {
+    // fix for router animation
+    setTimeout(this.initialization, 600)
   },
   methods: {
+    initialization () {
+      let animationStart = false
+      let clientHeight = document.documentElement.clientHeight
+      let scrollToTopFromElement = document.getElementById('number').offsetTop
+      document.addEventListener('scroll', (e) => {
+        let currentScrollToTop = window.pageYOffset
+        if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
+          this.animateNumber()
+          animationStart = true
+        }
+      })
+    },
     animateNumber () {
       let step = 5
-      let values = [8, 500, 450, 12]
+      let values = [18, 500, 450, 26]
       let numberAnimationIsFinish = [false, false, false, false]
       this.numberAnimation = this.numberAnimation.map((num, i) => {
         if (num + 5 < values[i]) {
@@ -127,6 +136,9 @@ export default {
   background: #f7f7f7;
   &.open{
     padding-left: 420px;
+    &.unset-padding-left{
+      padding-left: 150px;
+    }
   }
   main{
     min-height: calc(100vh - 379px);
@@ -146,14 +158,15 @@ export default {
       text-align: left;
       max-width: 130px;
       min-width: 110px;
-
       h3{
         font-size: 64px;
+        font-weight: 700;
         line-height: 79px;
         color: #000000;
       }
       p{
         font-size: 18px;
+        font-weight: 400;
         line-height: 22px;
         text-transform: uppercase;
         color: #424647;
@@ -167,13 +180,16 @@ export default {
       font-size: 64px;
       line-height: 79px;
       color: #000000;
+      text-transform: uppercase;
       padding-right: 50px;
+      font-weight: 700;
       white-space: nowrap;
     }
     .text-story{
       padding-top: 100px;
       p{
         max-width: 600px;
+        font-weight: 400;
         font-size: 16px;
         line-height: 24px;
         text-transform: capitalize;
@@ -200,6 +216,7 @@ export default {
       }
       h3{
         font-size: 12px;
+        font-weight: 500;
         line-height: 15px;
         text-transform: uppercase;
         color: #000000;
@@ -217,6 +234,9 @@ export default {
     padding-left: 80px;
     &.open{
       padding-left: 330px;
+      &.unset-padding-left{
+        padding-left: 80px;
+      }
     }
     .project-counter{
       padding-left: 5%;
@@ -237,6 +257,9 @@ export default {
   .main-wrap{
     &.open{
       padding-left: 295px;
+      &.unset-padding-left{
+        padding-left: 80px;
+      }
     }
     .project-counter{
       padding-left: 0;
@@ -262,26 +285,76 @@ export default {
   }
 }
 @media(max-width: 767px) {
+  .header{
+    margin-bottom: 16px;
+  }
   .main-wrap{
     &.open{
       padding-left: 80px;
     }
     .project-counter{
       flex-wrap: wrap;
+      margin-bottom: 25px;
+      margin-top: 25px;
       .project-col{
-        min-width: 0;
+        max-width: unset;
         width: 45%;
         margin-right: 10%;
         max-width: unset;
         &:nth-child(2n){
           margin-right: 0;
         }
+        h3{
+          font-size: 60px;
+        }
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+    .our-story .text-story {
+      padding-top: 25px;
+    }
+    .gallery{
+      margin-top: 50px;
+      margin-bottom: 0px;
+      .gallery-block{
+        width: 100%;
+        h3{
+          font-size: 14px;
+        }
       }
     }
   }
-
 }
 @media(max-width: 576px) {
-
+  .main-wrap{
+    .header {
+      padding: 7px 0 0;
+    }
+    .project-counter{
+      flex-wrap: wrap;
+     .project-col{
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+        h3{
+          font-size: 40px;
+        }
+        p{
+          font-size: 14px;
+        }
+      }
+    }
+    .our-story{
+      .title-story h2{
+        font-size: 40px;
+        padding-right: 0;
+      }
+      .text-story p {
+        font-size: 14px;
+      }
+    }
+  }
 }
 </style>
