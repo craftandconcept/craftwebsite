@@ -3,64 +3,14 @@
   <div class="titel-ah">
     <h2>_{{$t($route.params.name)}}</h2>
   </div>
-  <div class="gallery d-flex flex-wrap">
-    <div class="gallery-block project">
-      <router-link :to="{name: 'Project', params: {id: 431321}}">
+  <div class="gallery d-flex flex-wrap" v-if="getFiltredProject.length">
+    <div class="gallery-block project" v-for="(project, index) in getFiltredProject" :key="index">
+      <router-link :to="{name: 'Project', params: {id: project.id}}">
         <div class="overflow">
-          <img src="../assets/img/gallery-1.png" alt="gallery" />
+          <img :src="project.main_image" :alt="project.name" />
         </div>
         <div class="hover-block">
-          <h2>Name of the project</h2>
-        </div>
-      </router-link>
-    </div>
-    <div class="gallery-block project">
-      <router-link :to="{name: 'Project', params: {id: 431321}}">
-        <div class="overflow">
-          <img src="../assets/img/gallery-2.png" alt="gallery" />
-        </div>
-        <div class="hover-block">
-          <h2>Name of the project</h2>
-        </div>
-      </router-link>
-    </div>
-    <div class="gallery-block project">
-      <router-link :to="{name: 'Project', params: {id: 431321}}">
-        <div class="overflow">
-          <img src="../assets/img/gallery-3.png" alt="gallery" />
-        </div>
-        <div class="hover-block">
-          <h2>Name of the project</h2>
-        </div>
-      </router-link>
-    </div>
-    <div class="gallery-block project">
-      <router-link :to="{name: 'Project', params: {id: 431321}}">
-        <div class="overflow">
-          <img src="../assets/img/gallery-4.png" alt="gallery" />
-        </div>
-        <div class="hover-block">
-          <h2>Name of the project</h2>
-        </div>
-      </router-link>
-    </div>
-    <div class="gallery-block project">
-      <router-link :to="{name: 'Project', params: {id: 431321}}">
-        <div class="overflow">
-          <img src="../assets/img/gallery-5.png" alt="gallery" />
-        </div>
-        <div class="hover-block">
-          <h2>Name of the project</h2>
-        </div>
-      </router-link>
-    </div>
-    <div class="gallery-block project">
-      <router-link :to="{name: 'Project', params: {id: 431321}}">
-        <div class="overflow">
-          <img src="../assets/img/gallery-6.png" alt="gallery" />
-        </div>
-        <div class="hover-block">
-          <h2>Name of the project</h2>
+          <h2>{{project.name}}</h2>
         </div>
       </router-link>
     </div>
@@ -69,8 +19,29 @@
 </template>
 
 <script>
+import {mapGetters, mapActions} from 'vuex'
 export default {
-  name: 'Category'
+  name: 'Category',
+  computed: {
+    ...mapGetters({
+      projects: 'projects'
+    }),
+    getFiltredProject () {
+      return this.projects.filter(item => {
+        return (item.category_name.filter(category => category.toLowerCase() === this.$route.params.name)).length
+      })
+    }
+  },
+  async created () {
+    if (!this.projects.length) {
+      this.getProjects()
+    }
+  },
+  methods: {
+    ...mapActions({
+      getProjects: 'getProjects'
+    }),
+  }
 }
 </script>
 

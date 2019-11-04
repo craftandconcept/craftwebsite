@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Map />
+    <Map :countryList="countryList" v-if="countryList.length"/>
     <div class="project-counter d-flex" id="number">
       <div class="project-col">
         <h3>{{numberAnimation[0]}}</h3>
@@ -77,18 +77,21 @@
 <script>
 import Map from '@/components/Map.vue'
 import {mapGetters, mapActions} from 'vuex'
+import countryesCod from '@/models/countryCod.js'
 export default {
   name: 'Home',
   components: {
     Map
   },
   data: () => ({
-    numberAnimation: [0, 0, 0, 0]
+    numberAnimation: [0, 0, 0, 0],
+    countryList: []
   }),
   async created () {
     if (!this.projects.length) {
-      this.getProjects()
+      await this.getProjects()
     }
+    this.filterProjectByCountry()
   },
   async mounted () {
     // fix for router animation
@@ -128,6 +131,26 @@ export default {
           this.animateNumber()
         }, 100)
       }
+    },
+    filterProjectByCountry () {
+      const country = {}
+      this.projects.map(project => {
+        if(!country[project.country_name]) [
+          country[project.country_name] = []
+        ]
+        country[project.country_name].push({name: project.name, id: project.id}) 
+      })
+      let i = 0;
+      let countryList = []
+      for (let key in country) {
+        countryList[i] = {
+          countryCod: countryesCod[key],
+          country: key,
+          projectList: country[key]
+        }
+        i++;
+      }
+      this.countryList = countryList;
     }
   },
   computed: mapGetters({
@@ -222,7 +245,7 @@ export default {
         transition: transform .3s;
       }
       h3{
-        font-size: 12px;
+        font-size: 18px;
         font-weight: 500;
         line-height: 15px;
         text-transform: uppercase;

@@ -1,0 +1,20 @@
+export default {
+  'Ukraine': 'UA',
+  'Afghanistan': 'AF',
+  'Austria': 'AUST',
+  'Czeech Republic': 'CR',
+  'England': 'UK',
+  'France': 'FR',
+  'Germany': 'GR',
+  'Iran': 'IR',
+  'Latvia': 'LT',
+  'Kuwait': 'KW',
+  'Portugal': 'PT',
+  'Qatar': 'QT',
+  'South Korea': 'SK',
+  'Spain': 'SP',
+  'Switzerland': 'STZ',
+  'UAE': 'UAE',
+  'USA': 'USA',
+  'Russia': 'RU'
+}
