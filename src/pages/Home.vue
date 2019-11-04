@@ -76,7 +76,7 @@
 
 <script>
 import Map from '@/components/Map.vue'
-import axios from 'axios'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   name: 'Home',
   components: {
@@ -86,14 +86,18 @@ export default {
     numberAnimation: [0, 0, 0, 0]
   }),
   async created () {
-    let projects = await axios.get(`${process.env.VUE_APP_API_URL}/api/v1`)
-    console.log(projects)
+    if (!this.projects.length) {
+      this.getProjects()
+    }
   },
   async mounted () {
     // fix for router animation
     setTimeout(this.initialization, 600)
   },
   methods: {
+    ...mapActions({
+      getProjects: 'getProjects'
+    }),
     initialization () {
       let animationStart = false
       let clientHeight = document.documentElement.clientHeight
@@ -125,7 +129,10 @@ export default {
         }, 100)
       }
     }
-  }
+  },
+  computed: mapGetters({
+    projects: 'projects'
+  })
 }
 </script>
 
