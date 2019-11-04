@@ -14,7 +14,11 @@
 
 <script>
 export default {
-  name: 'OurStory'
+  name: 'OurStory',
+  created () {
+    this.$parent.$emit('loadingStart')
+    this.$parent.$emit('loadingFinish')
+  }
 }
 </script>
 

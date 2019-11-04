@@ -40,12 +40,15 @@ export default {
     } else {
       this.$i18n.locale = 'fr'
     }
-    setTimeout(() => { this.isLoaderVisible = false }, 2000)
     if (this.$route.name === 'Teams') {
       this.paddingLeft = false
     } else {
       this.paddingLeft = true
     }
+    this.$on('loadingStart', (patload) => { this.isLoaderVisible = true })
+    this.$on('loadingFinish', (patload) => {
+      setTimeout(() => { this.isLoaderVisible = false }, 1000)
+    })
   },
   watch: {
     '$route.name' () {

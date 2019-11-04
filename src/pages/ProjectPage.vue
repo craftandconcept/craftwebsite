@@ -1,7 +1,7 @@
 <template>
-  <div class="project-page">
+  <div class="project-page" v-if="activeProject">
     <div class="title-bake">
-      <h2>_BAKED BY THE HEAT</h2>
+      <h2>_{{activeProject.name}}</h2>
     </div>
     <div class="info-project">
       <div class="left">
@@ -51,8 +51,30 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'ProjectPage'
+  name: 'ProjectPage',
+  async created () {
+    this.$parent.$emit('loadingStart')
+    if (!this.projects.length) {
+      await this.getProjects()
+    }
+    this.setActiveProject()
+    this.$parent.$emit('loadingFinish')
+  },
+  computed: {
+    ...mapGetters({
+      projects: 'projects'
+    }),
+    activeProject () {
+      return this.projects.find(item => +item.id === +this.$route.params.id)
+    }
+  },
+  methods: {
+    ...mapActions({
+      getProjects: 'getProjects'
+    })
+  }
 }
 </script>
 
