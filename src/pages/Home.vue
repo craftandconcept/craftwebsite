@@ -76,7 +76,7 @@
 
 <script>
 import Map from '@/components/Map.vue'
-import {mapGetters, mapActions} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import countryesCod from '@/models/countryCod.js'
 export default {
   name: 'Home',
@@ -88,10 +88,12 @@ export default {
     countryList: []
   }),
   async created () {
+    this.$parent.$emit('loadingStart')
     if (!this.projects.length) {
       await this.getProjects()
     }
     this.filterProjectByCountry()
+    this.$parent.$emit('loadingFinish')
   },
   async mounted () {
     // fix for router animation
@@ -135,12 +137,12 @@ export default {
     filterProjectByCountry () {
       const country = {}
       this.projects.map(project => {
-        if(!country[project.country_name]) [
+        if (!country[project.country_name]) {
           country[project.country_name] = []
-        ]
-        country[project.country_name].push({name: project.name, id: project.id}) 
+        }
+        country[project.country_name].push({ name: project.name, id: project.id })
       })
-      let i = 0;
+      let i = 0
       let countryList = []
       for (let key in country) {
         countryList[i] = {
@@ -148,9 +150,9 @@ export default {
           country: key,
           projectList: country[key]
         }
-        i++;
+        i++
       }
-      this.countryList = countryList;
+      this.countryList = countryList
     }
   },
   computed: mapGetters({

@@ -51,14 +51,16 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'ProjectPage',
   async created () {
+    this.$parent.$emit('loadingStart')
     if (!this.projects.length) {
       await this.getProjects()
     }
     this.setActiveProject()
+    this.$parent.$emit('loadingFinish')
   },
   computed: {
     ...mapGetters({
@@ -71,7 +73,7 @@ export default {
   methods: {
     ...mapActions({
       getProjects: 'getProjects'
-    }),
+    })
   }
 }
 </script>

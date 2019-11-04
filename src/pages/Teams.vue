@@ -5,7 +5,7 @@
       :dots="false"
       :margin="11"
       :uRLhashListener="true"
-      :responsive="{0:{items:1},550:{items:2}, 800: {items:3}, 1300: {items: 4}}"
+      :responsive="{0:{items:1},550:{items:2}, 800: {items:3}, 1300: {items: 3}}"
     >
       <team-item
         v-for="(item, index) in teams"
@@ -32,26 +32,26 @@ export default {
   data: () => ({
     teams: [
       {
-        img: '1.1.png',
-        img_top: '1.jpg',
-        firstName: 'Vlada',
-        lastName: 'Makhno',
+        img: 'IMG_4296.webp',
+        img_top: 'IMG_4296.webp',
+        firstName: 'Sergii',
+        lastName: 'Slepkan',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: '1.1.png',
-        img_top: '1.jpg',
-        firstName: 'Vlada',
-        lastName: 'Makhno',
+        img: 'IMG_4300_Olga.webp',
+        img_top: 'IMG_4300_Olga.webp',
+        firstName: 'Olga',
+        lastName: 'Pulyaeva',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: '1.1.png',
-        img_top: '1.jpg',
-        firstName: 'Vlada',
-        lastName: 'Makhno',
+        img: 'IMG_4307_John.webp',
+        img_top: 'IMG_4307_John.webp',
+        firstName: 'Johannes',
+        lastName: 'Hohn',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
@@ -91,6 +91,10 @@ export default {
     activeItem: null,
     canDraw: false
   }),
+  created () {
+    this.$parent.$emit('loadingStart')
+    this.$parent.$emit('loadingFinish')
+  },
   methods: {
     openModal (index) {
       this.activeItem = this.teams[index]

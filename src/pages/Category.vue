@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Category',
   computed: {
@@ -33,14 +33,16 @@ export default {
     }
   },
   async created () {
+    this.$parent.$emit('loadingStart')
     if (!this.projects.length) {
       this.getProjects()
     }
+    this.$parent.$emit('loadingFinish')
   },
   methods: {
     ...mapActions({
       getProjects: 'getProjects'
-    }),
+    })
   }
 }
 </script>
