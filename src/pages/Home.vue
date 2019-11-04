@@ -76,6 +76,7 @@
 
 <script>
 import Map from '@/components/Map.vue'
+import axios from 'axios'
 export default {
   name: 'Home',
   components: {
@@ -84,6 +85,10 @@ export default {
   data: () => ({
     numberAnimation: [0, 0, 0, 0]
   }),
+  async created () {
+    let projects = await axios.get(`${process.env.VUE_APP_API_URL}/api/v1`)
+    console.log(projects)
+  },
   async mounted () {
     // fix for router animation
     setTimeout(this.initialization, 600)
