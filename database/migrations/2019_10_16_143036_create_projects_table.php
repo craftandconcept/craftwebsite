@@ -24,6 +24,7 @@ class CreateProjectsTable extends Migration
             $table->string('photos_by');
             $table->bigInteger('country_id');
             $table->string('main_image');
+            $table->string('main_text');
             $table->timestamps();
         });
     }
