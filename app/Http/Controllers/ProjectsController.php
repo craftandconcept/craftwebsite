@@ -77,6 +77,8 @@ class ProjectsController extends Controller
         if($request->hasfile('main_image')){
             $main_image = $request->file('main_image');
             $main_image_name = $main_image->getClientOriginalName();
+            $main_img_url = '/images/project'.$last.'/'. $main_image_name;
+            
             $main_image->move(public_path().'/images/project'.$last.'/', $main_image_name);
         }
 
@@ -90,9 +92,10 @@ class ProjectsController extends Controller
                 // dd($request,$request->file('image'),$request->text_image,$request->full_image);
                 $name=$image->getClientOriginalName();
                 $image->move(public_path().'/images/project'.$last.'/', $name);
+                $image_url = '/images/project'.$last.'/'. $name;
                 Photo::create([
                     'project_id' => $last,
-                    'img' => $name,
+                    'img' => $image_url,
                     'text' => !is_null($request->text_image[$i_key]) ? $request->text_image[$i_key] : '',
                     'full' => !is_null($request->full_image[$i_key]) ? $request->full_image[$i_key] : '',
                 ]);
@@ -103,7 +106,8 @@ class ProjectsController extends Controller
         $project = Project::create([
             'name' => request('name'),
             'country_id' => request('country'),
-            'main_image' => $main_image_name,
+            'main_image' => $main_img_url,
+            'main_text' => request('main_text'),
             'creator_id' => request('creator'),
             'collaborators' => request('collaborators'),
             'function' => request('function'),
@@ -170,50 +174,27 @@ class ProjectsController extends Controller
         if($request->hasfile('main_image')){
             $main_image = $request->file('main_image');
             $main_image_name = $main_image->getClientOriginalName();
+            $main_img_url = '/images/project'.$project->id.'/'. $main_image_name;
             $main_image->move(public_path().'/images/project'.$project->id.'/', $main_image_name);
         }else{
-            $main_image_name = $request->isset_main_image;
+            $main_img_url = $request->isset_main_image;
         }
-
-        
-        $data = array();
-        $data_isset_image=array();
-        // if($request->hasfile('image'))
-        // {
-            
-        //     foreach($request->file('image') as $i_key => $image)
-        //     {   dd($request->file('image'));
-        //         $name=$image->getClientOriginalName();
-        //         $image->move(public_path().'/images/project'.$project->id.'/', $name);
-        //         $data[$i_key] = $name;
-        //     }
-        // }
 
         if($request->hasfile('image'))
         {
             foreach($request->file('image') as $i_key => $image)
             {
-                // dd($request->file('image'), $request->text_image);
-                // dd($request,$request->file('image'),$request->text_image,$request->full_image);
                 $name=$image->getClientOriginalName();
                 $image->move(public_path().'/images/project'.$project->id.'/', $name);
+                $image_url = '/images/project'.$project->id.'/'. $name;
                 Photo::create([
                     'project_id' => $project->id,
-                    'img' => $name,
+                    'img' => $image_url,
                     'text' => !is_null($request->text_image[$i_key]) ? $request->text_image[$i_key] : '',
                     'full' => !is_null($request->full_image[$i_key]) ? $request->full_image[$i_key] : '',
                 ]);
             }
         }
-
-        // if($request->isset_image){
-        //     foreach($request->isset_image as $is_key => $isset_image)
-        //     {
-        //         $data_isset_image[$is_key] = $isset_image;
-        //     }
-        // }
-        
-        // $imagedata = array_replace($data_isset_image,$data);
 
         if($request->photo_id){
             foreach($request->photo_id as $p_key => $photo_id){
@@ -225,13 +206,13 @@ class ProjectsController extends Controller
                 ]);
             }
         }
-        // $updated = $project->photos->where('id',3);
         
 
         $project->update([
             'name' => request('name'),
             'country_id' => request('country'),
-            'main_image' => $main_image_name,
+            'main_image' => $main_img_url,
+            'main_text' => request('main_text'),
             'creator_id' => request('creator'),
             'collaborators' => request('collaborators'),
             'function' => request('function'),

@@ -105,6 +105,11 @@
                     <label class="custom-file-label">Choose file</label>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="main_text">Main Text</label>
+                <input name="main_text" class="form-control" type="text">
+            </div>
             
             <p class="h5">Choose additional images</p>
             <div class="multiple-files">

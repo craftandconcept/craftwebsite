@@ -110,7 +110,7 @@
 
             <p class="h5">Choose Main image</p>
             <div class="input-group mb-3 increment">
-                <img src="{{ URL::to('/') }}/images/project{{$project->id}}/{{$project->main_image}}" alt="" style="height: 37px;">
+                <img src="{{ URL::to('/') }}/{{$project->main_image}}" alt="" style="height: 37px;">
                 <div class="input-group-prepend">
                     <span class="input-group-text">File</span>
                 </div>
@@ -119,6 +119,11 @@
                     <input type="hidden" name="isset_main_image" value="{{$project->main_image}}" class="form-control">
                     <label class="custom-file-label">{{$project->main_image}}</label>
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="main_text">Main Text</label>
+                <input name="main_text" class="form-control" type="text" value="{{$project->main_text}}">
             </div>
 
             <p class="h5">Choose Additional image</p>
@@ -166,7 +171,7 @@
 
                     <div class="increment-fields">
                         <div class="input-wrap-flex d-flex align-items-center">
-                            <img src="{{ URL::to('/') }}/images/project{{$project->id}}/{{$photo->img}}" alt="" style="height: 37px;">
+                            <img src="{{ URL::to('/') }}/{{$photo->img}}" alt="" style="height: 37px;">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">File</span>
                             </div>
