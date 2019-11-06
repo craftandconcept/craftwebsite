@@ -59,7 +59,6 @@ export default {
     if (!this.projects.length) {
       await this.getProjects()
     }
-    this.setActiveProject()
     this.$parent.$emit('loadingFinish')
   },
   computed: {
