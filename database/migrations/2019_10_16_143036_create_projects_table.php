@@ -15,16 +15,16 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->bigInteger('creator_id');
-            $table->string('collaborators');
-            $table->string('function');
-            $table->string('size');
-            $table->string('status');
-            $table->string('photos_by');
-            $table->bigInteger('country_id');
-            $table->string('main_image');
-            $table->string('main_text');
+            $table->string('name')->nullable();
+            $table->bigInteger('creator_id')->nullable();
+            $table->string('collaborators')->nullable();
+            $table->string('function')->nullable();
+            $table->string('size')->nullable();
+            $table->string('status')->nullable();
+            $table->string('photos_by')->nullable();
+            $table->bigInteger('country_id')->nullable();
+            $table->string('main_image')->nullable();
+            $table->longText('main_text')->nullable();
             $table->timestamps();
         });
     }

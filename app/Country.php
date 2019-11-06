@@ -12,4 +12,12 @@ class Country extends Model
     public function projects(){
         return $this->belongsTo('App\Projects');
     }
+
+    public function alphabeth()
+    {
+        return $this
+            ->orderBy('country_name', 'asc')
+            ->get();
+
+    }
 }

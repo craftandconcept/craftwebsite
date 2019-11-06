@@ -27,7 +27,8 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Project::all();
-        $countries = Country::all();
+        $country = new Country;
+        $countries = $country->alphabeth();
 
         return view('admin.project_index', compact('projects'));
     }
@@ -38,10 +39,11 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $countries = Country::all();
+    // {   $countries = Country::all();
+    {   $country = new Country;
+        $countries = $country->alphabeth();
         $creators = Creator::all();
         $categories = Category::all();
-
         return view('admin.project_create', compact('countries','creators','categories'));
     }
 
@@ -65,15 +67,15 @@ class ProjectsController extends Controller
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            'main_image' => 'required',
-            'creator' => 'required',
-            'collaborators' => 'required',
-            'function' => 'required',
-            'size' => 'required',
-            'status' => 'required',
-            'photos_by' => 'required',
+            // 'main_image' => 'required',
+            // 'creator' => 'required',
+            // 'collaborators' => 'required',
+            // 'function' => 'required',
+            // 'size' => 'required',
+            // 'status' => 'required',
+            // 'photos_by' => 'required',
         ]);
-        
+        $main_img_url='';
         if($request->hasfile('main_image')){
             $main_image = $request->file('main_image');
             $main_image_name = $main_image->getClientOriginalName();
@@ -144,7 +146,8 @@ class ProjectsController extends Controller
      */
     public function edit(Project $project)
     {
-        $countries = Country::all();
+        $country = new Country;
+        $countries = $country->alphabeth();
         $creators = Creator::all();
         $categories = Category::all();
         return view('admin.project_edit', compact('project','countries','creators','categories'));
@@ -163,14 +166,14 @@ class ProjectsController extends Controller
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            'creator' => 'required',
-            'collaborators' => 'required',
-            'function' => 'required',
-            'size' => 'required',
-            'status' => 'required',
-            'photos_by' => 'required',
+            // 'creator' => 'required',
+            // 'collaborators' => 'required',
+            // 'function' => 'required',
+            // 'size' => 'required',
+            // 'status' => 'required',
+            // 'photos_by' => 'required',
         ]);
-        
+        $image_url='';
         if($request->hasfile('main_image')){
             $main_image = $request->file('main_image');
             $main_image_name = $main_image->getClientOriginalName();

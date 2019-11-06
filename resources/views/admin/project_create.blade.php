@@ -20,7 +20,7 @@
             @csrf
             <div class="form-group">
                 <label for="name">Name</label>
-                <input name="name" class="form-control" type="text">
+                <input required name="name" class="form-control" value="{{ old('name') }}" type="text">
             </div>
 
             <div class="form-group">
@@ -37,7 +37,7 @@
 
             <div class="form-group">
                 <label for="collaborators">Collaborators</label>
-                <input name="collaborators" class="form-control" type="text">
+                <input name="collaborators" class="form-control" type="text" value="{{ old('collaborators') }}">
             </div>
 
             <div class="row">
@@ -48,8 +48,8 @@
                         <label class="input-group-text" for="inputGroupSelectCountry">Country</label>
                     </div>
 
-                    <select name="country" class="custom-select" type="text" id="inputGroupSelectCountry">
-                        <option selected>Select country</option>
+                    <select required name="country" class="custom-select" type="text" id="inputGroupSelectCountry">
+                        <option selected value=''>Select country</option>
                         @foreach ($countries as $country)
                         <option value="{{$country->id}}">{{$country->country_name}}</option>
                         @endforeach
@@ -63,8 +63,8 @@
                         <label class="input-group-text" for="inputGroupSelectCreator">Creator</label>
                     </div>
 
-                    <select name="creator" class="custom-select" type="text" id="inputGroupSelectCreator">
-                        <option selected>Select Creator</option>
+                    <select required name="creator" class="custom-select" type="text" id="inputGroupSelectCreator">
+                        <option selected value=''>Select Creator</option>
                         @foreach ($creators as $creator)
                         <option value="{{$creator->id}}">{{$creator->creator_name}}</option>
                         @endforeach
@@ -77,22 +77,22 @@
 
             <div class="form-group">
                 <label for="function">Function</label>
-                <input name="function" class="form-control" type="text">
+                <input name="function" class="form-control" type="text" value="{{ old('function') }}">
             </div>
 
             <div class="form-group">
                 <label for="size">Size</label>
-                <input name="size" class="form-control" type="text">
+                <input name="size" class="form-control" type="text" value="{{ old('size') }}">
             </div>
 
             <div class="form-group">
                 <label for="status">Status</label>
-                <input name="status" class="form-control" type="text">
+                <input name="status" class="form-control" type="text" value="{{ old('status') }}">
             </div>
 
             <div class="form-group">
                 <label for="photos_by">Photos by</label>
-                <input name="photos_by" class="form-control" type="text">
+                <input name="photos_by" class="form-control" type="text" value="{{ old('photos_by') }}">
             </div>
 
             <p class="h5">Choose Main image</p>
@@ -101,7 +101,7 @@
                     <span class="input-group-text">Main Image</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" name="main_image" class="custom-file-input">
+                    <input type="file" name="main_image" class="custom-file-input" >
                     <label class="custom-file-label">Choose file</label>
                 </div>
             </div>
@@ -197,4 +197,18 @@
   </div>
   <!-- end row -->
 </div>
+<script>
+        $(document).ready(function () {
+        $('.btn-primary').click(function() {
+          checked = $("input[type=checkbox]:checked").length;
+    
+          if(!checked) {
+            alert("You should check at least one category.");
+            return false;
+          }
+    
+        });
+    });
+    </script>
+    
 @endsection
