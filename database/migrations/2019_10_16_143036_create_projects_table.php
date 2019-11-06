@@ -17,9 +17,10 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->bigInteger('creator_id')->nullable();
-            $table->string('collaborators')->nullable();
+            $table->longText('collaborators')->nullable();
             $table->string('function')->nullable();
             $table->string('size')->nullable();
+            $table->longText('main_description')->nullable();
             $table->string('status')->nullable();
             $table->string('photos_by')->nullable();
             $table->bigInteger('country_id')->nullable();
