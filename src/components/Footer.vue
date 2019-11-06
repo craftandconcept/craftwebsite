@@ -29,7 +29,7 @@
         </div> -->
       </div>
       <div class="copirating">
-        <p><a href="#">{{$t('terms-and-conditions')}}</a></p>
+        <p><a href="/CC_terms and conditions.pdf">{{$t('terms-and-conditions')}}</a></p>
         <p><span>{{$t('©-2017-craft-&-concept.')}}</span> {{$t('all-rights-reserved')}}</p>
       </div>
     </div>
