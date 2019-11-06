@@ -19,7 +19,8 @@ export default new Vuex.Store({
   },
   actions: {
     async getProjects ({ commit }) {
-      let projects = (await axios.get(`https://backend.dev.concept-and-craft.develop-test-alterrasoft.com/api/v1`)).data.data
+      console.log(process.env.VUE_APP_API_URL)
+      let projects = (await axios.get(`${process.env.VUE_APP_API_URL}/api/v1`)).data.data
       commit('setProject', projects)
     }
   },
