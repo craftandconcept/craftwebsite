@@ -108,7 +108,7 @@
 
             <div class="form-group">
                 <label for="main_text">Main Text</label>
-                <input name="main_text" class="form-control" type="text">
+                <textarea name="main_text" class="form-control" type="text"></textarea>
             </div>
             
             <p class="h5">Choose additional images</p>
@@ -172,7 +172,7 @@
 
                     <div class="form-group">
                         <label for="text_image">Image text</label>
-                        <input name="text_image[]" class="form-control custom-text-input" type="text" value="">
+                        <textarea name="text_image[]" class="form-control custom-text-input" type="text" value=""></textarea>
                     </div>
 
                 </div>

@@ -123,7 +123,7 @@
 
             <div class="form-group">
                 <label for="main_text">Main Text</label>
-                <input name="main_text" class="form-control" type="text" value="{{$project->main_text}}">
+                <textarea name="main_text" class="form-control" type="text" value="{{$project->main_text}}">{{$project->main_text}}</textarea>
             </div>
 
             <p class="h5">Choose Additional image</p>
@@ -157,7 +157,7 @@
                             
                             <div class="form-group">
                                 <label for="text_image">Image text</label>
-                                <input name="text_image[0]" class="form-control custom-text-input" type="text" value="">
+                                <textarea name="text_image[0]" class="form-control custom-text-input" type="text" value=""></textarea>
                             </div>
                         </div>
     
@@ -194,7 +194,7 @@
 
                         <div class="form-group">
                             <label for="text_image">Image text</label>
-                            <input name="text_image[{{$i_key}}]" class="form-control custom-text-imput" type="text" value="{{$photo->text}}">
+                            <textarea name="text_image[{{$i_key}}]" class="form-control custom-text-imput" type="text" value="{{$photo->text}}">{{$photo->text}}</textarea>
                         </div>
                     </div>
 
