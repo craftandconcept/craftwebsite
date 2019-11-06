@@ -89,6 +89,11 @@
             <!-- end row -->
 
             <div class="form-group">
+                <label for="main_description">Project description</label>
+                <textarea name="main_description" class="form-control" type="text" value="{{$project->main_description}}">{{$project->main_description}}</textarea>
+            </div>
+
+            <div class="form-group">
                 <label for="function">Function</label>
                 <input name="function" class="form-control" type="text" value="{{$project->function}}">
             </div>
