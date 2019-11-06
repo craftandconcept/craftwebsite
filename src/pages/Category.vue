@@ -24,7 +24,7 @@ import Category from '@/models/category'
 export default {
   name: 'Category',
   data: () => ({
-    backendUrl: process.env.VUE_APP_API_URL
+    backendUrl: 'https://backend.dev.concept-and-craft.develop-test-alterrasoft.com'
   }),
   computed: {
     ...mapGetters({
