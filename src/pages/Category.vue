@@ -21,10 +21,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import Category from '@/models/category'
+import { apiUrl } from '@/config'
 export default {
   name: 'Category',
   data: () => ({
-    backendUrl: 'https://backend.dev.concept-and-craft.develop-test-alterrasoft.com'
+    backendUrl: apiUrl
   }),
   computed: {
     ...mapGetters({
@@ -74,7 +75,7 @@ export default {
       .overflow{
         height: 100%;
         img{
-          height: 100%;
+          height: 300px;
           width: 100%;
           object-fit: cover;
         }
