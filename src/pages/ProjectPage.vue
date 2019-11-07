@@ -9,7 +9,7 @@
           <p v-show="activeProject.main_description"><span>Project:</span> {{activeProject.main_description}}</p>
           <p>
             <span>Category:</span>
-            <label v-for="(category, index) in activeProject.category_name" :key="index">
+            <label v-for="(category, index) in activeProject.category_name" :key="index" class="mr-2">
               {{category}}
             </label>
           </p>
@@ -98,6 +98,7 @@ export default {
         p{
           display: flex;
           align-items: flex-start;
+          flex-wrap: wrap;
           font-size: 12px;
           line-height: 15px;
           text-transform: uppercase;
