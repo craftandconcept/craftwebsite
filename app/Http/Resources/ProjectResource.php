@@ -15,7 +15,7 @@ class ProjectResource extends JsonResource
      */
     public function toArray($request)
     {
-        
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -27,6 +27,7 @@ class ProjectResource extends JsonResource
             'collaborators' => $this->collaborators,
             'function' => $this->function,
             'size' => $this->size,
+            'city' => $this->city,
             'status' => $this->status,
             'images' => $this->photos,
             'photos_by' => $this->photos_by,

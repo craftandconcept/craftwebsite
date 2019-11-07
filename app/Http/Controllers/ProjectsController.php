@@ -80,17 +80,17 @@ class ProjectsController extends Controller
             $main_image = $request->file('main_image');
             $main_image_name = $main_image->getClientOriginalName();
             $main_img_url = '/images/project'.$last.'/'. $main_image_name;
-            
+
             $main_image->move(public_path().'/images/project'.$last.'/', $main_image_name);
         }
 
-        
-        
+
+
         if($request->hasfile('image'))
         {
             foreach($request->file('image') as $i_key => $image)
             {
-                
+
                 // dd($request,$request->file('image'),$request->text_image,$request->full_image);
                 $name=$image->getClientOriginalName();
                 $image->move(public_path().'/images/project'.$last.'/', $name);
@@ -108,6 +108,7 @@ class ProjectsController extends Controller
         $project = Project::create([
             'name' => request('name'),
             'country_id' => request('country'),
+            'city' => request('city'),
             'main_image' => $main_img_url,
             'main_text' => request('main_text'),
             'main_description' => request('main_description'),
@@ -210,11 +211,12 @@ class ProjectsController extends Controller
                 ]);
             }
         }
-        
+
 
         $project->update([
             'name' => request('name'),
             'country_id' => request('country'),
+            'city' => request('city'),
             'main_image' => $main_img_url,
             'main_text' => request('main_text'),
             'main_description' => request('main_description'),

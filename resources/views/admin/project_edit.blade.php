@@ -89,7 +89,12 @@
             <!-- end row -->
 
             <div class="form-group">
-                <label for="main_description">Project description</label>
+                <label for="city">City</label>
+                <input name="city" class="form-control" type="text" value="{{$project->city}}">
+            </div>
+
+            <div class="form-group">
+                <label for="main_description">Architecture project</label>
                 <textarea name="main_description" class="form-control" type="text" value="{{$project->main_description}}">{{$project->main_description}}</textarea>
             </div>
 
@@ -141,9 +146,9 @@
                 <div class="mb-3 increment clone d-none">
 
                         <div class="increment-fields">
-    
+
                             <div class="input-wrap-flex d-flex align-items-center">
-    
+
                                 <img src="" alt="" style="height: 37px;">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">File</span>
@@ -157,15 +162,15 @@
                                     <input type="hidden" class="custom-check-input" name="full_image[0]" value="0">
                                     <input name="full11_image[0]" class="custom-check-input" onclick="this.previousSibling.previousSibling.value=1-this.previousSibling.previousSibling.value" type="checkbox" value="1">
                                 </div>
-    
+
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="text_image">Image text</label>
                                 <textarea name="text_image[0]" class="form-control custom-text-input" type="text" value=""></textarea>
                             </div>
                         </div>
-    
+
                         <button class="btn btn-danger ml-4 mb-3" type="button">Remove</button>
                     </div>
                 <!-- Input type file for cloning begin -->
