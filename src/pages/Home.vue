@@ -94,10 +94,7 @@ export default {
     }
     this.filterProjectByCountry()
     this.$parent.$emit('loadingFinish')
-  },
-  async mounted () {
-    // fix for router animation
-    setTimeout(this.initialization, 600)
+    setTimeout(this.initialization, 1500)
   },
   methods: {
     ...mapActions({
@@ -107,13 +104,16 @@ export default {
       let animationStart = false
       let clientHeight = document.documentElement.clientHeight
       let scrollToTopFromElement = document.getElementById('number').offsetTop
-      document.addEventListener('scroll', (e) => {
+      const scrollCallback = () => {
         let currentScrollToTop = window.pageYOffset
+        console.log('here')
         if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
           this.animateNumber()
           animationStart = true
         }
-      })
+      }
+      document.addEventListener('scroll', scrollCallback)
+      scrollCallback()
     },
     animateNumber () {
       let step = 5
