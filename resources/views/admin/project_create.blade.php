@@ -81,7 +81,7 @@
             </div>
 
             <div class="form-group">
-                <label for="main_description">Architecture project</label>
+                <label for="main_description">Project Type</label>
                 <textarea name="main_description" class="form-control" type="text"></textarea>
             </div>
 
