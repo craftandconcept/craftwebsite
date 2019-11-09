@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="title">— {{$t('team')}}</h2>
+    <h2 class="title">— {{$t('collaborators')}}</h2>
     <div class="team-page container">
       <carousel
         :autoplayHoverPause="true"
@@ -36,56 +36,56 @@ export default {
   data: () => ({
     teams: [
       {
-        img: 'IMG_4296.webp',
-        img_top: 'IMG_4296.webp',
+        img: 'Artboard 1.jpg',
+        img_top: 'Artboard 1.jpg',
         firstName: 'Sergii',
         lastName: 'Slepkan',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: 'IMG_4300_Olga.webp',
-        img_top: 'IMG_4300_Olga.webp',
+        img: 'L&S_01.jpg',
+        img_top: 'L&S_01.jpg',
         firstName: 'Olga',
         lastName: 'Pulyaeva',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: 'IMG_4307_John.webp',
-        img_top: 'IMG_4307_John.webp',
+        img: 'Artboard 1.jpg',
+        img_top: 'Artboard 1.jpg',
         firstName: 'Johannes',
         lastName: 'Hohn',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: '1.1.png',
-        img_top: '1.jpg',
+        img: 'L&S_01.jpg',
+        img_top: 'L&S_01.jpg',
         firstName: 'Vlada',
         lastName: 'Makhno',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: '1.1.png',
-        img_top: '1.jpg',
+        img: 'Artboard 1.jpg',
+        img_top: 'Artboard 1.jpg',
         firstName: 'Vlada',
         lastName: 'Makhno',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: '1.1.png',
-        img_top: '1.jpg',
+        img: 'L&S_01.jpg',
+        img_top: 'L&S_01.jpg',
         firstName: 'Vlada',
         lastName: 'Makhno',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: '1.1.png',
-        img_top: '1.jpg',
+        img: 'Artboard 1.jpg',
+        img_top: 'Artboard 1.jpg',
         firstName: 'Vlada',
         lastName: 'Makhno',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
@@ -113,6 +113,7 @@ export default {
   max-width: 80%;
   width: 80%;
   position: relative;
+  padding-bottom: 40px;
 }
 .title{
   font-weight: 700;
@@ -136,10 +137,35 @@ export default {
 .owl-next{
   right: -50px;
 }
+.owl-item{
+  padding-right: 8px;
+}
+.team-item{
+  img{
+    min-height: 230px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
 @media(max-width: 1400px) {
   .team-page{
+    padding: 0 50px;
     width: 100%;
     max-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .team-page{
+    padding: 0 30px;
+  }
+  .owl-prev{
+    left: -30px;
+  }
+  .owl-next{
+    right: -30px;
+  }
+  .owl-item{
+    padding-right: 0px;
   }
 }
 </style>

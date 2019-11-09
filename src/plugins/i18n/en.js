@@ -12,6 +12,8 @@ export default {
   'brand-development': 'Brand Development',
   'production-facilities': 'Production Facilities',
   'team-&-creators': ' Team & Creators',
+  'creators': 'Creators',
+  'team': ' Team',
   'collaborators': 'Collaborators',
   'contact-us': 'Contact us',
   'phone:': 'Phone:',
