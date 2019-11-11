@@ -4,16 +4,16 @@
         <div class="navigation-left">
             <button class="burger" :class="{'on': isOpen}" @click="toggleMenu()"><span></span></button>
             <div class="social-link">
-                <a href="#">
+                <a href="https://www.facebook.com/craftandconceptmontreux/" target="_blank">
                     <img src="../assets/img/facebook.png" alt="facebook" />
                 </a>
                 <a href="#">
                     <img src="../assets/img/twitter.png" alt="twitter" />
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/craft.and.concept/?hl=ru" target="_blank">
                     <img src="../assets/img/instagram.png" alt="instagram" />
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/company/30127412/" target="_blank">
                     <img src="../assets/img/linkedin.png" alt="linkedin" />
                 </a>
                 <div class="shield">

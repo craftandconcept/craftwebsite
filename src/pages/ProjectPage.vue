@@ -154,6 +154,8 @@ export default {
     img{
       width: 100%;
       margin-bottom: 70px;
+      max-height: 100vh;
+      object-fit: contain;
     }
   }
 }

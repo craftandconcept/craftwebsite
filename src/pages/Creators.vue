@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="title">— {{$t('creators')}}</h2>
+    <h2 class="title">_{{$t('creators')}}</h2>
     <div class="team-page container">
       <carousel
         :autoplayHoverPause="true"
