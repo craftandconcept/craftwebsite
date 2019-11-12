@@ -29,7 +29,6 @@ export default {
   padding: 0 4px;
   border-left: 6px solid #f7f7f7;
   border-right: 6px solid #f7f7f7;
-  background: rgba(0, 0, 0, .5);
   .img-over{
     z-index: 3;
     position: absolute;
