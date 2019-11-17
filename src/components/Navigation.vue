@@ -7,9 +7,6 @@
                 <a href="https://www.facebook.com/craftandconceptmontreux/" target="_blank">
                     <img src="../assets/img/facebook.png" alt="facebook" />
                 </a>
-                <a href="#">
-                    <img src="../assets/img/twitter.png" alt="twitter" />
-                </a>
                 <a href="https://www.instagram.com/craft.and.concept/?hl=ru" target="_blank">
                     <img src="../assets/img/instagram.png" alt="instagram" />
                 </a>
