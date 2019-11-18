@@ -40,7 +40,7 @@ export default {
     } else {
       this.$i18n.locale = 'fr'
     }
-    if (this.$route.name === 'Teams') {
+    if (this.$route.name === 'Teams' || this.$route.name === 'Creators' || this.$route.name === 'Collaborators') {
       this.paddingLeft = false
     } else {
       this.paddingLeft = true
@@ -52,7 +52,7 @@ export default {
   },
   watch: {
     '$route.name' () {
-      if (this.$route.name === 'Teams') {
+      if (this.$route.name === 'Teams' || this.$route.name === 'Creators' || this.$route.name === 'Collaborators') {
         this.paddingLeft = false
       } else {
         this.paddingLeft = true
