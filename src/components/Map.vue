@@ -2983,13 +2983,13 @@ svg{
         content: '';
         height: 2px;
         background: #2d96b8;
-        top: 50%;
+        bottom: 0;
         transform: translateY(-50%);
         left: 0;
         transition: all .3s;
       }
       &:hover{
-        padding-left: 15px;
+        padding-left: 11px;
         color: #2d96b8;
         text-decoration: none;
         &:after{

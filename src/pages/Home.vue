@@ -1,5 +1,11 @@
 <template>
   <div>
+    <h2 class="project-map-title">
+      __{{$t('project')}}
+      {{$t('map')}}
+      <br />
+      <span>{{$t('Click-to-find-out-more')}}</span>
+    </h2>
     <Map :countryList="countryList" v-if="countryList.length"/>
     <div class="project-counter d-flex" id="number">
       <div class="project-col">
@@ -165,11 +171,24 @@ export default {
 .main-wrap{
   padding-left: 150px;
   transition: all 0.3s;
-  background: #f7f7f7;
   &.open{
     padding-left: 420px;
     &.unset-padding-left{
       padding-left: 150px;
+      transition: unset;
+    }
+  }
+  background: #f7f7f7;
+  .project-map-title {
+    font-size: 64px;
+    line-height: 1;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-left: 15%;
+    span {
+      font-size: 18px;
     }
   }
   main{

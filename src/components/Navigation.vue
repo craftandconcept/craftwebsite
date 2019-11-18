@@ -20,7 +20,7 @@
         </div>
         <div class="navigation-right">
             <div class="text-menu">
-                <ul @click.prevent="toggleMenu">
+                <ul>
                     <li><router-link :to="{name: 'Story'}">{{$t('our-story')}}</router-link></li>
                     <li><router-link to="/category/architecture">_{{$t('architecture')}}</router-link></li>
                     <li><router-link to="/category/interior-design">_{{$t('interior-design')}}</router-link></li>

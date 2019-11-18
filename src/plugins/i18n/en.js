@@ -36,5 +36,8 @@ export default {
   'text-5': 'Every craftsman is unique by nature. Each of them is a free and powerful creator who travels beyond all boundaries and is just limited to endless inner space.',
   'text-6': 'They tend to stay on their own.',
   'text-7': 'True masterminds are believed to work isolated. On rare occasions, they come out of their shells with blazes of remarkable creations. Destined to change (or not) the whole world.',
-  'text-8': 'Power to unite with the best.'
+  'text-8': 'Power to unite with the best.',
+  'project': 'Project',
+  'map': 'Map',
+  'Click-to-find-out-more': 'Click to find out more'
 }
