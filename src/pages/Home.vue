@@ -390,6 +390,11 @@ export default {
       }
     }
   }
+  .our-story-info .title-our-story h2,
+  .main-wrap .project-map-title,
+  .title{
+    font-size: 46px;
+  }
 }
 @media(max-width: 576px) {
   .main-wrap{
@@ -419,6 +424,14 @@ export default {
         font-size: 14px;
       }
     }
+  }
+  .our-story-info .title-our-story h2,
+  .main-wrap .project-map-title,
+  .title{
+    font-size: 24px;
+  }
+  .main-wrap .project-map-title span{
+    font-size: 16px;
   }
 }
 </style>

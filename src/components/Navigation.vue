@@ -248,11 +248,13 @@ export default {
     }
     @media(max-width: 768px) {
         .navigation-wrap{
+            width: 80px;
             .shield{
                 opacity: 1;
                 transition-delay: 0s;
             }
             &.open{
+                width: 100vw;
                 .navigation-right{
                     width: calc(100vw - 80px);
                     .text-menu ul li{
