@@ -72,6 +72,7 @@ export default {
         background: #f7f7f7;
         display: flex;
         transition: all 0.3s;
+        max-width: 150px;
         .navigation-left{
             width: 150px;
             border-right: 1px solid #E8E8E8;
@@ -193,6 +194,7 @@ export default {
             }
         }
         &.open{
+            max-width: 100%;
             background: #424647;
             .navigation-right{
                 width: 270px;
