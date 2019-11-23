@@ -25,7 +25,10 @@
         <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
-    <div class="our-story d-flex">
+    <div class="d-flex justify-content-center">
+      <OurStory id="ourStory" />
+    </div>
+    <!-- <div class="our-story d-flex">
       <div class="title-story left d-flex">
         <h2>
           — {{$t('our')}} <br />
@@ -38,7 +41,7 @@
         <p>{{$t('text-3')}}</p>
         <p>{{$t('text-4')}}</p>
       </div>
-    </div>
+    </div> -->
     <div class="gallery d-flex flex-wrap">
       <router-link to="/category/architecture" class="gallery-block">
         <h3>_{{$t('architecture')}}</h3>
@@ -77,6 +80,9 @@
         </div>
       </router-link>
     </div>
+    <Teams id="teams" />
+    <Creators id="creators" />
+    <Collaborators id="collaborators" />
   </div>
 </template>
 
@@ -84,10 +90,18 @@
 import Map from '@/components/Map.vue'
 import { mapGetters, mapActions } from 'vuex'
 import countryesCod from '@/models/countryCod.js'
+import Creators from '@/components/Creators.vue'
+import Collaborators from '@/components/Collaborators.vue'
+import Teams from '@/components/Teams.vue'
+import OurStory from '@/components/OurStory'
 export default {
   name: 'Home',
   components: {
-    Map
+    Map,
+    Creators,
+    Collaborators,
+    Teams,
+    OurStory
   },
   data: () => ({
     numberAnimation: [0, 0, 0, 0],
@@ -112,7 +126,6 @@ export default {
       let scrollToTopFromElement = document.getElementById('number').offsetTop
       const scrollCallback = () => {
         let currentScrollToTop = window.pageYOffset
-        console.log('here')
         if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
           this.animateNumber()
           animationStart = true
