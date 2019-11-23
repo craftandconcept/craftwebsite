@@ -5,10 +5,6 @@ import Root from './pages/Root.vue'
 import Login from './pages/admin/Login.vue'
 import Category from './pages/Category.vue'
 import Project from './pages/ProjectPage.vue'
-import Teams from './pages/Teams.vue'
-import Creators from './pages/Creators.vue'
-import Collaborators from './pages/Collaborators.vue'
-import OurStory from './pages/OurStory.vue'
 import Admin from './pages/admin/Admin.vue'
 import Dashboard from './pages/admin/Dashboard.vue'
 import NewProject from './pages/admin/NewProject.vue'
@@ -63,41 +59,6 @@ export default new Router({
           name: 'Project',
           component: Project
         },
-        {
-          path: '/teams',
-          name: 'Teams',
-          component: Teams,
-          beforeEnter: (to, from, next) => {
-            setTimeout(() => {
-              next()
-            }, 400)
-          }
-        },
-        {
-          path: '/creators',
-          name: 'Creators',
-          component: Creators,
-          beforeEnter: (to, from, next) => {
-            setTimeout(() => {
-              next()
-            }, 400)
-          }
-        },
-        {
-          path: '/collaborators',
-          name: 'Collaborators',
-          component: Collaborators,
-          beforeEnter: (to, from, next) => {
-            setTimeout(() => {
-              next()
-            }, 400)
-          }
-        },
-        {
-          path: '/story',
-          name: 'Story',
-          component: OurStory
-        }
       ]
     },
     {
