@@ -36,24 +36,24 @@ export default {
   data: () => ({
     teams: [
       {
-        img: 'IMG_4296.webp',
-        img_top: 'IMG_4296.webp',
+        img: 'IMG_4296.png',
+        img_top: 'IMG_4296.png',
         firstName: 'Sergii',
         lastName: 'Slepkan',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: 'IMG_4300_Olga.webp',
-        img_top: 'IMG_4300_Olga.webp',
+        img: 'IMG_4300_Olga.png',
+        img_top: 'IMG_4300_Olga.png',
         firstName: 'Olga',
         lastName: 'Pulyaeva',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
         description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
       },
       {
-        img: 'IMG_4307_John.webp',
-        img_top: 'IMG_4307_John.webp',
+        img: 'IMG_4307_John.png',
+        img_top: 'IMG_4307_John.png',
         firstName: 'Johannes',
         lastName: 'Hohn',
         profesion: 'INTERIOR DESIGNER, DECORATOR',
