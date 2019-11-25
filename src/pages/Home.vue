@@ -25,9 +25,6 @@
         <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
-      <OurStory id="ourStory" />
-    </div>
     <!-- <div class="our-story d-flex">
       <div class="title-story left d-flex">
         <h2>
@@ -80,6 +77,9 @@
         </div>
       </router-link>
     </div>
+    <div class="d-flex justify-content-center">
+      <OurStory id="ourStory" />
+    </div>
     <Teams id="teams" />
     <Creators id="creators" />
     <Collaborators id="collaborators" />
@@ -115,6 +115,13 @@ export default {
     this.filterProjectByCountry()
     this.$parent.$emit('loadingFinish')
     setTimeout(this.initialization, 1500)
+  },
+  mounted () {
+    setTimeout(() => {
+      if (this.$route.params.anchor) {
+        this.$scrollTo(this.$route.params.anchor)
+      }
+    }, 700)
   },
   methods: {
     ...mapActions({
@@ -263,7 +270,7 @@ export default {
   }
   .gallery{
     margin-top: 155px;
-    margin-bottom: 185px;
+    margin-bottom: 80px;
     margin-right: -10px;
     margin-left: -10px;
     .gallery-block{

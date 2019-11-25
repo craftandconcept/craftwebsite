@@ -21,16 +21,16 @@
         <div class="navigation-right">
             <div class="text-menu">
                 <ul>
-                    <li><a href="#" v-scroll-to="'#ourStory'">{{$t('our-story')}}</a></li>
+                    <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">{{$t('our-story')}}</a></li>
                     <li><router-link to="/category/architecture">_{{$t('architecture')}}</router-link></li>
                     <li><router-link to="/category/interior-design">_{{$t('interior-design')}}</router-link></li>
                     <li><router-link to="/category/individual-objects">_{{$t('individual-objects')}}</router-link></li>
                     <li><router-link to="/category/3d-rendering">_{{$t('3d-rendering')}}</router-link></li>
                     <li><router-link to="/category/brand-development">_{{$t('brand-development')}}</router-link></li>
                     <li><router-link to="/category/production-facilities">_{{$t('production-facilities')}}</router-link></li>
-                    <li><a href="#" v-scroll-to="'#teams'">{{$t('team')}}</a></li>
-                    <li><a href="#" v-scroll-to="'#creators'">{{$t('creators')}}</a></li>
-                    <li><a href="#" v-scroll-to="'#collaborators'">{{$t('collaborators')}}</a></li>
+                    <li><a href="#" @click.prevent="toHome('#teams')" v-scroll-to="'#teams'">{{$t('team')}}</a></li>
+                    <li><a href="#" @click.prevent="toHome('#creators')" v-scroll-to="'#creators'">{{$t('creators')}}</a></li>
+                    <li><a href="#" @click.prevent="toHome('#collaborators')" v-scroll-to="'#collaborators'">{{$t('collaborators')}}</a></li>
                     <li><a href="#" v-scroll-to="'#footer'">{{$t('contact-us')}}</a></li>
                 </ul>
             </div>
@@ -57,6 +57,11 @@ export default {
       this.toggleNav()
       this.isOpen = !this.isOpen
       this.$emit('toggleMenu', this.isOpen)
+    },
+    toHome (anchor) {
+      if (this.$route.name !== 'Home') {
+        this.$router.push({ name: 'Home', params: { anchor } })
+      }
     }
   }
 }
