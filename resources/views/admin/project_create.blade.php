@@ -60,16 +60,10 @@
                 <div class="input-group mb-3 col-12 col-md-6">
 
                     <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelectCreator">Creator</label>
+                        <label class="input-group-text" for="inputGroupCreator">Creator</label>
                     </div>
 
-                    <select name="creator" class="custom-select" type="text" id="inputGroupSelectCreator">
-                        <option selected>Select Creator</option>
-                        @foreach ($creators as $creator)
-                        <option value="{{$creator->id}}">{{$creator->creator_name}}</option>
-                        @endforeach
-                    </select>
-
+                    <input type="text" name="creator" class="form-control" id="inputGroupCreator">
                 </div>
 
             </div>

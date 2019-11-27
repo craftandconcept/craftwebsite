@@ -38,11 +38,11 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $countries = Country::all();
-        $creators = Creator::all();
+    {
+        $countries = Country::all();
         $categories = Category::all();
 
-        return view('admin.project_create', compact('countries','creators','categories'));
+        return view('admin.project_create', compact('countries','categories'));
     }
 
     /**
@@ -108,7 +108,7 @@ class ProjectsController extends Controller
             'country_id' => request('country'),
             'main_image' => $main_img_url,
             'main_text' => request('main_text'),
-            'creator_id' => request('creator'),
+            'creators' => request('creator'),
             'collaborators' => request('collaborators'),
             'function' => request('function'),
             'size' => request('size'),
@@ -145,9 +145,8 @@ class ProjectsController extends Controller
     public function edit(Project $project)
     {
         $countries = Country::all();
-        $creators = Creator::all();
         $categories = Category::all();
-        return view('admin.project_edit', compact('project','countries','creators','categories'));
+        return view('admin.project_edit', compact('project','countries', 'categories'));
     }
 
     /**
@@ -213,7 +212,7 @@ class ProjectsController extends Controller
             'country_id' => request('country'),
             'main_image' => $main_img_url,
             'main_text' => request('main_text'),
-            'creator_id' => request('creator'),
+            'creators' => request('creator'),
             'collaborators' => request('collaborators'),
             'function' => request('function'),
             'size' => request('size'),

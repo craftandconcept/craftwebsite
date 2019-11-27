@@ -70,17 +70,7 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelectCreator">Creator</label>
                     </div>
-
-                    <select name="creator" class="custom-select" type="text">
-                        <option value="">Please select</option>
-                        @foreach ($creators as $creator)
-                        <option value="{{$creator->id}}"
-                        @if($project->creator_id == $creator->id)
-                        selected="selected"
-                        @endif
-                            >{{$creator->creator_name}}</option>
-                        @endforeach
-                    </select>
+                    <input type="text" name="creator" class="form-control" id="inputGroupCreator" value="{{$project->creators}}">
 
                 </div>
 
