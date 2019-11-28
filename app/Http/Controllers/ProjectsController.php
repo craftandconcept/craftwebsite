@@ -233,12 +233,15 @@ class ProjectsController extends Controller
      *
      * @param  \App\Project  $projects
      * @return \Illuminate\Http\Response
+     *
      */
     public function destroy(Project $project)
     {
         $project->categories()->detach();
-        $project->delete();
+
         $path= public_path().'/images/project'.$project->id.'/';
+        $project->delete();
+
         if (\File::exists($path)) \File::deleteDirectory($path);
         return redirect ('/admin/projects');
     }

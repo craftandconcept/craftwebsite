@@ -10,6 +10,8 @@
       <div class="list-group">
         <a href="{{route('projects.index')}}" class="list-group-item list-group-item-action">All projects</a>
         <a href="{{route('categories.index')}}" class="list-group-item list-group-item-action">Categories</a>
+        <a href="{{route('creators.index')}}" class="list-group-item list-group-item-action">Creators</a>
+        <a href="{{route('teams.index')}}" class="list-group-item list-group-item-action">Teams</a>
       </div>
     </div>
 

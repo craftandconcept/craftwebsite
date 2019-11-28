@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect ('admin/categories');
 });
 
 Route::get('/admin', function () {
@@ -21,9 +21,12 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resources([
     '/admin/categories' => 'CategoryController',
-    '/admin/projects' => 'ProjectsController'
+    '/admin/projects' => 'ProjectsController',
+    '/admin/creators' => 'CreatorController',
+    '/admin/teams' => 'TeamController',
+    '/admin/collaborators' => 'CollaboratorController',
 ]);
