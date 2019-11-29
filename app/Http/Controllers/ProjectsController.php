@@ -27,7 +27,8 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Project::all();
-        $countries = Country::all();
+        $country = new Country;
+        $countries = $country->alphabeth();
 
         return view('admin.project_index', compact('projects'));
     }
@@ -38,11 +39,12 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $countries = Country::all();
+    // {   $countries = Country::all();
+    {   $country = new Country;
+        $countries = $country->alphabeth();
+        $creators = Creator::all();
         $categories = Category::all();
-
-        return view('admin.project_create', compact('countries','categories'));
+        return view('admin.project_create', compact('countries','creators','categories'));
     }
 
     /**
@@ -65,30 +67,30 @@ class ProjectsController extends Controller
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            'main_image' => 'required',
-            'creator' => 'required',
-            'collaborators' => 'required',
-            'function' => 'required',
-            'size' => 'required',
-            'status' => 'required',
-            'photos_by' => 'required',
+            // 'main_image' => 'required',
+            // 'creator' => 'required',
+            // 'collaborators' => 'required',
+            // 'function' => 'required',
+            // 'size' => 'required',
+            // 'status' => 'required',
+            // 'photos_by' => 'required',
         ]);
-        
+        $main_img_url='';
         if($request->hasfile('main_image')){
             $main_image = $request->file('main_image');
             $main_image_name = $main_image->getClientOriginalName();
             $main_img_url = '/images/project'.$last.'/'. $main_image_name;
-            
+
             $main_image->move(public_path().'/images/project'.$last.'/', $main_image_name);
         }
 
-        
-        
+
+
         if($request->hasfile('image'))
         {
             foreach($request->file('image') as $i_key => $image)
             {
-                
+
                 // dd($request,$request->file('image'),$request->text_image,$request->full_image);
                 $name=$image->getClientOriginalName();
                 $image->move(public_path().'/images/project'.$last.'/', $name);
@@ -106,6 +108,7 @@ class ProjectsController extends Controller
         $project = Project::create([
             'name' => request('name'),
             'country_id' => request('country'),
+            'city' => request('city'),
             'main_image' => $main_img_url,
             'main_text' => request('main_text'),
             'creators' => request('creator'),
@@ -144,9 +147,11 @@ class ProjectsController extends Controller
      */
     public function edit(Project $project)
     {
-        $countries = Country::all();
+        $country = new Country;
+        $countries = $country->alphabeth();
+        $creators = Creator::all();
         $categories = Category::all();
-        return view('admin.project_edit', compact('project','countries', 'categories'));
+        return view('admin.project_edit', compact('project','countries','creators','categories'));
     }
 
     /**
@@ -162,14 +167,14 @@ class ProjectsController extends Controller
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            'creator' => 'required',
-            'collaborators' => 'required',
-            'function' => 'required',
-            'size' => 'required',
-            'status' => 'required',
-            'photos_by' => 'required',
+            // 'creator' => 'required',
+            // 'collaborators' => 'required',
+            // 'function' => 'required',
+            // 'size' => 'required',
+            // 'status' => 'required',
+            // 'photos_by' => 'required',
         ]);
-        
+        $image_url='';
         if($request->hasfile('main_image')){
             $main_image = $request->file('main_image');
             $main_image_name = $main_image->getClientOriginalName();
@@ -205,11 +210,12 @@ class ProjectsController extends Controller
                 ]);
             }
         }
-        
+
 
         $project->update([
             'name' => request('name'),
             'country_id' => request('country'),
+            'city' => request('city'),
             'main_image' => $main_img_url,
             'main_text' => request('main_text'),
             'creators' => request('creator'),

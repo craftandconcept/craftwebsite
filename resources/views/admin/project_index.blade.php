@@ -24,7 +24,7 @@
           <p class="h4">Your Projects</p>
         </div>
 
-        <a href="{{route('projects.create')}}" class="btn btn-primary">Create new one</a>
+        <a href="{{route('projects.create')}}" class="btn btn-primary">Create new Object</a>
 
       </div>
 

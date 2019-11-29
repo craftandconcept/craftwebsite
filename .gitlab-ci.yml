@@ -22,7 +22,6 @@ building:
   stage: migrate
   script:
     - php artisan migrate
-    - php artisan db:seed
 smoke-test:
   stage: smoke-test
   script:

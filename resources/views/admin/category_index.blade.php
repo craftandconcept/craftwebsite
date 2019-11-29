@@ -20,7 +20,7 @@
     <div class="col-12 col-md-9">
       <div class="d-flex justify-content-between mb-2">
         <p class="h4">Your categories</p>
-        <a href="{{route('categories.create')}}" class="btn btn-primary">Create new one</a>
+        <a href="{{route('categories.create')}}" class="btn btn-primary">Create new category</a>
       </div>
 
       <table class="table table-striped t-custom">
