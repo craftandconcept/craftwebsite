@@ -56,7 +56,6 @@ export default {
 
 <style lang="scss">
 .our-story-info{
-  max-width: 1200px;
   .title-our-story{
     margin-top: 85px;
     h2{
