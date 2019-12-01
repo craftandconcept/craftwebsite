@@ -2944,6 +2944,7 @@ svg{
   path{
       transition: all .3s;
       &.active{
+        fill: #a8a9a9;
         &:hover, &.on-map{
           fill: #000;
           position: relative;
