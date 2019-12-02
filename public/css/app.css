@@ -11735,10 +11735,6 @@ ul {
   display: none !important;
 }
 
-.t-custom .t-custom-td {
-  word-break: break-word;
-}
-
 .increment .btn-danger {
   border-radius: 0 4px 4px 0 !important;
 }
