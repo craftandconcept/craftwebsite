@@ -8,7 +8,7 @@ $(document).ready(function() {
         //         $(this).attr('value', srcImg);
         //         $(this).change();
         //         console.log($(this).val());
-                
+
         //     });
 
         // },0);
@@ -26,7 +26,7 @@ $(document).ready(function() {
         // $(".increment").after(html);
     });
 
-    $("body").on("click",".project-form .btn-danger",function(){ 
+    $("body").on("click",".project-form .btn-danger",function(){
         $(this).parent().remove();
     });
 
@@ -34,6 +34,8 @@ $(document).ready(function() {
         console.log($(this));
         $(this).on('change',function(){
             var fileName = $(this).val();
+            $(this).prev().remove('input');
+            $(this).next().remove('input');
             $(this).next('.custom-file-label').addClass("selected").html(fileName);
         })
     });

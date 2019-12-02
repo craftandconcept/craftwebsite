@@ -49506,8 +49506,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/intent15/project/cnc-web/php/cnc/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/intent15/project/cnc-web/php/cnc/resources/sass/app.sass */"./resources/sass/app.sass");
+__webpack_require__(/*! /home/intent15/project/cnc/php/backend-craftandconcept/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/intent15/project/cnc/php/backend-craftandconcept/resources/sass/app.sass */"./resources/sass/app.sass");
 
 
 /***/ })

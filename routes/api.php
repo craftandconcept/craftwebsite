@@ -18,7 +18,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/v1', 'ProjectApiController@index');
-
 Route::get('/v1/{project}', 'ProjectApiController@getProject');
+
+Route::get('/categories', 'CategoriesApiController@index');
+Route::get('/categories/{id}', 'CategoriesApiController@show');
+
+Route::get('/teams', 'TeamsApiController@index');
+Route::get('/teams/{id}', 'TeamsApiController@show');
+
+Route::get('/creators', 'CreatorsApiController@index');
+Route::get('/creators/{id}', 'CreatorsApiController@show');
+
+Route::get('/collaborators', 'CollaboratorsApiController@index');
+Route::get('/collaborators/{id}', 'CollaboratorsApiController@show');
 
 Route::post('/v1', 'ProjectApiController@projectfilter');

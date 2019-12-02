@@ -178,7 +178,7 @@
                                 <span class="input-group-text">File</span>
                             </div>
                             <div class="custom-file">
-                            <input type="hidden" name="photo_id[]" value="{{$photo->id}}">
+                            <input type="hidden" name="photo_id[{{$i_key}}]" value="{{$photo->id}}">
                                 <input type="file" name="image[{{$i_key}}]" class="custom-file-input">
                                 <input type="hidden" name="isset_image[{{$i_key}}]" value="{{$photo->img}}" class="form-control">
                                 <label class="custom-file-label">{{$photo->img}}</label>

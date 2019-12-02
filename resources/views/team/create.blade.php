@@ -46,7 +46,7 @@
                             <span class="input-group-text">Main Image</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" name="main_image" class="custom-file-input">
+                            <input type="file" name="main_image" required class="custom-file-input">
                             <label class="custom-file-label">Choose file</label>
                         </div>
                     </div>

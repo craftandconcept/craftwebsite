@@ -120,6 +120,8 @@ $(document).ready(function () {
     console.log($(this));
     $(this).on('change', function () {
       var fileName = $(this).val();
+      $(this).prev().remove('input');
+      $(this).next().remove('input');
       $(this).next('.custom-file-label').addClass("selected").html(fileName);
     });
   });
@@ -134,7 +136,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/intent15/project/cnc-web/php/cnc/resources/js/custom.js */"./resources/js/custom.js");
+module.exports = __webpack_require__(/*! /home/intent15/project/cnc/php/backend-craftandconcept/resources/js/custom.js */"./resources/js/custom.js");
 
 
 /***/ })

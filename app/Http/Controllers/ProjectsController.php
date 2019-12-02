@@ -167,12 +167,6 @@ class ProjectsController extends Controller
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            // 'creator' => 'required',
-            // 'collaborators' => 'required',
-            // 'function' => 'required',
-            // 'size' => 'required',
-            // 'status' => 'required',
-            // 'photos_by' => 'required',
         ]);
         $image_url='';
         if($request->hasfile('main_image')){
@@ -182,6 +176,20 @@ class ProjectsController extends Controller
             $main_image->move(public_path().'/images/project'.$project->id.'/', $main_image_name);
         }else{
             $main_img_url = $request->isset_main_image;
+        }
+//        dd($request);
+        //Photo::whereNotIn('id',$request->photo_id)->delete();
+        Photo::where('project_id',$project->id)->delete();
+        if($request->photo_id){
+            foreach($request->photo_id as $p_key => $photo_id){
+//                $model_for_update = Photo::where('id',$photo_id);
+                $model_for_update= Photo::create([
+                    'project_id' => $project->id,
+                    'img' => $request->isset_image[$p_key],
+                    'text' => !is_null($request->text_image[$p_key]) ? $request->text_image[$p_key] : '',
+                    'full' => !is_null($request->full_image[$p_key]) ? $request->full_image[$p_key] : '',
+                ]);
+            }
         }
 
         if($request->hasfile('image'))
@@ -196,17 +204,6 @@ class ProjectsController extends Controller
                     'img' => $image_url,
                     'text' => !is_null($request->text_image[$i_key]) ? $request->text_image[$i_key] : '',
                     'full' => !is_null($request->full_image[$i_key]) ? $request->full_image[$i_key] : '',
-                ]);
-            }
-        }
-
-        if($request->photo_id){
-            foreach($request->photo_id as $p_key => $photo_id){
-                $model_for_update = Photo::where('id',$photo_id);
-                $model_for_update->update([
-                    'img' => $request->isset_image[$p_key],
-                    'text' => !is_null($request->text_image[$p_key]) ? $request->text_image[$p_key] : '',
-                    'full' => !is_null($request->full_image[$p_key]) ? $request->full_image[$p_key] : '',
                 ]);
             }
         }
@@ -234,7 +231,7 @@ class ProjectsController extends Controller
         return redirect('/admin/projects');
     }
 
-    /**
+    /*
      * Remove the specified resource from storage.
      *
      * @param  \App\Project  $projects
