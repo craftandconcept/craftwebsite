@@ -67,13 +67,6 @@ class ProjectsController extends Controller
         $validdata = $request->validate([
             'name' => 'required|min:2',
             'country' => 'required',
-            // 'main_image' => 'required',
-            // 'creator' => 'required',
-            // 'collaborators' => 'required',
-            // 'function' => 'required',
-            // 'size' => 'required',
-            // 'status' => 'required',
-            // 'photos_by' => 'required',
         ]);
         $main_img_url='';
         if($request->hasfile('main_image')){
@@ -91,7 +84,6 @@ class ProjectsController extends Controller
             foreach($request->file('image') as $i_key => $image)
             {
 
-                // dd($request,$request->file('image'),$request->text_image,$request->full_image);
                 $name=$image->getClientOriginalName();
                 $image->move(public_path().'/images/project'.$last.'/', $name);
                 $image_url = '/images/project'.$last.'/'. $name;
@@ -177,13 +169,11 @@ class ProjectsController extends Controller
         }else{
             $main_img_url = $request->isset_main_image;
         }
-//        dd($request);
-        //Photo::whereNotIn('id',$request->photo_id)->delete();
+
         Photo::where('project_id',$project->id)->delete();
         if($request->photo_id){
             foreach($request->photo_id as $p_key => $photo_id){
-//                $model_for_update = Photo::where('id',$photo_id);
-                $model_for_update= Photo::create([
+                Photo::create([
                     'project_id' => $project->id,
                     'img' => $request->isset_image[$p_key],
                     'text' => !is_null($request->text_image[$p_key]) ? $request->text_image[$p_key] : '',

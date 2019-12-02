@@ -19,7 +19,7 @@ class ProjectResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'creator_id' => $this->creator_id,
+            'creators' => $this->creators,
             'country_id' => $this->country_id,
             'main_image' => $this->main_image,
             'main_text' => $this->main_text,
@@ -34,7 +34,7 @@ class ProjectResource extends JsonResource
             'category_ids' => $this->categories->pluck('id'),
             'category_name' => $this->categories->pluck('category_name'),
             'country_name' => Country::first()->where('id',$this->country_id)->value('country_name'),
-            'creator_name' => Creator::first()->where('id',$this->creator_id)->value('creator_name'),
+            //'creator_name' => Creator::first()->where('id',$this->creator_id)->value('creator_name'),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
