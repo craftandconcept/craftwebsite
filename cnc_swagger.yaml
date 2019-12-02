@@ -1,0 +1,185 @@
+swagger: '2.0'
+info:
+  version: '111'
+  title: project crud
+  description: 'TODO: Add Description'
+  contact: {}
+host: cnc.loc
+basePath: /api
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /categories:
+    get:
+      description: Get all Project vua GET request
+      summary: get all Categories
+      tags:
+      - Misc
+      operationId: getallCategories
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /categories/1:
+    get:
+      description: Get all Project vua GET request
+      summary: get Category
+      tags:
+      - Misc
+      operationId: getCategory
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /creators:
+    get:
+      description: Get all Project vua GET request
+      summary: get all Creators
+      tags:
+      - Misc
+      operationId: getallCreators
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /creators/1:
+    get:
+      description: Get all Project vua GET request
+      summary: get Creator
+      tags:
+      - Misc
+      operationId: getCreator
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /collaborators:
+    get:
+      description: Get all Project vua GET request
+      summary: get all Collobarators
+      tags:
+      - Misc
+      operationId: getallCollobarators
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /collaborators/1:
+    get:
+      description: Get all Project vua GET request
+      summary: get Collobarator
+      tags:
+      - Misc
+      operationId: getCollobarator
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /teams:
+    get:
+      description: Get all Project vua GET request
+      summary: get all Teams
+      tags:
+      - Misc
+      operationId: getallTeams
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /teams/1:
+    get:
+      description: Get all Project vua GET request
+      summary: get Team
+      tags:
+      - Misc
+      operationId: getTeam
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /v1:
+    get:
+      description: Get all Project vua GET request
+      summary: get all Projects
+      tags:
+      - Misc
+      operationId: getallProjects
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+    post:
+      description: 'TODO: Add Description'
+      summary: filter projects
+      tags:
+      - Misc
+      operationId: filterprojects
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+      - name: country
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: can be empty or has some value
+      - name: category
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: can be empty or has some value
+      responses:
+        200:
+          description: ''
+          headers: {}
+tags:
+- name: Misc
+  description: ''
