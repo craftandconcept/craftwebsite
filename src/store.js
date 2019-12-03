@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
-import { apiUrl } from '@/config'
+import { getProjects, getCategories } from '@/services/rest'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     navOpen: false,
-    projects: []
+    projects: [],
+    categories: []
   },
   mutations: {
     toggleNav (state) {
@@ -16,16 +16,22 @@ export default new Vuex.Store({
     },
     setProject (state, projects) {
       state.projects = projects
+    },
+    setCategories (state, categories) {
+      state.categories = categories
     }
   },
   actions: {
     async getProjects ({ commit }) {
-      let projects = (await axios.get(`${apiUrl}/api/v1`)).data.data
-      commit('setProject', projects)
+      commit('setProject', await getProjects())
+    },
+    async getCategories ({ commit }) {
+      commit('setCategories', await getCategories())
     }
   },
   getters: {
     navOpen: state => state.navOpen,
-    projects: state => state.projects
+    projects: state => state.projects,
+    categories: state => state.categories
   }
 })

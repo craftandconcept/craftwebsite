@@ -80,6 +80,7 @@
     <div class="d-flex justify-content-center">
       <OurStory id="ourStory" />
     </div>
+    <HomeCategories />
     <Teams id="teams" />
     <Creators id="creators" />
     <Collaborators id="collaborators" />
@@ -94,6 +95,7 @@ import Creators from '@/components/Creators.vue'
 import Collaborators from '@/components/Collaborators.vue'
 import Teams from '@/components/Teams.vue'
 import OurStory from '@/components/OurStory'
+import HomeCategories from '@/components/HomeCategories'
 export default {
   name: 'Home',
   components: {
@@ -101,7 +103,8 @@ export default {
     Creators,
     Collaborators,
     Teams,
-    OurStory
+    OurStory,
+    HomeCategories
   },
   data: () => ({
     numberAnimation: [0, 0, 0, 0],
@@ -109,6 +112,7 @@ export default {
   }),
   async created () {
     this.$parent.$emit('loadingStart')
+    this.getCategories()
     if (!this.projects.length) {
       await this.getProjects()
     }
@@ -125,7 +129,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getProjects: 'getProjects'
+      getProjects: 'getProjects',
+      getCategories: 'getCategories'
     }),
     initialization () {
       let animationStart = false
