@@ -7,7 +7,7 @@
     <div class="gallery-block project" v-for="(project, index) in getFiltredProject" :key="index">
       <router-link :to="{name: 'Project', params: {id: project.id}}">
         <div class="overflow">
-          <img :src="project.main_image" :alt="project.name" />
+          <img :src="backendUrl + project.main_image" :alt="project.name" />
         </div>
         <div class="hover-block">
           <h2>{{project.name}}</h2>
@@ -20,15 +20,20 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import Category from '@/models/category'
+import { apiUrl } from '@/config'
 export default {
   name: 'Category',
+  data: () => ({
+    backendUrl: apiUrl
+  }),
   computed: {
     ...mapGetters({
       projects: 'projects'
     }),
     getFiltredProject () {
       return this.projects.filter(item => {
-        return (item.category_name.filter(category => category.toLowerCase() === this.$route.params.name)).length
+        return (item.category_name.filter(category => category.toLowerCase() === Category[this.$route.params.name])).length
       })
     }
   },
@@ -66,6 +71,15 @@ export default {
     a{
       position: relative;
       display: block;
+      height: 100%;
+      .overflow{
+        height: 100%;
+        img{
+          height: 300px;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
       .hover-block{
         opacity: 0;
         transition: opacity 0.3s;

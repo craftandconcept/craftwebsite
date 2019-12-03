@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import { apiUrl } from '@/config'
 
 Vue.use(Vuex)
 
@@ -19,7 +20,7 @@ export default new Vuex.Store({
   },
   actions: {
     async getProjects ({ commit }) {
-      let projects = (await axios.get(`${process.env.VUE_APP_API_URL}/api/v1`)).data.data
+      let projects = (await axios.get(`${apiUrl}/api/v1`)).data.data
       commit('setProject', projects)
     }
   },

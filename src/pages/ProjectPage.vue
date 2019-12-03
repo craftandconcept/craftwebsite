@@ -6,60 +6,54 @@
     <div class="info-project">
       <div class="left">
         <div class="categories">
-          <p><span>Architecture Project:</span> Aloft</p>
-          <p><span>Category:</span> Architecture</p>
-          <p><span>Creators:</span> Drozdov&Partners</p>
-          <p><span>Collaborators:</span> Jestico +Whiles, RD Engineering</p>
-          <p><span>Location:</span> Kiev, Ukraine</p>
-          <p><span>Function:</span> Hotel</p>
+          <p v-show="activeProject.main_description"><span>Project:</span> {{activeProject.main_description}}</p>
+          <p>
+            <span>Category:</span>
+            <label v-for="(category, index) in activeProject.category_name" :key="index" class="mr-2">
+              {{category}}
+            </label>
+          </p>
+          <p v-show="activeProject.creator_name"><span>Creators:</span> {{activeProject.creator_name}}</p>
+          <p v-show="activeProject.collaborators"><span>Collaborators:</span> {{activeProject.collaborators}}</p>
+          <p>
+            <span>Location:</span>
+            <label v-show="activeProject.city" class="mr-1">{{activeProject.city + ', '}}</label>
+            <label>{{activeProject.country_name}}</label>
+          </p>
+          <p v-show="activeProject.function"><span>Function:</span> {{activeProject.function}}</p>
         </div>
       </div>
       <div class="right">
         <div class="categories">
-          <p><span>Size:</span> 20,000 m2</p>
-          <p><span>Status:</span> built 2010 - 2018</p>
-          <p><span>Photos:</span> by Andrey Avdeenko</p>
+          <p v-show="activeProject.size"><span>Size:</span> {{activeProject.size}}</p>
+          <p v-show="activeProject.status"><span>Status:</span> {{activeProject.status}}</p>
+          <p v-show="activeProject.photos_by"><span>Photos:</span> {{activeProject.photos_by}}</p>
         </div>
       </div>
     </div>
-    <div class="text-project">
-      <p>The house is located on a clearing inside an oak-tree forest that is homogenous in its structure. Much in the same way as flat steppe, the homogenous dendrology of the forest is far from being a simple setting for developing a scenario. Therefore, as long as we define the forest as an “occupied” place, we introduce the empty space of the peristyle as an “antithesis” to it.</p>
+    <div class="text-project" v-show="activeProject.main_text">
+      <p>{{activeProject.main_text}}</p>
     </div>
-    <div class="plan-project">
-      <img src="../assets/img/plan.png" alt="plan">
+    <div v-for="(image, index) in activeProject.images" :key="index" :class="image.full ? 'img-project' : 'plan-project'">
+      <img :src="backendUrl + image.img" :alt="'image-' + index">
+      <p>{{image.text}}</p>
     </div>
-    <div class="img-project">
-      <div class="wrap-img-project">
-        <img src="../assets/img/img-project-1.png" alt="img-project">
-        <p>The sloping terrain causes the gradual increase of the volume, unfolding the entire narrative of the house. Starting from the entrance and low minor premises on the street level, the scale grows bigger in bedrooms and reaches its apex in the spacious living room.</p>
-      </div>
-      <div class="wrap-img-project">
-        <img src="../assets/img/img-project-2.png" alt="img-project">
-        <p>The sloping terrain causes the gradual increase of the volume, unfolding the entire narrative of the house. Starting from the entrance and low minor premises on the street level, the scale grows bigger in bedrooms and reaches its apex in the spacious living room.</p>
-      </div>
-      <div class="wrap-img-project">
-        <img src="../assets/img/img-project-3.png" alt="img-project">
-        <p>The sloping terrain causes the gradual increase of the volume, unfolding the entire narrative of the house. Starting from the entrance and low minor premises on the street level, the scale grows bigger in bedrooms and reaches its apex in the spacious living room.</p>
-      </div>
-      <div class="wrap-img-project">
-        <img src="../assets/img/img-project-4.png" alt="img-project">
-        <p>The sloping terrain causes the gradual increase of the volume, unfolding the entire narrative of the house. Starting from the entrance and low minor premises on the street level, the scale grows bigger in bedrooms and reaches its apex in the spacious living room.</p>
-      </div>
-    </div>
-
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { apiUrl } from '@/config'
 export default {
   name: 'ProjectPage',
+  data: () => ({
+    backendUrl: apiUrl
+  }),
   async created () {
     this.$parent.$emit('loadingStart')
     if (!this.projects.length) {
       await this.getProjects()
     }
-    this.setActiveProject()
     this.$parent.$emit('loadingFinish')
   },
   computed: {
@@ -100,10 +94,11 @@ export default {
       display: flex;
       flex-wrap: wrap;
       .categories{
+        width: 95%;
         p{
           display: flex;
           align-items: flex-start;
-          white-space: nowrap;
+          flex-wrap: wrap;
           font-size: 12px;
           line-height: 15px;
           text-transform: uppercase;
@@ -115,6 +110,9 @@ export default {
             display: block;
             min-width: 120px;
             margin-right: 10px;
+          }
+          label{
+            margin-bottom: 0;
           }
         }
       }
@@ -135,27 +133,29 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     img{
-      width: 70%;
+      width: 60%;
+      margin-bottom: 70px;
     }
   }
   .img-project{
     margin: 100px 0 30px;
-    .wrap-img-project{
-      padding-bottom: 70px;
-      p{
-        padding-top: 10px;
-        margin: 0;
-        font-weight: 400;
-        padding-left: 15px;
-        font-size: 14px;
-        line-height: 18px;
-        text-transform: capitalize;
-        color: #424647;
-      }
-      img{
-        width: 100%;
-      }
+    p{
+      padding-top: 10px;
+      margin: 0;
+      font-weight: 400;
+      padding-left: 15px;
+      font-size: 14px;
+      line-height: 18px;
+      text-transform: capitalize;
+      color: #424647;
+    }
+    img{
+      width: 100%;
+      margin-bottom: 70px;
+      max-height: 100vh;
+      object-fit: contain;
     }
   }
 }

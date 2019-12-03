@@ -4,16 +4,13 @@
         <div class="navigation-left">
             <button class="burger" :class="{'on': isOpen}" @click="toggleMenu()"><span></span></button>
             <div class="social-link">
-                <a href="#">
+                <a href="https://www.facebook.com/craftandconceptmontreux/" target="_blank">
                     <img src="../assets/img/facebook.png" alt="facebook" />
                 </a>
-                <a href="#">
-                    <img src="../assets/img/twitter.png" alt="twitter" />
-                </a>
-                <a href="#">
+                <a href="https://www.instagram.com/craft.and.concept/?hl=ru" target="_blank">
                     <img src="../assets/img/instagram.png" alt="instagram" />
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/company/30127412/" target="_blank">
                     <img src="../assets/img/linkedin.png" alt="linkedin" />
                 </a>
                 <div class="shield">
@@ -23,16 +20,17 @@
         </div>
         <div class="navigation-right">
             <div class="text-menu">
-                <ul @click.prevent="toggleMenu">
-                    <li><router-link :to="{name: 'Story'}">{{$t('our-story')}}</router-link></li>
+                <ul>
+                    <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">{{$t('our-story')}}</a></li>
                     <li><router-link to="/category/architecture">_{{$t('architecture')}}</router-link></li>
                     <li><router-link to="/category/interior-design">_{{$t('interior-design')}}</router-link></li>
                     <li><router-link to="/category/individual-objects">_{{$t('individual-objects')}}</router-link></li>
                     <li><router-link to="/category/3d-rendering">_{{$t('3d-rendering')}}</router-link></li>
                     <li><router-link to="/category/brand-development">_{{$t('brand-development')}}</router-link></li>
                     <li><router-link to="/category/production-facilities">_{{$t('production-facilities')}}</router-link></li>
-                    <li><router-link :to="{name: 'Teams'}">{{$t('team-&-creators')}}</router-link></li>
-                    <li><a href="#">{{$t('collaborators')}}</a></li>
+                    <li><a href="#" @click.prevent="toHome('#teams')" v-scroll-to="'#teams'">{{$t('team')}}</a></li>
+                    <li><a href="#" @click.prevent="toHome('#creators')" v-scroll-to="'#creators'">{{$t('creators')}}</a></li>
+                    <li><a href="#" @click.prevent="toHome('#collaborators')" v-scroll-to="'#collaborators'">{{$t('collaborators')}}</a></li>
                     <li><a href="#" v-scroll-to="'#footer'">{{$t('contact-us')}}</a></li>
                 </ul>
             </div>
@@ -59,6 +57,11 @@ export default {
       this.toggleNav()
       this.isOpen = !this.isOpen
       this.$emit('toggleMenu', this.isOpen)
+    },
+    toHome (anchor) {
+      if (this.$route.name !== 'Home') {
+        this.$router.push({ name: 'Home', params: { anchor } })
+      }
     }
   }
 }
@@ -74,6 +77,7 @@ export default {
         background: #f7f7f7;
         display: flex;
         transition: all 0.3s;
+        max-width: 150px;
         .navigation-left{
             width: 150px;
             border-right: 1px solid #E8E8E8;
@@ -195,6 +199,7 @@ export default {
             }
         }
         &.open{
+            max-width: 100%;
             background: #424647;
             .navigation-right{
                 width: 270px;
@@ -250,11 +255,13 @@ export default {
     }
     @media(max-width: 768px) {
         .navigation-wrap{
+            width: 80px;
             .shield{
                 opacity: 1;
                 transition-delay: 0s;
             }
             &.open{
+                width: 100vw;
                 .navigation-right{
                     width: calc(100vw - 80px);
                     .text-menu ul li{

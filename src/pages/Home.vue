@@ -1,5 +1,11 @@
 <template>
   <div>
+    <h2 class="project-map-title">
+      __{{$t('project')}}
+      {{$t('map')}}
+      <br />
+      <span>{{$t('Click-to-find-out-more')}}</span>
+    </h2>
     <Map :countryList="countryList" v-if="countryList.length"/>
     <div class="project-counter d-flex" id="number">
       <div class="project-col">
@@ -19,7 +25,7 @@
         <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
-    <div class="our-story d-flex">
+    <!-- <div class="our-story d-flex">
       <div class="title-story left d-flex">
         <h2>
           — {{$t('our')}} <br />
@@ -32,7 +38,7 @@
         <p>{{$t('text-3')}}</p>
         <p>{{$t('text-4')}}</p>
       </div>
-    </div>
+    </div> -->
     <div class="gallery d-flex flex-wrap">
       <router-link to="/category/architecture" class="gallery-block">
         <h3>_{{$t('architecture')}}</h3>
@@ -71,6 +77,12 @@
         </div>
       </router-link>
     </div>
+    <div class="d-flex justify-content-center">
+      <OurStory id="ourStory" />
+    </div>
+    <Teams id="teams" />
+    <Creators id="creators" />
+    <Collaborators id="collaborators" />
   </div>
 </template>
 
@@ -78,10 +90,18 @@
 import Map from '@/components/Map.vue'
 import { mapGetters, mapActions } from 'vuex'
 import countryesCod from '@/models/countryCod.js'
+import Creators from '@/components/Creators.vue'
+import Collaborators from '@/components/Collaborators.vue'
+import Teams from '@/components/Teams.vue'
+import OurStory from '@/components/OurStory'
 export default {
   name: 'Home',
   components: {
-    Map
+    Map,
+    Creators,
+    Collaborators,
+    Teams,
+    OurStory
   },
   data: () => ({
     numberAnimation: [0, 0, 0, 0],
@@ -94,10 +114,14 @@ export default {
     }
     this.filterProjectByCountry()
     this.$parent.$emit('loadingFinish')
+    setTimeout(this.initialization, 1500)
   },
-  async mounted () {
-    // fix for router animation
-    setTimeout(this.initialization, 600)
+  mounted () {
+    setTimeout(() => {
+      if (this.$route.params.anchor) {
+        this.$scrollTo(this.$route.params.anchor)
+      }
+    }, 700)
   },
   methods: {
     ...mapActions({
@@ -107,13 +131,15 @@ export default {
       let animationStart = false
       let clientHeight = document.documentElement.clientHeight
       let scrollToTopFromElement = document.getElementById('number').offsetTop
-      document.addEventListener('scroll', (e) => {
+      const scrollCallback = () => {
         let currentScrollToTop = window.pageYOffset
         if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
           this.animateNumber()
           animationStart = true
         }
-      })
+      }
+      document.addEventListener('scroll', scrollCallback)
+      scrollCallback()
     },
     animateNumber () {
       let step = 5
@@ -165,11 +191,24 @@ export default {
 .main-wrap{
   padding-left: 150px;
   transition: all 0.3s;
-  background: #f7f7f7;
   &.open{
     padding-left: 420px;
     &.unset-padding-left{
       padding-left: 150px;
+      transition: unset;
+    }
+  }
+  background: #f7f7f7;
+  .project-map-title {
+    font-size: 64px;
+    line-height: 1;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-left: 15%;
+    span {
+      font-size: 18px;
     }
   }
   main{
@@ -231,7 +270,7 @@ export default {
   }
   .gallery{
     margin-top: 155px;
-    margin-bottom: 185px;
+    margin-bottom: 80px;
     margin-right: -10px;
     margin-left: -10px;
     .gallery-block{
@@ -358,6 +397,11 @@ export default {
       }
     }
   }
+  .our-story-info .title-our-story h2,
+  .main-wrap .project-map-title,
+  .title{
+    font-size: 46px;
+  }
 }
 @media(max-width: 576px) {
   .main-wrap{
@@ -387,6 +431,14 @@ export default {
         font-size: 14px;
       }
     }
+  }
+  .our-story-info .title-our-story h2,
+  .main-wrap .project-map-title,
+  .title{
+    font-size: 24px;
+  }
+  .main-wrap .project-map-title span{
+    font-size: 16px;
   }
 }
 </style>

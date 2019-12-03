@@ -3,7 +3,7 @@
     <div class="main-wrap" id="wrap" :class="{'open': menuIsOpen, 'unset-padding-left': !paddingLeft}">
       <Header />
       <Navigation @toggleMenu="status => menuIsOpen = status" />
-      <main class="container-fluid">
+      <main class="container">
         <transition name="fade">
           <router-view/>
         </transition>
@@ -40,7 +40,7 @@ export default {
     } else {
       this.$i18n.locale = 'fr'
     }
-    if (this.$route.name === 'Teams') {
+    if (this.$route.name === 'Home') {
       this.paddingLeft = false
     } else {
       this.paddingLeft = true
@@ -52,7 +52,7 @@ export default {
   },
   watch: {
     '$route.name' () {
-      if (this.$route.name === 'Teams') {
+      if (this.$route.name === 'Home') {
         this.paddingLeft = false
       } else {
         this.paddingLeft = true
@@ -71,5 +71,10 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
   opacity: 0;
+}
+@media (max-width: 1200) {
+  .container{
+    max-width: 1170px;
+  }
 }
 </style>
