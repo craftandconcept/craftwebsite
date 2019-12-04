@@ -57,13 +57,11 @@ export default {
 
 <style lang="scss">
 .team-page{
-  max-width: 80%;
-  width: 80%;
   position: relative;
 }
 .title{
   font-weight: 700;
-  font-size: 64px;
+  font-size: 32px;
   line-height: 79px;
   text-transform: uppercase;
   color: #000;

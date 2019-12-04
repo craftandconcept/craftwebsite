@@ -34,6 +34,11 @@ export default {
   padding: 0 4px;
   border-left: 6px solid #f7f7f7;
   border-right: 6px solid #f7f7f7;
+  height: 100%;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
   .img-over{
     z-index: 3;
     position: absolute;

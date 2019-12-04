@@ -40,18 +40,19 @@ export default {
     background: #F8F8F8;
     z-index: 5;
     overflow: hidden;
+    display: flex;
     .photo-team{
-      display: inline-block;
-      vertical-align: top;
+      display: flex;
+      align-items: center;
       width: 43%;
-      height: 100%;
+      min-height: 100%;
       overflow: hidden;
       img{
         width: 100%;
       }
     }
     .info-team{
-      display: inline-block;
+      display: block;
       width: 57%;
       box-sizing: border-box;
       padding: 77px 46px 50px 58px;

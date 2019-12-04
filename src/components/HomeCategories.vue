@@ -74,16 +74,16 @@ export default {
   .title-wrap {
     margin-top: 40px;
     h2{
-      font-size: 64px;
+      font-size: 32px;
       font-weight: 700;
       line-height: 79px;
       text-transform: uppercase;
       color: #000000;
       @media(max-width: 767px) {
-        font-size: 46px;
+        font-size: 24px;
       }
       @media(max-width: 576px) {
-        font-size: 24px;
+        font-size: 18px;
       }
     }
   }
