@@ -1,10 +1,10 @@
 <template>
   <div @click.prevent="$emit('openModal')" class="team-item">
-    <img :src="require(`@/assets/img/team/${option.img}`)" :alt="option.firstName + option.lastName">
-    <img :src="require(`@/assets/img/team/${option.img_top}`)" :alt="option.firstName + option.lastName" class="img-over">
+    <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`] + option[`${str}last_name`]">
+    <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`] + option[`${str}last_name`]" class="img-over">
     <div class="text-wrap">
-      <p>{{option.profesion}}</p>
-      <p>{{option.firstName + ' ' + option.lastName}}</p>
+      <p>{{option[`${str}title`]}}</p>
+      <p>{{option[`${str}name`] + ' ' + option[`${str}last_name`]}}</p>
     </div>
     <div class="line-1"></div>
     <div class="line-2"></div>
@@ -14,10 +14,15 @@
 </template>
 
 <script>
+import { apiUrl } from '@/config'
 export default {
   name: 'TeamItem',
+  data: () => ({
+    backendUrl: apiUrl
+  }),
   props: {
-    option: Object
+    option: Object,
+    str: String
   }
 }
 </script>
@@ -29,6 +34,11 @@ export default {
   padding: 0 4px;
   border-left: 6px solid #f7f7f7;
   border-right: 6px solid #f7f7f7;
+  height: 100%;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
   .img-over{
     z-index: 3;
     position: absolute;

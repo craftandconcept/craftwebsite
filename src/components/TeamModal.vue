@@ -2,12 +2,12 @@
   <div>
     <div class="team-modal-wrap">
       <div class="photo-team">
-        <img :src="require(`../assets/img/team/${option.img}`)" :alt="option.firstName + option.lastName">
+        <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`] + option[`${str}last_name`]">
       </div>
       <div class="info-team">
-        <h2>_{{option.profesion}}</h2>
-        <h3>{{option.firstName + ' ' + option.lastName}}</h3>
-        <p>{{option.description}}</p>
+        <h2>_{{option[`${str}title`]}}</h2>
+        <h3>{{option[`${str}name`] + ' ' + option[`${str}last_name`]}}</h3>
+        <p>{{option[`${str}description`]}}</p>
       </div>
       <span class="close" @click="$emit('close')"></span>
     </div>
@@ -16,10 +16,15 @@
 </template>
 
 <script>
+import { apiUrl } from '@/config'
 export default {
   name: 'TeamModal',
+  data: () => ({
+    backendUrl: apiUrl
+  }),
   props: {
-    option: Object
+    option: Object,
+    str: String
   }
 }
 </script>
@@ -35,18 +40,19 @@ export default {
     background: #F8F8F8;
     z-index: 5;
     overflow: hidden;
+    display: flex;
     .photo-team{
-      display: inline-block;
-      vertical-align: top;
+      display: flex;
+      align-items: center;
       width: 43%;
-      height: 100%;
+      min-height: 100%;
       overflow: hidden;
       img{
         width: 100%;
       }
     }
     .info-team{
-      display: inline-block;
+      display: block;
       width: 57%;
       box-sizing: border-box;
       padding: 77px 46px 50px 58px;

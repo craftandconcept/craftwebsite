@@ -304,6 +304,9 @@ export default {
       }
     }
   }
+  .owl-carousel .owl-nav.disabled{
+    display: block;
+  }
 }
 @media(max-width: 1200px) {
   .main-wrap{

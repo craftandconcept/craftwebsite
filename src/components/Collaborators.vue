@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="collaborators.length">
     <h2 class="title">_{{$t('collaborators')}}</h2>
     <div class="team-page container collaborators">
       <carousel
@@ -11,13 +11,14 @@
         :navText="nav"
       >
         <team-item
-          v-for="(item, index) in teams"
+          v-for="(item, index) in collaborators"
           :key="index"
           :option="item"
           @openModal="openModal(index)"
+          str=""
         />
       </carousel>
-      <team-modal :option="activeItem" v-if="activeItem" @close="activeItem = null"/>
+      <team-modal :option="activeItem" v-if="activeItem" @close="activeItem = null" str=""/>
     </div>
   </div>
 </template>
@@ -25,76 +26,29 @@
 import Carousel from 'vue-owl-carousel'
 import TeamItem from '@/components/TeamItem.vue'
 import TeamModal from '@/components/TeamModal'
+import { getCollaborators } from '@/services/rest'
 
 export default {
-  name: 'Teams',
+  name: 'Collaborators',
   components: {
     Carousel,
     TeamItem,
     TeamModal
   },
   data: () => ({
-    teams: [
-      {
-        img: 'Artboard 1.jpg',
-        img_top: 'Artboard 1.jpg',
-        firstName: 'Sergii',
-        lastName: 'Slepkan',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: 'L&S_01.jpg',
-        img_top: 'L&S_01.jpg',
-        firstName: 'Olga',
-        lastName: 'Pulyaeva',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: 'YATOO.png',
-        img_top: 'YATOO.png',
-        firstName: 'Johannes',
-        lastName: 'Hohn',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: 'Artboard 1.jpg',
-        img_top: 'Artboard 1.jpg',
-        firstName: 'Sergii',
-        lastName: 'Slepkan',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: 'L&S_01.jpg',
-        img_top: 'L&S_01.jpg',
-        firstName: 'Olga',
-        lastName: 'Pulyaeva',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: 'YATOO.png',
-        img_top: 'YATOO.png',
-        firstName: 'Johannes',
-        lastName: 'Hohn',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      }
-    ],
+    collaborators: [],
     nav: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     activeItem: null,
     canDraw: false
   }),
-  created () {
+  async created () {
     this.$parent.$emit('loadingStart')
     this.$parent.$emit('loadingFinish')
+    this.collaborators = await getCollaborators()
   },
   methods: {
     openModal (index) {
-      this.activeItem = this.teams[index]
+      this.activeItem = this.collaborators[index]
     }
   }
 }
@@ -102,14 +56,12 @@ export default {
 
 <style lang="scss">
 .team-page{
-  max-width: 80%;
-  width: 80%;
   position: relative;
   padding-bottom: 40px;
 }
 .title{
   font-weight: 700;
-  font-size: 64px;
+  font-size: 32px;
   line-height: 79px;
   text-transform: uppercase;
   color: #000;
@@ -143,7 +95,8 @@ export default {
   .owl-carousel .owl-item {
     img {
       height: 230px;
-      background: #fff;
+      background: #f7f7f7;
+      object-fit: contain;
     }
   }
 }

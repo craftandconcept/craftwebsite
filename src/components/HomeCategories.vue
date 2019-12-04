@@ -62,24 +62,28 @@ export default {
 
 <style lang="scss" scoped>
 .category-wrap{
-  max-width: calc(100% - 50px);
+  max-width: 100%;
+  padding: 0 50px;
   margin: 0 auto;
+  @media (max-width: 767px) {
+    padding: 0 30px;
+  }
   .gallery{
     margin-top: 60px;
   }
   .title-wrap {
     margin-top: 40px;
     h2{
-      font-size: 64px;
+      font-size: 32px;
       font-weight: 700;
       line-height: 79px;
       text-transform: uppercase;
       color: #000000;
       @media(max-width: 767px) {
-        font-size: 46px;
+        font-size: 24px;
       }
       @media(max-width: 576px) {
-        font-size: 24px;
+        font-size: 18px;
       }
     }
   }
@@ -123,9 +127,6 @@ export default {
     &:hover a .hover-block{
       opacity: 1;
     }
-  }
-  /deep/ .owl-carousel .owl-nav.disabled{
-    display: block;
   }
 }
 @media(max-width: 767px) {
