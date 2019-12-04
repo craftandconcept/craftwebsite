@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="teams.length">
     <h2 class="title">_{{$t('team')}}</h2>
     <div class="team-page container">
       <carousel
@@ -9,15 +9,21 @@
         :uRLhashListener="true"
         :responsive="{0:{items:1},550:{items:2}, 800: {items:3}, 1300: {items: 3}}"
         :navText="nav"
+        :loop="true"
       >
-        <team-item
+        <template
           v-for="(item, index) in teams"
-          :key="index"
-          :option="item"
-          @openModal="openModal(index)"
-        />
+        >
+          <team-item
+            v-if="item.main_image"
+            :key="index"
+            :option="item"
+            @openModal="openModal(index)"
+            str=""
+          />
+        </template>
       </carousel>
-      <team-modal :option="activeItem" v-if="activeItem" @close="activeItem = null"/>
+      <team-modal :option="activeItem" v-if="activeItem" @close="activeItem = null" str=""/>
     </div>
   </div>
 </template>
@@ -25,6 +31,7 @@
 import Carousel from 'vue-owl-carousel'
 import TeamItem from '@/components/TeamItem.vue'
 import TeamModal from '@/components/TeamModal'
+import { getTeams } from '@/services/rest'
 
 export default {
   name: 'Teams',
@@ -34,71 +41,15 @@ export default {
     TeamModal
   },
   data: () => ({
-    teams: [
-      {
-        img: 'IMG_4296.png',
-        img_top: 'IMG_4296.png',
-        firstName: 'Sergii',
-        lastName: 'Slepkan',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: 'IMG_4300_Olga.png',
-        img_top: 'IMG_4300_Olga.png',
-        firstName: 'Olga',
-        lastName: 'Pulyaeva',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: 'IMG_4307_John.png',
-        img_top: 'IMG_4307_John.png',
-        firstName: 'Johannes',
-        lastName: 'Hohn',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: '1.1.png',
-        img_top: '1.jpg',
-        firstName: 'Vlada',
-        lastName: 'Makhno',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: '1.1.png',
-        img_top: '1.jpg',
-        firstName: 'Vlada',
-        lastName: 'Makhno',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: '1.1.png',
-        img_top: '1.jpg',
-        firstName: 'Vlada',
-        lastName: 'Makhno',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      },
-      {
-        img: '1.1.png',
-        img_top: '1.jpg',
-        firstName: 'Vlada',
-        lastName: 'Makhno',
-        profesion: 'INTERIOR DESIGNER, DECORATOR',
-        description: 'The main Sergey’s muse. She got art history and marketing education, dismantling a stereotype that artists fail at exact sciences. She is keen on floristics and knows everything about flowers. Vlada has been with our workshop for about 10 years. We have already lost count of how many breathtaking projects she has created during this time. A lot of them are professionally awarded. Vlada loves when the projects are living, and their owners find there themselves – habits, preferences and their lifestyle itself.'
-      }
-    ],
     nav: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     activeItem: null,
-    canDraw: false
+    canDraw: false,
+    teams: []
   }),
-  created () {
+  async created () {
     this.$parent.$emit('loadingStart')
     this.$parent.$emit('loadingFinish')
+    this.teams = await getTeams()
   },
   methods: {
     openModal (index) {

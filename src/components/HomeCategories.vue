@@ -62,8 +62,12 @@ export default {
 
 <style lang="scss" scoped>
 .category-wrap{
-  max-width: calc(100% - 50px);
+  max-width: 100%;
+  padding: 0 50px;
   margin: 0 auto;
+  @media (max-width: 767px) {
+    padding: 0 30px;
+  }
   .gallery{
     margin-top: 60px;
   }
@@ -123,9 +127,6 @@ export default {
     &:hover a .hover-block{
       opacity: 1;
     }
-  }
-  /deep/ .owl-carousel .owl-nav.disabled{
-    display: block;
   }
 }
 @media(max-width: 767px) {
