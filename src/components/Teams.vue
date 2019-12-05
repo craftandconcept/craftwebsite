@@ -95,4 +95,12 @@ export default {
     max-width: 100%;
   }
 }
+@media(max-width: 767px) {
+  .team-page{
+    padding: 0;
+  }
+  .owl-theme .owl-nav {
+    display: none;
+  }
+}
 </style>

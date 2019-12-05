@@ -155,6 +155,7 @@ export default {
       max-height: 100vh;
       width: 100%;
       max-width: 470px;
+      flex-wrap: wrap;
       .photo-team{
         display: block;
         width: 100%;
@@ -162,13 +163,17 @@ export default {
         max-height: 50vh;
         img{
           width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       }
       .info-team{
         display: block;
         width: 100%;
         padding: 30px;
-
+        h3 {
+          font-size: 32px;
+        }
       }
     }
   }
