@@ -103,6 +103,7 @@ class ProjectsController extends Controller
             'city' => request('city'),
             'main_image' => $main_img_url,
             'main_text' => request('main_text'),
+            'main_description' => request('main_description'),
             'creators' => request('creator'),
             'collaborators' => request('collaborators'),
             'function' => request('function'),
@@ -110,6 +111,7 @@ class ProjectsController extends Controller
             'status' => request('status'),
             'photos_by' => request('photos_by'),
         ]);
+
 
         if($request->input('categories')){
             $project->categories()->attach($request->input('categories'));
@@ -198,13 +200,13 @@ class ProjectsController extends Controller
             }
         }
 
-
         $project->update([
             'name' => request('name'),
             'country_id' => request('country'),
             'city' => request('city'),
             'main_image' => $main_img_url,
             'main_text' => request('main_text'),
+            'main_description' => request('main_description'),
             'creators' => request('creator'),
             'collaborators' => request('collaborators'),
             'function' => request('function'),
@@ -212,6 +214,7 @@ class ProjectsController extends Controller
             'status' => request('status'),
             'photos_by' => request('photos_by'),
         ]);
+
 
         $project->categories()->detach();
         if($request->input('categories')){
