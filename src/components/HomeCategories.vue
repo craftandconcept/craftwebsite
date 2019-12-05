@@ -66,7 +66,7 @@ export default {
   padding: 0 50px;
   margin: 0 auto;
   @media (max-width: 767px) {
-    padding: 0 30px;
+    padding: 0;
   }
   .gallery{
     margin-top: 60px;

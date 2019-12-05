@@ -109,16 +109,13 @@ export default {
 }
 @media (max-width: 767px) {
   .team-page{
-    padding: 0 30px;
-  }
-  .owl-prev{
-    left: -30px;
-  }
-  .owl-next{
-    right: -30px;
+    padding: 0;
   }
   .owl-item{
     padding-right: 0px;
+  }
+  .owl-theme .owl-nav {
+    display: none;
   }
 }
 </style>
