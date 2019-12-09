@@ -4,19 +4,26 @@
       <div class="row footer-contacts">
         <div class="col-xl-3 col-lg-3">
           <div class="phone">
-            <h3>{{$t('phone:')}}</h3>
-            <a href="tel: +41788399321">+41 78 839 93 21</a>
+            <h3>_{{$t('call')}}</h3>
+            <a href="tel:+41768151818">+41 76 815 18 18</a><br>
+            <a href="tel:+41763447544">+41 76 344 75 44</a><br>
+            <a href="tel:+41788399321">+41 78 839 93 21</a>
           </div>
         </div>
         <div class="col-xl-3 col-lg-3">
           <div class="e-mail">
-            <h3>{{$t('e-mail:')}}</h3>
+            <h3>_{{$t('e-mail:')}}</h3>
             <a href="mailto: info@craftandconcept.ch">info@craftandconcept.ch</a>
           </div>
         </div>
         <div class="col-xl-4 col-lg-4">
-          <div class="text-footer">
-            <p>{{$t('want-to-schedule-a-meeting-text-us-under-chat')}}</p>
+          <div class="e-mail">
+            <h3>_{{$t('visit')}}</h3>
+            <p>
+              Avenue des Alpes 98,<br>
+              1820 Montreux<br>
+              Switzerland
+            </p>
           </div>
         </div>
         <!-- <div class="col-5">
@@ -52,7 +59,7 @@ export default {
       .phone a,
       .e-mail h3,
       .e-mail a,
-      .text-footer{
+      .e-mail{
         font-size: 14px;
         font-weight: 400;
         line-height: 17px;
@@ -73,7 +80,7 @@ export default {
           position: absolute;
           width: 0;
           left: 50%;
-          bottom: -5px;
+          bottom: -2px;
           height: 2px;
           background: #f7f7f7;
           transition: all .6s;
@@ -129,6 +136,11 @@ export default {
           margin-top: 10px;
         }
       }
+    }
+  }
+  @media(max-width: 767px) {
+    h3 {
+      margin-top: 15px;
     }
   }
 </style>

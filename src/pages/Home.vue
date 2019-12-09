@@ -194,12 +194,12 @@ export default {
 
 <style lang="scss">
 .main-wrap{
-  padding-left: 150px;
+  padding-left: 109px;
   transition: all 0.3s;
   &.open{
-    padding-left: 420px;
+    padding-left: 379px;
     &.unset-padding-left{
-      padding-left: 150px;
+      padding-left: 109px;
       transition: unset;
     }
   }
