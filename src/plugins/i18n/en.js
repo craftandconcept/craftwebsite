@@ -17,6 +17,8 @@ export default {
   'collaborators': 'Collaborators',
   'contact-us': 'Contact us',
   'phone:': 'Phone:',
+  'call': 'Call',
+  'visit': 'Visit',
   'e-mail:': 'E-mail:',
   'want-to-schedule-a-meeting-text-us-under-chat': 'Want to schedule a meeting - text us under chat',
   'have-an-idea-for-new-design?': 'Have an idea for new design?',

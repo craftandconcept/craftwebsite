@@ -4,7 +4,7 @@
       <h2>_{{$t('our-story')}}</h2>
     </div>
     <div class="our-story-img">
-      <img src="../assets/img/our-story-img.png" alt="our-story-img">
+      <img src="../assets/img/our-story-img.jpg" alt="our-story-img">
     </div>
     <div class="shield-our-story">
       <div class="text-img-shield d-lg-flex d-none">
@@ -70,6 +70,8 @@ export default {
     margin-top: 40px;
     img{
       width: 100%;
+      max-height: 500px;
+      object-fit: cover;
     }
   }
   .text-our-story{
