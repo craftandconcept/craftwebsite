@@ -8,7 +8,9 @@
       :key="category.id"
     >
     <div class="title-wrap">
-      <h2>__{{category.category_name}}</h2>
+      <router-link :to="{name: 'Category', params: {id: category.id}}">
+        <h2>__{{category.category_name}}</h2>
+      </router-link>
     </div>
       <carousel
         :responsive="{0:{items:1},700:{items:2}, 800: {items:3}, 1300: {items: 3}}"
@@ -73,6 +75,9 @@ export default {
   }
   .title-wrap {
     margin-top: 40px;
+    a{
+      text-decoration: none;
+    }
     h2{
       font-size: 32px;
       font-weight: 700;

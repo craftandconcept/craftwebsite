@@ -1,7 +1,7 @@
 <template>
 <div class="category-wrap">
   <div class="titel-ah">
-    <h2>_{{$t($route.params.name)}}</h2>
+    <h2>_{{getCategoryName}}</h2>
   </div>
   <div class="gallery d-flex flex-wrap" v-if="getFiltredProject.length">
     <div class="gallery-block project" v-for="(project, index) in getFiltredProject" :key="index">
@@ -19,8 +19,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import Category from '@/models/category'
+import { mapActions, mapGetters } from 'vuex'
 import { apiUrl } from '@/config'
 export default {
   name: 'Category',
@@ -29,12 +28,16 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      projects: 'projects'
+      projects: 'projects',
+      categories: 'categories',
     }),
     getFiltredProject () {
       return this.projects.filter(item => {
-        return (item.category_name.filter(category => category.toLowerCase() === Category[this.$route.params.name])).length
+        return item.category_ids.includes(+this.$route.params.id)
       })
+    },
+    getCategoryName () {
+      return (this.categories.find(category => category.id === +this.$route.params.id)).category_name
     }
   },
   async created () {

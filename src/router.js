@@ -50,7 +50,7 @@ export default new Router({
           ]
         },
         {
-          path: 'category/:name',
+          path: 'category/:id',
           name: 'Category',
           component: Category
         },

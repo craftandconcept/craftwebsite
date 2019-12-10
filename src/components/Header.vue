@@ -2,10 +2,11 @@
   <header class="header">
     <div class="container-fluid">
       <div class="d-flex justify-content-between aling-items-center">
-        <div class="left d-flex align-items-center">
+        <div class="left d-flex">
           <router-link :to="{name: 'Home'}" class="logo">
-            <img src="../assets/img/logo.png" alt="logo" />
+            <img src="../assets/img/logo.jpg" alt="logo" />
           </router-link>
+          <p>complex design solutions</p>
         </div>
         <div class="right d-flex">
           <div class="translator d-flex" v-if="false">
@@ -32,6 +33,21 @@ export default {
 <style lang="scss">
   .header{
     padding: 37px 0 0;
+    .left{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      .logo{
+        img{
+          max-height: 26px;
+        }
+      }
+      p{
+        font-size: 32px;
+        font-weight: 700;
+      }
+    }
     .translator{
       align-items: center;
       margin-right: 80px;
@@ -51,8 +67,13 @@ export default {
   }
   @media(max-width: 767px) {
     .header{
-      .left img{
-        height: 45px;
+      .left {
+        .logo img{
+          height: 11px;
+        }
+        p{
+          font-size: 13px;
+        }
       }
       .two-s img{
         width: 80px;
