@@ -7,12 +7,12 @@
       <div class="left">
         <div class="categories">
           <p v-show="activeProject.main_description"><span>Project:</span> {{activeProject.main_description}}</p>
-          <p>
+          <!-- <p>
             <span>Category:</span>
             <label v-for="(category, index) in activeProject.category_name" :key="index" class="mr-2">
               {{category}}
             </label>
-          </p>
+          </p> -->
           <p v-show="activeProject.creator_name"><span>Creators:</span> {{activeProject.creator_name}}</p>
           <p v-show="activeProject.collaborators"><span>Collaborators:</span> {{activeProject.collaborators}}</p>
           <p>

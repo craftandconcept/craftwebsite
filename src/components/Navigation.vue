@@ -22,12 +22,12 @@
             <div class="text-menu">
                 <ul>
                     <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">{{$t('our-story')}}</a></li>
-                    <li><router-link to="/category/architecture">_{{$t('architecture')}}</router-link></li>
-                    <li><router-link to="/category/interior-design">_{{$t('interior-design')}}</router-link></li>
+                    <li v-for="catogory in categories" :key="catogory.id"><router-link :to="`/category/${catogory.id}`">_{{catogory.category_name}}</router-link></li>
+                    <!-- <li><router-link to="/category/interior-design">_{{$t('interior-design')}}</router-link></li>
                     <li><router-link to="/category/individual-objects">_{{$t('individual-objects')}}</router-link></li>
                     <li><router-link to="/category/3d-rendering">_{{$t('3d-rendering')}}</router-link></li>
                     <li><router-link to="/category/brand-development">_{{$t('brand-development')}}</router-link></li>
-                    <li><router-link to="/category/production-facilities">_{{$t('production-facilities')}}</router-link></li>
+                    <li><router-link to="/category/production-facilities">_{{$t('production-facilities')}}</router-link></li> -->
                     <li><a href="#" @click.prevent="toHome('#teams')" v-scroll-to="'#teams'">{{$t('team')}}</a></li>
                     <li><a href="#" @click.prevent="toHome('#creators')" v-scroll-to="'#creators'">{{$t('creators')}}</a></li>
                     <li><a href="#" @click.prevent="toHome('#collaborators')" v-scroll-to="'#collaborators'">{{$t('collaborators')}}</a></li>
@@ -40,7 +40,7 @@
 
 <script>
 import Shield from '@/components/Shield.vue'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Navigation',
   data: () => ({
@@ -49,9 +49,20 @@ export default {
   components: {
     Shield
   },
+  created() {
+      if (!this.categories.length) {
+          this.getCategories()
+      }
+  },
+  computed: mapGetters({
+    categories: 'categories'
+  }),
   methods: {
     ...mapMutations({
       toggleNav: 'toggleNav'
+    }),
+    ...mapActions({
+        getCategories: 'getCategories'
     }),
     toggleMenu () {
       this.toggleNav()
@@ -233,6 +244,7 @@ export default {
             .navigation-left{
                 .burger{
                     width: 40px;
+                    min-height: 40px;
                     height: 40px;
                     span{
                         height: 2px;
@@ -259,12 +271,20 @@ export default {
                 opacity: 1;
                 transition-delay: 0s;
             }
+            .navigation-left{
+                max-height: 100vh;
+                overflow: auto;
+            }
             &.open{
                 width: 100vw;
                 .navigation-right{
                     width: calc(100vw - 80px);
-                    .text-menu ul li{
-                        text-align: center;
+                    .text-menu{
+                        max-height: 100vh;
+                        overflow: auto;
+                        ul li{
+                            text-align: center;
+                        }
                     }
                 }
             }

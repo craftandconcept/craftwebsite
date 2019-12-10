@@ -148,7 +148,7 @@ export default {
     },
     animateNumber () {
       let step = 5
-      let values = [18, 500, 450, 26]
+      let values = [20, 500, 450, 71]
       let numberAnimationIsFinish = [false, false, false, false]
       this.numberAnimation = this.numberAnimation.map((num, i) => {
         if (num + 5 < values[i]) {
@@ -197,7 +197,7 @@ export default {
   padding-left: 109px;
   transition: all 0.3s;
   &.open{
-    padding-left: 379px;
+    padding-left: 329px;
     &.unset-padding-left{
       padding-left: 109px;
       transition: unset;

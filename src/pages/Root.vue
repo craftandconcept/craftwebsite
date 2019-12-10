@@ -66,7 +66,7 @@ export default {
   max-height: 100vh;
   overflow: hidden;
 }
-.fade-enter-active, .fade-leave-active {
+.fade-leave-active {
   transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
