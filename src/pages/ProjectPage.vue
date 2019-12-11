@@ -4,6 +4,9 @@
       <h2>_{{activeProject.name}}</h2>
     </div>
     <div class="info-project">
+      <div class="main-img-wrap">
+        <img :src="backendUrl + activeProject.main_image" :alt="activeProject.name">
+      </div>
       <div class="left">
         <div class="categories">
           <p v-show="activeProject.main_description"><span>Project:</span> {{activeProject.main_description}}</p>
@@ -88,6 +91,15 @@ export default {
   .info-project{
     display: flex;
     flex-wrap: wrap;
+    .main-img-wrap{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      img{
+        max-width: 100%;
+        margin-bottom: 30px;
+      }
+    }
     .left,
     .right{
       width: 50%;
