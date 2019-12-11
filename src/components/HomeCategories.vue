@@ -7,31 +7,33 @@
       v-for="category in categories"
       :key="category.id"
     >
-    <div class="title-wrap">
-      <router-link :to="{name: 'Category', params: {id: category.id}}">
-        <h2>__{{category.category_name}}</h2>
-      </router-link>
-    </div>
-      <carousel
-        :responsive="{0:{items:1},700:{items:2}, 800: {items:3}, 1300: {items: 3}}"
-        :dots="false"
-        :margin="11"
-        :navText="nav"
-        :loop="true"
-        :autoplay="isMobile"
-        :autoplayTimeout="3000"
-      >
-        <div class="gallery-block project" v-for="project in getProjectByCategories(category.id)" :key="project.name">
-          <router-link :to="{name: 'Project', params: {id: project.id}}">
-            <div class="overflow">
-              <img :src="backendUrl + project.main_image" :alt="project.name" />
-            </div>
-            <div class="hover-block">
-              <h2>{{project.name}}</h2>
-            </div>
-          </router-link>
-        </div>
-      </carousel>
+      <div class="title-wrap">
+        <router-link :to="{name: 'Category', params: {id: category.id}}">
+          <h2>__{{category.category_name}}</h2>
+        </router-link>
+      </div>
+      <div class="corousel-container">
+        <carousel
+          :responsive="{0:{items:1},700:{items:2}, 800: {items:3}, 1300: {items: 3}}"
+          :dots="false"
+          :margin="11"
+          :navText="nav"
+          :loop="true"
+          :autoplay="isMobile"
+          :autoplayTimeout="3000"
+        >
+          <div class="gallery-block project" v-for="project in getProjectByCategories(category.id)" :key="project.name">
+            <router-link :to="{name: 'Project', params: {id: project.id}}">
+              <div class="overflow">
+                <img :src="backendUrl + project.main_image" :alt="project.name" />
+              </div>
+              <div class="hover-block">
+                <h2>{{project.name}}</h2>
+              </div>
+            </router-link>
+          </div>
+        </carousel>
+      </div>
     </div>
   </div>
 </template>
@@ -65,16 +67,19 @@ export default {
 <style lang="scss" scoped>
 .category-wrap{
   max-width: 100%;
-  padding: 0 50px;
   margin: 0 auto;
-  @media (max-width: 767px) {
-    padding: 0;
+  .corousel-container {
+    padding: 0 50px;
+    @media (max-width: 767px) {
+      padding: 0;
+    }
   }
   .gallery{
     margin-top: 60px;
   }
   .title-wrap {
     margin-top: 40px;
+    margin-bottom: 40px;
     a{
       text-decoration: none;
     }

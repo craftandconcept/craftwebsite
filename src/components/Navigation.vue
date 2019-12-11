@@ -49,10 +49,10 @@ export default {
   components: {
     Shield
   },
-  created() {
-      if (!this.categories.length) {
-          this.getCategories()
-      }
+  created () {
+    if (!this.categories.length) {
+      this.getCategories()
+    }
   },
   computed: mapGetters({
     categories: 'categories'
@@ -62,7 +62,7 @@ export default {
       toggleNav: 'toggleNav'
     }),
     ...mapActions({
-        getCategories: 'getCategories'
+      getCategories: 'getCategories'
     }),
     toggleMenu () {
       this.toggleNav()
@@ -88,7 +88,7 @@ export default {
         background: #f7f7f7;
         display: flex;
         transition: all 0.3s;
-        max-width: 150px;
+        max-width: 109px;
         .navigation-left{
             border-right: 1px solid #E8E8E8;
             height: 100%;

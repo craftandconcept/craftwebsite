@@ -29,7 +29,7 @@ export default {
   computed: {
     ...mapGetters({
       projects: 'projects',
-      categories: 'categories',
+      categories: 'categories'
     }),
     getFiltredProject () {
       return this.projects.filter(item => {
@@ -37,7 +37,7 @@ export default {
       })
     },
     getCategoryName () {
-      return (this.categories.find(category => category.id === +this.$route.params.id)).category_name
+      return this.categories.length ? (this.categories.find(category => category.id === +this.$route.params.id)).category_name : ''
     }
   },
   async created () {
@@ -45,11 +45,15 @@ export default {
     if (!this.projects.length) {
       this.getProjects()
     }
+    if (!this.categories.length) {
+      this.getCategories()
+    }
     this.$parent.$emit('loadingFinish')
   },
   methods: {
     ...mapActions({
-      getProjects: 'getProjects'
+      getProjects: 'getProjects',
+      getCategories: 'getCategories'
     })
   }
 }
