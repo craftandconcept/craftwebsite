@@ -22,7 +22,7 @@
             {{method_field('PUT')}}
             <div class="form-group">
                 <label for="name">Name</label>
-            <input name="name" type="text" class="form-control" value="{{$project->name}}">
+            <input name="name" required type="text" class="form-control" value="{{$project->name}}">
             </div>
 
             <div class="form-group">
@@ -54,7 +54,7 @@
                         <label class="input-group-text" for="inputGroupSelectCountry">Country</label>
                     </div>
 
-                    <select name="country" class="custom-select" type="text">
+                    <select required name="country" class="custom-select" type="text">
                         <option value="">Please select</option>
                         @foreach ($countries as $country)
                         <option value="{{$country->id}}"
