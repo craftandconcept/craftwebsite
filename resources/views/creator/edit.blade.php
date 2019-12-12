@@ -102,14 +102,14 @@
                                         </div>
                                         <div class="custom-file">
                                             <input type="hidden" name="photo_id[{{$photo->id}}]" value="{{$photo->id}}">
-                                            <input type="file" name="image[{{$i_key}}]" class="custom-file-input">
-                                            <input type="hidden" name="isset_image[{{$i_key}}]" value="{{$photo->image->path}}" class="form-control">
+                                            <input type="file" name="image[{{$photo->id}}]" class="custom-file-input">
+                                            <input type="hidden" name="isset_image[{{$photo->id}}]" value="{{$photo->image->path}}" class="form-control">
                                             <label class="custom-file-label">{{$photo->image->path}}</label>
                                         </div>
                                         <div class="d-flex">
                                             <label for="full_image" class="ws-nowrap">Full size</label>
-                                            <input type="hidden" class="custom-check-input" name="full_image[{{$i_key}}]" value="{{$photo->full}}">
-                                            <input name="full11_image[{{$i_key}}]" class="custom-check-input" onclick="this.previousSibling.previousSibling.value=1-this.previousSibling.previousSibling.value" type="checkbox" value="1"
+                                            <input type="hidden" class="custom-check-input" name="full_image[{{$photo->id}}]" value="{{$photo->full}}">
+                                            <input name="full11_image[{{$photo->id}}]" class="custom-check-input" onclick="this.previousSibling.previousSibling.value=1-this.previousSibling.previousSibling.value" type="checkbox" value="1"
                                                    @if($photo->image->full == 1)
                                                    checked="checked"
                                                     @endif
