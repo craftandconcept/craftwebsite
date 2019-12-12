@@ -9,7 +9,13 @@ class TeamsApiController extends Controller
 {
     public function index()
     {
-        return response()->json(['teams' => Team::all()], 200);
+        $teams = Team::all();
+        foreach ($teams as $key => &$team){
+            foreach ($team->images as $image){
+                $image->image->path;
+            }
+        }
+        return response()->json(['teams' => $teams], 200);
     }
 
     public function show($id)

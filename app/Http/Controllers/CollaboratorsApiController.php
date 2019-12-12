@@ -9,7 +9,13 @@ class CollaboratorsApiController extends Controller
 {
     public function index()
     {
-        return response()->json(['collaborator' => Collaborator::all()], 200);
+        $colaborators = Collaborator::all();
+        foreach ($colaborators as $key => &$colaborator){
+            foreach ($colaborator->images as $image){
+                $image->image->path;
+            }
+        }
+        return response()->json(['collaborator' => $colaborators], 200);
     }
 
     public function show($id)

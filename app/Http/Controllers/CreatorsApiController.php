@@ -9,14 +9,20 @@ class CreatorsApiController extends Controller
 {
     public function index()
     {
-        return response()->json(['creators' => Creator::all()], 200);
+        $creators = Creator::all();
+        foreach ($creators as $key => &$creator){
+            foreach ($creator->images as $image){
+                $image->image->path;
+            }
+        }
+        return response()->json(['creators' => $creators], 200);
     }
 
     public function show($id)
     {
         $creator = Creator::findOrFail($id);
         foreach ($creator->images as $image){
-            $data['images'][]=$image->image->path;
+            $creator['images'][]=$image->image->path;
         }
         return response()->json(['creator' => $creator], 200);
     }
