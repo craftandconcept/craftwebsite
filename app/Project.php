@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     //
-     protected $fillable = ['name','country_id','collaborators','size','main_description', 'city', 'status','function','photos_by','main_image', 'main_text', 'creator_id'];
+     protected $fillable = ['name','country_id','collaborators','size','main_description', 'city', 'status','function','photos_by','main_image', 'main_text', 'creator'];
 
     public function categories(){
         return $this->belongsToMany('App\Category');
