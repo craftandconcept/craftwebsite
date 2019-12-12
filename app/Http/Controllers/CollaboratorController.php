@@ -40,7 +40,7 @@ class CollaboratorController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:2|max:50',
+            'name' => 'required|min:2|max:50|unique:collaborators,name',
             'last_name' => 'max:50',
             'title' => 'max:254',
         ]);
