@@ -153,6 +153,9 @@ export default {
   }
   .img-project{
     margin: 100px 0 30px;
+    @media(max-width: 767px) {
+      margin: 25px 0 10px;
+    }
     p{
       padding-top: 10px;
       margin: 0;
@@ -168,6 +171,9 @@ export default {
       margin-bottom: 70px;
       max-height: 100vh;
       object-fit: contain;
+      @media(max-width: 767px) {
+        margin-bottom: 10;
+      }
     }
   }
 }
@@ -242,6 +248,7 @@ export default {
       }
     }
     .plan-project{
+      margin-top: 30px;
       img{
         max-width: 100%;
         max-height: 100vh;

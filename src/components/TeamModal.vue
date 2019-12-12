@@ -2,14 +2,21 @@
   <div>
     <div class="team-modal-wrap">
       <div class="photo-team">
-        <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`] + option[`${str}last_name`]">
+        <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`]">
       </div>
       <div class="info-team">
         <h2>_{{option[`${str}title`]}}</h2>
-        <h3>{{option[`${str}name`] + ' ' + option[`${str}last_name`]}}</h3>
+        <h3>
+          {{option[`${str}name`] + ' '}}
+          <template v-show="option[`${str}last_name`]">
+            {{option[`${str}last_name`]}}
+          </template>
+        </h3>
         <p>{{option[`${str}description`]}}</p>
       </div>
-      <span class="close" @click="$emit('close')"></span>
+      <span class="close" @click="$emit('close')">
+        <i class="fa fa-times"></i>
+      </span>
     </div>
     <div class="overlay" @click="$emit('close')"></div>
   </div>
@@ -82,31 +89,50 @@ export default {
     }
     .close {
       position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       right: 32px;
       top: 32px;
       width: 24px;
       height: 24px;
       opacity: 0.3;
       cursor: pointer;
+      @media(max-width: 767px) {
+        opacity: 0.7;
+        top: 15px;
+        right: 20px;
+        background: rgba(256, 256, 256, .95);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        i{
+          color: #000;
+          line-height: 1;
+          margin-top: -2px;
+        }
+      }
       &:hover{
         opacity: 1;
       }
-      &:before,
-      &:after{
-        position: absolute;
-        left: 15px;
-        content: ' ';
-        height: 33px;
-        width: 2px;
-        background-color: #424647;
-
-      }
-      &:before{
-        transform: rotate(45deg);
-      }
-      &:after{
-        transform: rotate(-45deg);
-      }
+      // &:before,
+      // &:after{
+      //   position: absolute;
+      //   left: 15px;
+      //   content: ' ';
+      //   height: 33px;
+      //   width: 2px;
+      //   background-color: #424647;
+      //   @media(max-width: 767px) {
+      //     background: #000;
+      //   }
+      // }
+      // &:before{
+      //   transform: rotate(45deg);
+      // }
+      // &:after{
+      //   transform: rotate(-45deg);
+      // }
     }
   }
   .overlay{

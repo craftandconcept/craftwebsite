@@ -22,12 +22,10 @@
             <div class="text-menu">
                 <ul>
                     <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">{{$t('our-story')}}</a></li>
-                    <li v-for="catogory in categories" :key="catogory.id"><router-link :to="`/category/${catogory.id}`">_{{catogory.category_name}}</router-link></li>
-                    <!-- <li><router-link to="/category/interior-design">_{{$t('interior-design')}}</router-link></li>
-                    <li><router-link to="/category/individual-objects">_{{$t('individual-objects')}}</router-link></li>
-                    <li><router-link to="/category/3d-rendering">_{{$t('3d-rendering')}}</router-link></li>
-                    <li><router-link to="/category/brand-development">_{{$t('brand-development')}}</router-link></li>
-                    <li><router-link to="/category/production-facilities">_{{$t('production-facilities')}}</router-link></li> -->
+                    <li v-for="catogory in categories" :key="catogory.id">
+                        <a href="#" @click.prevent="toHome(`#${catogory.category_name.replace(/ /g,'')}`)" v-scroll-to="`#${catogory.category_name.replace(/ /g,'')}`">_{{catogory.category_name}}</a>
+                        <!-- <router-link :to="`/category/${catogory.id}`">_{{catogory.category_name}}</router-link> -->
+                    </li>
                     <li><a href="#" @click.prevent="toHome('#teams')" v-scroll-to="'#teams'">{{$t('team')}}</a></li>
                     <li><a href="#" @click.prevent="toHome('#creators')" v-scroll-to="'#creators'">{{$t('creators')}}</a></li>
                     <li><a href="#" @click.prevent="toHome('#collaborators')" v-scroll-to="'#collaborators'">{{$t('collaborators')}}</a></li>
@@ -267,6 +265,7 @@ export default {
     @media(max-width: 768px) {
         .navigation-wrap{
             width: 80px;
+            max-width: 80px;
             .shield{
                 opacity: 1;
                 transition-delay: 0s;
