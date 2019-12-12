@@ -31,7 +31,7 @@
                 <div class="row">
                     @foreach ($categories as $category)
                         <label class="d-flex align-items-center col-6 col-md-3">
-                            <input type="checkbox" class="mr-1" name="categories[]" value="{{$category->id}}">
+                            <input type="checkbox" class="mr-1 category" name="categories[]" value="{{$category->id}}">
                             {{$category->category_name}}
                         </label>
                     @endforeach
@@ -189,7 +189,7 @@
 
             <div class="text-right">
                 <button class="btn btn-success add-new-file mr-1" type="button">Add Image</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" id="save" class="btn btn-primary">Save</button>
             </div>
 
             @if($errors->any())
@@ -206,8 +206,8 @@
 </div>
 <script>
         $(document).ready(function () {
-        $('.btn-primary').click(function() {
-          checked = $("input[type=checkbox]:checked").length;
+        $('#save').click(function() {
+          checked = $(".category input[type=checkbox]:checked").length;
 
           if(!checked) {
             alert("You should check at least one category.");
@@ -216,6 +216,5 @@
 
         });
     });
-    </script>
-
+</script>
 @endsection
