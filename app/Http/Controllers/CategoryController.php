@@ -41,7 +41,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:2',
+            'name' => 'required|min:2|max:254|unique:categories,category_name',
         ]);
         Category::create([
             'category_name' => request('name')
@@ -57,9 +57,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        
+
         return view('admin.category_show', compact('category'));
-        
+
     }
 
     /**
@@ -69,8 +69,8 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
-    {   
-        
+    {
+
         return view('admin.category_edit', compact('category'));
     }
 
@@ -84,7 +84,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $data = $request->validate([
-            'name' => 'required|min:2',
+            'name' => 'required|min:2|max:254|unique:categories,category_name',
         ]);
         $category->update([
             'category_name' => request('name')

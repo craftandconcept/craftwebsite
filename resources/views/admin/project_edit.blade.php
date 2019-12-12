@@ -230,7 +230,7 @@
 <script>
         $(document).ready(function () {
         $('#save').click(function() {
-          checked = $(".category input[type=checkbox]:checked").length;
+          checked = $(".category:checked").length;
 
           if(!checked) {
             alert("You should check at least one category.");

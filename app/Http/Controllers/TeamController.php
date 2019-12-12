@@ -39,6 +39,11 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate([
+            'name' => 'required|min:2|max:50',
+            'last_name' => 'max:50',
+            'title' => 'max:254',
+        ]);
         $data = $request->all();
 
         $team = Team::create($data);
@@ -109,6 +114,11 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
+        $data = $request->validate([
+            'name' => 'required|min:2|max:50',
+            'last_name' => 'max:50',
+            'title' => 'max:254',
+        ]);
         $data = $request->all();
 
         $team->update($data);

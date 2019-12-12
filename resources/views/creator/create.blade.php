@@ -23,7 +23,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="creator_name">First Name</label>
-                        <input name="creator_name" id="creator_name" class="form-control" type="text">
+                        <input required name="creator_name" id="creator_name" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label for="creator_last_name">Last Name</label>

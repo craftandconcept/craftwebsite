@@ -23,7 +23,7 @@
                     {{method_field('PUT')}}
                     <div class="form-group">
                         <label for="name">First Name</label>
-                        <input name="name"  value="{{$team->name}}" id="name" class="form-control" type="text">
+                        <input required name="name"  value="{{$team->name}}" id="name" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label for="last_name">Last Name</label>

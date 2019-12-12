@@ -48,11 +48,7 @@
                                     <li class="nav-item d-inline">
                                         <a class="p-2 text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
-                                    @if (Route::has('register'))
-                                        <li class="nav-item d-inline">
-                                            <a class="p-2 text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                        </li>
-                                    @endif
+
                                 @else
 
                                 <li class="d-none">

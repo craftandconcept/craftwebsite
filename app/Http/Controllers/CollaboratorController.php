@@ -39,6 +39,11 @@ class CollaboratorController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate([
+            'name' => 'required|min:2|max:50',
+            'last_name' => 'max:50',
+            'title' => 'max:254',
+        ]);
         $data = $request->all();
 
         $team = Collaborator::create($data);
@@ -109,6 +114,11 @@ class CollaboratorController extends Controller
      */
     public function update(Request $request, Collaborator $collaborator)
     {
+        $data = $request->validate([
+            'name' => 'required|min:2|max:50',
+            'last_name' => 'max:50',
+            'title' => 'max:254',
+        ]);
         $data = $request->all();
 
         $collaborator->update($data);
