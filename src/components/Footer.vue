@@ -26,14 +26,6 @@
             </p>
           </div>
         </div>
-        <!-- <div class="col-5">
-          <div class="contact-us">
-            <h2>{{$t('have-an-idea-for-new-design?')}}</h2>
-            <div class="d-flex justify-content-end">
-              <button class="btn-footer">{{$t('contact-us')}}</button>
-            </div>
-          </div>
-        </div> -->
       </div>
       <div class="copirating">
         <p><a href="/CC_terms and conditions.pdf">{{$t('terms-and-conditions')}}</a></p>
@@ -51,6 +43,7 @@ export default {
 
 <style lang="scss">
   .footer{
+    margin-top: 30px;
     width: 100%;
     background: #3E3E3E;
     .footer-contacts{

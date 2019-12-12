@@ -40,37 +40,37 @@
       </div>
     </div> -->
     <div class="gallery d-flex flex-wrap">
-      <router-link to="/category/architecture" class="gallery-block">
+      <router-link to="/category/1" class="gallery-block">
         <h3>_{{$t('architecture')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-1.png" alt="gallery" />
         </div>
       </router-link>
-      <router-link to="/category/interior-design" class="gallery-block">
+      <router-link to="/category/2" class="gallery-block">
         <h3>_{{$t('interior-design')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-2.png" alt="gallery" />
         </div>
       </router-link>
-      <router-link to="/category/individual-objects" class="gallery-block">
+      <router-link to="/category/3" class="gallery-block">
         <h3>_{{$t('individual-objects')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-3.png" alt="gallery" />
         </div>
       </router-link>
-      <router-link to="/category/brand-development" class="gallery-block">
+      <router-link to="/category/5" class="gallery-block">
         <h3>_{{$t('brand-development')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-4.png" alt="gallery" />
         </div>
       </router-link>
-      <router-link to="/category/3d-rendering" class="gallery-block">
+      <router-link to="/category/4" class="gallery-block">
         <h3>_{{$t('3d-rendering')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-5.png" alt="gallery" />
         </div>
       </router-link>
-      <router-link to="/category/production-facilities" class="gallery-block">
+      <router-link to="/category/6" class="gallery-block">
         <h3>_{{$t('production-facilities')}}</h3>
         <div class="overflow">
           <img src="../assets/img/gallery-6.png" alt="gallery" />
