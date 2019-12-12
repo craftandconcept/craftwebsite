@@ -226,6 +226,20 @@
 
   </div>
   <!-- end row -->
+    <script>
+        $(document).ready(function () {
+        $('.btn-primary').click(function() {
+          checked = $("input[type=checkbox]:checked").length;
+
+          if(!checked) {
+            alert("You should check at least one category.");
+            return false;
+          }
+
+        });
+    });
+    </script>
+
 
 </div>
 @endsection
