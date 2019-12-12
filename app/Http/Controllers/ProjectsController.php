@@ -77,26 +77,6 @@ class ProjectsController extends Controller
             $main_image->move(public_path().'/images/project'.$last.'/', $main_image_name);
         }
 
-
-
-        if($request->hasfile('image'))
-        {
-            foreach($request->file('image') as $i_key => $image)
-            {
-
-                $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/project'.$last.'/', $name);
-                $image_url = '/images/project'.$last.'/'. $name;
-                Photo::create([
-                    'project_id' => $last,
-                    'img' => $image_url,
-                    'text' => !is_null($request->text_image[$i_key]) ? $request->text_image[$i_key] : '',
-                    'full' => !is_null($request->full_image[$i_key]) ? $request->full_image[$i_key] : '',
-                ]);
-            }
-        }
-
-
         $project = Project::create([
             'name' => request('name'),
             'country_id' => request('country'),
@@ -111,6 +91,22 @@ class ProjectsController extends Controller
             'status' => request('status'),
             'photos_by' => request('photos_by'),
         ]);
+
+        if($request->hasfile('image'))
+        {
+            foreach($request->file('image') as $i_key => $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/project'.$project->id.'/', $name);
+                $image_url = '/images/project'.$project->id.'/'. $name;
+                Photo::create([
+                    'project_id' => $project->id,
+                    'img' => $image_url,
+                    'text' => !is_null($request->text_image[$i_key]) ? $request->text_image[$i_key] : '',
+                    'full' => !is_null($request->full_image[$i_key]) ? $request->full_image[$i_key] : '',
+                ]);
+            }
+        }
 
 
         if($request->input('categories')){
