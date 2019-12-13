@@ -40,7 +40,7 @@ class CreatorController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|min:2|max:50',
+            'creator_name' => 'required|min:2|max:50',
             'last_name' => 'max:50',
             'title' => 'max:254',
         ]);
@@ -117,7 +117,7 @@ class CreatorController extends Controller
     public function update(Request $request, Creator $creator)
     {
         $data = $request->validate([
-            'name' => 'required|min:2|max:50',
+            'creator_name' => 'required|min:2|max:50',
             'last_name' => 'max:50',
             'title' => 'max:254',
         ]);
