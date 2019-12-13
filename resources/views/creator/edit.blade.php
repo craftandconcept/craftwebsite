@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-12 col-md-9">
-                <p class="h4">Edit project</p>
+                <p class="h4">Edit creator</p>
                 <form method="POST" enctype="multipart/form-data" class="project-form" action="{{route('creators.update',$creator->id)}}">
                     @csrf
                     {{method_field('PUT')}}
