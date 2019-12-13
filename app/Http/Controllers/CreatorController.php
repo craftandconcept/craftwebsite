@@ -41,8 +41,8 @@ class CreatorController extends Controller
     {
         $data = $request->validate([
             'creator_name' => 'required|min:2|max:50',
-            'last_name' => 'max:50',
-            'title' => 'max:254',
+            'creator_last_name' => 'max:50',
+            'creator_title' => 'max:254',
         ]);
         $data = $request->all();
 
@@ -118,8 +118,8 @@ class CreatorController extends Controller
     {
         $data = $request->validate([
             'creator_name' => 'required|min:2|max:50',
-            'last_name' => 'max:50',
-            'title' => 'max:254',
+            'creator_last_name' => 'max:50',
+            'creator_title' => 'max:254',
         ]);
         $data = $request->all();
 
