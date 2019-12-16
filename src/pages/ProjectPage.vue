@@ -98,6 +98,8 @@ export default {
       img{
         max-width: 100%;
         margin-bottom: 30px;
+        max-height: 100vh;
+        object-fit: contain;
       }
     }
     .left,

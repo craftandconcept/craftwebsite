@@ -43,37 +43,37 @@
       <router-link to="/category/1" class="gallery-block">
         <h3>_{{$t('architecture')}}</h3>
         <div class="overflow">
-          <img src="../assets/img/gallery-1.png" alt="gallery" />
+          <img src="../assets/img/Architecture.jpeg" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/2" class="gallery-block">
         <h3>_{{$t('interior-design')}}</h3>
         <div class="overflow">
-          <img src="../assets/img/gallery-2.png" alt="gallery" />
+          <img src="../assets/img/Interiourdesign.jpg" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/3" class="gallery-block">
         <h3>_{{$t('individual-objects')}}</h3>
         <div class="overflow">
-          <img src="../assets/img/gallery-3.png" alt="gallery" />
+          <img src="../assets/img/Individualobjects.jpg" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/5" class="gallery-block">
         <h3>_{{$t('brand-development')}}</h3>
         <div class="overflow">
-          <img src="../assets/img/gallery-4.png" alt="gallery" />
+          <img src="../assets/img/Branddevelopment.jpg" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/4" class="gallery-block">
         <h3>_{{$t('3d-rendering')}}</h3>
         <div class="overflow">
-          <img src="../assets/img/gallery-5.png" alt="gallery" />
+          <img src="../assets/img/3Drenderings.jpg" alt="gallery" />
         </div>
       </router-link>
       <router-link to="/category/6" class="gallery-block">
         <h3>_{{$t('production-facilities')}}</h3>
         <div class="overflow">
-          <img src="../assets/img/gallery-6.png" alt="gallery" />
+          <img src="../assets/img/Productionfacilities.jpg" alt="gallery" />
         </div>
       </router-link>
     </div>
@@ -287,6 +287,8 @@ export default {
       }
       img{
         width: 100%;
+        height: 250px;
+        object-fit: cover;
         transform: scale(1);
         transition: transform .3s;
       }

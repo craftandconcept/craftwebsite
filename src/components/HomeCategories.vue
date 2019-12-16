@@ -6,7 +6,7 @@
     <div
       v-for="category in categories"
       :key="category.id"
-      :id="category.category_name.replace(/ /g,'')"
+      :id="(category.category_name.replace(/ /g,'')).replace(/[0-9]/g, '')"
     >
       <div class="title-wrap">
         <router-link :to="{name: 'Category', params: {id: category.id}}">

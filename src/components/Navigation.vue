@@ -23,7 +23,13 @@
                 <ul>
                     <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">{{$t('our-story')}}</a></li>
                     <li v-for="catogory in categories" :key="catogory.id">
-                        <a href="#" @click.prevent="toHome(`#${catogory.category_name.replace(/ /g,'')}`)" v-scroll-to="`#${catogory.category_name.replace(/ /g,'')}`">_{{catogory.category_name}}</a>
+                        <a
+                            href="#"
+                            @click.prevent="toHome(`#${catogory.category_name.replace(/[0-9]/g, '').replace(/ /g,'')}`)"
+                            v-scroll-to="`#${catogory.category_name.replace(/ /g,'').replace(/[0-9]/g, '')}`"
+                        >
+                                _{{catogory.category_name}}
+                        </a>
                         <!-- <router-link :to="`/category/${catogory.id}`">_{{catogory.category_name}}</router-link> -->
                     </li>
                     <li><a href="#" @click.prevent="toHome('#teams')" v-scroll-to="'#teams'">{{$t('team')}}</a></li>
