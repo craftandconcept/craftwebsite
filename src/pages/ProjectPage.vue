@@ -25,8 +25,6 @@
           </p>
           <p v-show="activeProject.function"><span>Function:</span> {{activeProject.function}}</p>
         </div>
-      </div>
-      <div class="right">
         <div class="categories">
           <p v-show="activeProject.size"><span>Size:</span> {{activeProject.size}}</p>
           <p v-show="activeProject.status"><span>Status:</span> {{activeProject.status}}</p>
@@ -108,7 +106,6 @@ export default {
       display: flex;
       flex-wrap: wrap;
       .categories{
-        width: 95%;
         p{
           display: flex;
           align-items: flex-start;
@@ -133,12 +130,15 @@ export default {
     }
   }
   .text-project{
-    margin-top: 70px;
+    margin-top: 10px;
+    max-width: 40%;
+    @media(max-width: 767px) {
+      max-width: 100%;
+    }
     p{
       font-size: 16px;
       font-weight: 400;
       line-height: 24px;
-      text-transform: capitalize;
       color: #424647;
     }
   }
@@ -165,7 +165,6 @@ export default {
       padding-left: 15px;
       font-size: 14px;
       line-height: 18px;
-      text-transform: capitalize;
       color: #424647;
     }
     img{

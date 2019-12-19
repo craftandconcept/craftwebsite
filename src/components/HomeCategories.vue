@@ -70,10 +70,7 @@ export default {
   max-width: 100%;
   margin: 0 auto;
   .corousel-container {
-    padding: 0 50px;
-    @media (max-width: 767px) {
-      padding: 0;
-    }
+    padding: 0;
   }
   .gallery{
     margin-top: 60px;

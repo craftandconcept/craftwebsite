@@ -1,7 +1,7 @@
 <template>
   <div v-if="collaborators.length">
     <h2 class="title">_{{$t('collaborators')}}</h2>
-    <div class="team-page container collaborators">
+    <div class="team-page collaborators">
       <carousel
         :autoplayHoverPause="true"
         :dots="false"
@@ -95,16 +95,9 @@ export default {
   .owl-carousel .owl-item {
     img {
       height: 230px;
-      background: #f7f7f7;
+      background: #fff;
       object-fit: contain;
     }
-  }
-}
-@media(max-width: 1400px) {
-  .team-page{
-    padding: 0 50px;
-    width: 100%;
-    max-width: 100%;
   }
 }
 @media (max-width: 767px) {

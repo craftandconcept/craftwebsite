@@ -1,7 +1,7 @@
 <template>
   <div v-if="creators.length">
     <h2 class="title">_{{$t('creators')}}</h2>
-    <div class="team-page container">
+    <div class="team-page">
       <carousel
         :autoplayHoverPause="true"
         :dots="false"
@@ -80,12 +80,6 @@ export default {
 }
 .owl-next{
   right: -50px;
-}
-@media(max-width: 1400px) {
-  .team-page{
-    width: 100%;
-    max-width: 100%;
-  }
 }
 @media(max-width: 767px) {
   .team-page{

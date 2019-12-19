@@ -194,7 +194,7 @@ export default {
 
 <style lang="scss">
 .main-wrap{
-  padding-left: 109px;
+  padding-left: 74px;
   transition: all 0.3s;
   &.open{
     padding-left: 329px;
@@ -203,15 +203,14 @@ export default {
       transition: unset;
     }
   }
-  background: #f7f7f7;
+  background: #fff;
   .project-map-title {
-    font-size: 64px;
+    font-size: 50px;
     line-height: 1;
     color: #000000;
     text-transform: uppercase;
     font-weight: 700;
     white-space: nowrap;
-    margin-left: 15%;
     span {
       font-size: 18px;
     }

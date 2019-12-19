@@ -1,8 +1,8 @@
 <template>
   <footer class="footer" id="footer">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row footer-contacts">
-        <div class="col-xl-3 col-lg-3">
+        <div class="col-xl-4 col-lg-3">
           <div class="phone">
             <h3>_{{$t('call')}}</h3>
             <a href="tel:+41768151818">+41 76 815 18 18</a><br>
@@ -10,7 +10,7 @@
             <a href="tel:+41788399321">+41 78 839 93 21</a>
           </div>
         </div>
-        <div class="col-xl-3 col-lg-3">
+        <div class="col-xl-4 col-lg-3">
           <div class="e-mail">
             <h3>_{{$t('e-mail:')}}</h3>
             <a href="mailto: info@craftandconcept.ch">info@craftandconcept.ch</a>
@@ -47,7 +47,7 @@ export default {
     width: 100%;
     background: #3E3E3E;
     .footer-contacts{
-      padding: 45px 0;
+      padding: 20px 0;
       .phone h3,
       .phone a,
       .e-mail h3,
@@ -56,13 +56,13 @@ export default {
         font-size: 14px;
         font-weight: 400;
         line-height: 17px;
-        color: #F7F7F7;
+        color: #fff;
         text-decoration: none;
       }
       .contact-us h2{
         font-size: 24px;
         line-height: 30px;
-        color: #F7F7F7;
+        color: #fff;
         text-align: right;
         margin-bottom: 10px;
       }
@@ -75,7 +75,7 @@ export default {
           left: 50%;
           bottom: -2px;
           height: 2px;
-          background: #f7f7f7;
+          background: #fff;
           transition: all .6s;
         }
         &:hover:after{
@@ -103,7 +103,7 @@ export default {
     }
     .copirating{
       border-top: 1px solid rgba(232, 232, 232, 0.1);
-      padding: 20px 0;
+      padding: 15px 0;
       p,
       a{
         text-decoration: none;
