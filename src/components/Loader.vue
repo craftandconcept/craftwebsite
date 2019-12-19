@@ -1,12 +1,6 @@
 <template>
   <div class="load-wrap">
-    <div class="a" style="--n: 5;">
-      <div class="dot" style="--i: 0;"></div>
-      <div class="dot" style="--i: 1;"></div>
-      <div class="dot" style="--i: 2;"></div>
-      <div class="dot" style="--i: 3;"></div>
-      <div class="dot" style="--i: 4;"></div>
-    </div>
+    <img src="../assets/img/c&c.png" alt="c&c" />
   </div>
 </template>
 
@@ -35,20 +29,4 @@ $t: 1.5s;
   align-items: center;
   justify-content: center;
 }
-.dot {
-  background: #dbe3e5;
-  &, &:after {
-    display: inline-block;
-    width: $d; height: $d;
-    border-radius: 50%;
-    animation: a $t calc(((var(--i) + var(--o, 0))/var(--n) - 1)*#{$t}) infinite
-  }
-  &:after {
-    --o: 1;
-    background: currentcolor;
-    content: '';
-  }
-}
-
-@keyframes a { 0%, 50% { transform: scale(0) } }
 </style>

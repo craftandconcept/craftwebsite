@@ -89,18 +89,17 @@ export default {
         height: 100vh;
         left: 0;
         top: 0;
-        background: #f7f7f7;
+        background: #fff;
         display: flex;
         transition: all 0.3s;
-        max-width: 109px;
+        max-width: 73px;
         .navigation-left{
-            border-right: 1px solid #E8E8E8;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-end;
-            padding: 50px 30px 50px;
+            padding: 50px 15px 80px;
             .social-link{
                 display: flex;
                 flex-direction: column;
@@ -121,8 +120,8 @@ export default {
             }
             .burger {
                 display: block;
-                width: 48px;
-                height: 48px;
+                width: 30px;
+                height: 30px;
                 border-radius: 24px;
                 background: none;
                 border: 2px solid #000;
@@ -131,8 +130,8 @@ export default {
                 span{
                     position: relative;
                     display: block;
-                    width: 30px;
-                    height: 4px;
+                    width: 16px;
+                    height: 2px;
                     left: 50%;
                     transform: translateX(-50%);
                     background-color: #000;
@@ -143,28 +142,28 @@ export default {
                         content: "";
                         position: absolute;
                         left: 0;
-                        top: -9px;
+                        top: -5px;
                         width: 100%;
-                        height: 4px;
+                        height: 2px;
                         background-color: #000;
                         transition: all 0.3s;
                         backface-visibility: hidden;
                     }
                     &:after{
-                        top: 9px;
+                        top: 5px;
                     }
                 }
                 &.on{
-                    border-color: #f7f7f7;
+                    border-color: #fff;
                     span {
                         background-color: transparent;
                         &:before {
-                            background: #f7f7f7;
-                            transform: rotate(45deg) translate(7px, 6px);
+                            background: #fff;
+                            transform: rotate(45deg) translate(4px, 3px);
                         }
                         &:after {
-                            background: #f7f7f7;
-                            transform: rotate(-45deg) translate(6px, -6px);
+                            background: #fff;
+                            transform: rotate(-45deg) translate(4px, -3px);
                         }
                     }
                 }
@@ -190,7 +189,7 @@ export default {
                             font-size: 18px;
                             font-weight: 400;
                             line-height: 22px;
-                            color: #F7F7F7;
+                            color: #fff;
                             white-space: nowrap;
                             &:after {
                                 content: '';
@@ -199,7 +198,7 @@ export default {
                                 left: 50%;
                                 bottom: -4px;
                                 height: 2px;
-                                background: #f7f7f7;
+                                background: #fff;
                                 transition: all .6s;
                             }
                             &:hover:after{
@@ -214,7 +213,7 @@ export default {
         }
         &.open{
             max-width: 100%;
-            background: #424647;
+            background: #000;
             .navigation-right{
                 width: 220px;
             }
@@ -235,7 +234,6 @@ export default {
                 align-items: center;
             }
              &.open{
-            background: #424647;
                 .navigation-right{
                     width: 250px;
                 }
@@ -261,7 +259,6 @@ export default {
                 }
             }
              &.open{
-            background: #424647;
                 .navigation-right{
                     width: 215px;
                 }

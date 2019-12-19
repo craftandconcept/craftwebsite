@@ -1,12 +1,12 @@
 <template>
   <header class="header">
-    <div class="container-fluid">
+    <div class="container">
       <div class="d-flex justify-content-between aling-items-center">
         <div class="left d-flex">
           <router-link :to="{name: 'Home'}" class="logo">
             <img src="../assets/img/logo.jpg" alt="logo" />
+            <p>complex design solutions</p>
           </router-link>
-          <p>complex design solutions</p>
         </div>
         <div class="right d-flex">
           <div class="translator d-flex" v-if="false">
@@ -40,12 +40,14 @@ export default {
       justify-content: center;
       .logo{
         img{
-          max-height: 26px;
+          max-height: 17px;
         }
-      }
-      p{
-        font-size: 32px;
-        font-weight: 700;
+        p{
+          font-size: 22px;
+          font-weight: 700;
+          color: #000;
+        }
+        text-decoration: none;
       }
     }
     .translator{

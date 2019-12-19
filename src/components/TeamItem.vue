@@ -40,8 +40,8 @@ export default {
   position: relative;
   max-height: 420px;
   padding: 0 4px;
-  border-left: 6px solid #f7f7f7;
-  border-right: 6px solid #f7f7f7;
+  border-left: 6px solid #fff;
+  border-right: 6px solid #fff;
   height: 100%;
   img {
     height: 100%;
@@ -64,7 +64,7 @@ export default {
     z-index: 2;
     p{
       text-transform: uppercase;
-      color: #269DC3;
+      color: #fff;
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 0;
@@ -77,7 +77,7 @@ export default {
     width: 0;
     z-index: 2;
     height: 4px;
-    background: #269DC3;
+    background: #E2E2E2;
     transition: width .3s;
     transition-delay: .5s;
   }
@@ -88,7 +88,7 @@ export default {
     width: 4px;
     z-index: 2;
     height: 0;
-    background: #269DC3;
+    background: #E2E2E2;
     transition: height .3s;
     transition-delay: .8s;
   }
@@ -99,7 +99,7 @@ export default {
     width: 0;
     z-index: 2;
     height: 4px;
-    background: #269DC3;
+    background: #E2E2E2;
     transition: width .3s;
     transition-delay: 1.1s;
   }
@@ -110,7 +110,7 @@ export default {
     width: 4px;
     z-index: 2;
     height: 0;
-    background: #269DC3;
+    background: #E2E2E2;
     transition: height .3s;
     transition-delay: 1.4s;
   }
