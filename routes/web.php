@@ -30,3 +30,10 @@ Route::resources([
     '/admin/teams' => 'TeamController',
     '/admin/collaborators' => 'CollaboratorController',
 ]);
+Route::get('/admin/gallery', 'GalleryController@index');
+Route::get('/admin/gallery/create', 'GalleryController@create')->name('gallery.create');
+Route::get('/admin/gallery/remove', 'GalleryController@destroy')->name('gallery.delete');
+
+Route::post('/admin/gallery', 'GalleryController@index')->name('gallery.create');
+
+Route::post('/admin/gallery/save', 'GalleryController@store')->name('gallery.store');

@@ -32,4 +32,6 @@ Route::get('/creators/{id}', 'CreatorsApiController@show');
 Route::get('/collaborators', 'CollaboratorsApiController@index');
 Route::get('/collaborators/{id}', 'CollaboratorsApiController@show');
 
+Route::get('/gallery', 'GalleryController@getGallery');
+
 Route::post('/v1', 'ProjectApiController@projectfilter');
