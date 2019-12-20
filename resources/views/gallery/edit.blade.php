@@ -40,8 +40,8 @@
                         @if($item->path !== null)
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <input  name="gallery[{{$counter}}][image]" id="image" class="form-control"  type="file">
-                                <img src="{{ URL::to('/') }}{{$item->path}}" alt="">
+                                <input  name="gallery[{{$counter}}][image]" id="image" class="form-control" style="height: 100%; margin-bottom: 10px"  type="file">
+                                <img src="{{ URL::to('/') }}{{$item->path}}" style="max-height: 120px; max-width: 180px; object-fit: cover; width: 100%" alt="">
                                 <input type="hidden" name="gallery[{{$counter}}][path]" value="{{$item->path}}">
                             </div>
                         @endif
@@ -53,12 +53,12 @@
                         @endif
                         <div class="form-group">
                             <label for="sort">Sort</label>
-                            <input name="gallery[{{$counter}}][sort]" id="sort" class="form-control" value="{{$item->sort}}" type="number">
+                            <input name="gallery[{{$counter}}][sort]" required id="sort" class="form-control" value="{{$item->sort}}" type="number">
                         </div>
 
                         <div class="form-group">
                             <label for="time">Time</label>
-                            <input name="gallery[{{$counter}}][time]"  id="time" class="form-control" value="{{$item->time}}" type="number">
+                            <input name="gallery[{{$counter}}][time]" required id="time" class="form-control" value="{{$item->time}}" type="number">
                         </div>
                             <div class="form-group">
                                 <button type="button" class="btn btn-danger remove-block" data-block='{{$counter}}'>delete</button>
@@ -97,12 +97,12 @@
                     '                        </div>\n' +
                     '                        <div class="form-group">\n' +
                     '                            <label for="sort">Sort</label>\n' +
-                    '                            <input name="gallery['+ counter +'][sort]" id="sort" class="form-control" type="number">\n' +
+                    '                            <input name="gallery['+ counter +'][sort]" required id="sort" class="form-control" type="number">\n' +
                     '                        </div>\n' +
                     '    \n' +
                     '                        <div class="form-group">\n' +
                     '                            <label for="time">Time</label>\n' +
-                    '                            <input name="gallery['+ counter +'][time]"  id="time" class="form-control" type="number">\n' +
+                    '                            <input name="gallery['+ counter +'][time]" required  id="time" class="form-control" type="number">\n' +
                     '                        </div>\n' +
                     '    \n' +
                     '                        <div class="form-group">\n' +
@@ -119,12 +119,12 @@
                     '                        </div>\n' +
                     '                        <div class="form-group">\n' +
                     '                            <label for="sort">Sort</label>\n' +
-                    '                            <input name="gallery['+ counter +'][sort]" id="sort" class="form-control" type="number">\n' +
+                    '                            <input name="gallery['+ counter +'][sort]" required id="sort" class="form-control" type="number">\n' +
                     '                        </div>\n' +
                     '    \n' +
                     '                        <div class="form-group">\n' +
                     '                            <label for="time">Time</label>\n' +
-                    '                            <input name="gallery['+ counter +'][time]"  id="time" class="form-control" type="number">\n' +
+                    '                            <input name="gallery['+ counter +'][time]"  required id="time" class="form-control" type="number">\n' +
                     '                        </div>\n' +
                     '    \n' +
                     '                        <div class="form-group">\n' +
