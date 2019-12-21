@@ -82,7 +82,7 @@ export default {
       text-decoration: none;
     }
     h2{
-      font-size: 32px;
+      font-size: 2.2vw;;
       font-weight: 700;
       line-height: 79px;
       text-transform: uppercase;
@@ -119,14 +119,14 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(0deg, rgba(38, 157, 195, 0.65), rgba(38, 157, 195, 0.65));
+        background: rgba(0, 0, 0, 0.6);
         h2{
           font-size: 32px;
           font-weight: 500;
           line-height: 40px;
           text-align: center;
           text-transform: uppercase;
-          color: #FFFFFF;
+          color: #fff;
           text-align: center;
           max-width: 250px;
         }

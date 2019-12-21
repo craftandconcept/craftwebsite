@@ -60,10 +60,16 @@ export default {
     margin-top: 85px;
     h2{
       text-transform: uppercase;
-      font-size: 64px;
+      font-size: 2.2vw;;
       line-height: 79px;
       font-weight: 700;
       color: #000000;
+      @media(max-width: 767px) {
+        font-size: 24px;
+      }
+      @media(max-width: 576px) {
+        font-size: 18px;
+      }
     }
   }
   .our-story-img{
