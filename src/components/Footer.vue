@@ -10,16 +10,16 @@
             <a href="tel:+41788399321">+41 78 839 93 21</a>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-3">
+        <div class="col-xl-4 col-lg-3 d-flex justify-content-lg-center mt-4 mt-lg-0">
           <div class="e-mail">
-            <h3>_{{$t('e-mail:')}}</h3>
-            <a href="mailto: info@craftandconcept.ch">info@craftandconcept.ch</a>
+            <h3 class="text-lg-center">_{{$t('e-mail:')}}</h3>
+            <a href="mailto: info@craftandconcept.ch" class="text-lg-center">info@craftandconcept.ch</a>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4">
+        <div class="col-xl-4 col-lg-4 mt-4 mt-lg-0">
           <div class="e-mail">
-            <h3>_{{$t('visit')}}</h3>
-            <p>
+            <h3 class="text-lg-right">_{{$t('visit')}}</h3>
+            <p class="text-lg-right">
               Avenue des Alpes 98,<br>
               1820 Montreux<br>
               Switzerland
@@ -45,7 +45,7 @@ export default {
   .footer{
     margin-top: 30px;
     width: 100%;
-    background: #3E3E3E;
+    background: #000;
     .footer-contacts{
       padding: 20px 0;
       .phone h3,
@@ -102,7 +102,7 @@ export default {
       }
     }
     .copirating{
-      border-top: 1px solid rgba(232, 232, 232, 0.1);
+      border-top: 1px solid #454545;
       padding: 15px 0;
       p,
       a{
@@ -110,7 +110,7 @@ export default {
         font-size: 12px;
         font-weight: 400;
         line-height: 15px;
-        color: rgba(247, 247, 247, 0.7);
+        color: #fff;
         margin: 0;
         &:last-child{
           margin-top: 20px;

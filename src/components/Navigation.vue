@@ -92,7 +92,7 @@ export default {
         background: #fff;
         display: flex;
         transition: all 0.3s;
-        max-width: 73px;
+        max-width: 72px;
         .navigation-left{
             height: 100%;
             display: flex;
@@ -175,7 +175,10 @@ export default {
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            justify-content: center;
+            padding-left: 0;
+            @media(max-width: 767px) {
+                justify-content: center;
+            }
             .text-menu{
                 ul{
                     margin: 0;
@@ -215,7 +218,8 @@ export default {
             max-width: 100%;
             background: #000;
             .navigation-right{
-                width: 220px;
+                padding-left: 10px;
+                width: 200px;
             }
             .navigation-left .social-link .shield{
                 margin-top: 20px;
@@ -225,21 +229,6 @@ export default {
                 }
             }
         }
-    }
-    @media(max-width: 1200px) {
-        .navigation-wrap{
-            .navigation-left{
-                width: 80px;
-                padding: 50px 15px;
-                align-items: center;
-            }
-             &.open{
-                .navigation-right{
-                    width: 250px;
-                }
-            }
-        }
-
     }
     @media(max-width: 992px) {
         .navigation-wrap{

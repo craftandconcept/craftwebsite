@@ -186,8 +186,14 @@ export default {
       this.countryList = countryList
     }
   },
+  watch: {
+    navOpen () {
+      window.dispatchEvent(new Event('resize'))
+    }
+  },
   computed: mapGetters({
-    projects: 'projects'
+    projects: 'projects',
+    navOpen: 'navOpen'
   })
 }
 </script>
@@ -197,7 +203,7 @@ export default {
   padding-left: 74px;
   transition: all 0.3s;
   &.open{
-    padding-left: 329px;
+    padding-left: 271px;
     &.unset-padding-left{
       padding-left: 109px;
       transition: unset;
@@ -205,13 +211,22 @@ export default {
   }
   background: #fff;
   .project-map-title {
-    font-size: 50px;
+    font-size: 2.2vw;
     line-height: 1;
     color: #000000;
     text-transform: uppercase;
     font-weight: 700;
     white-space: nowrap;
     span {
+      font-size: 18px;
+      @media(max-width: 576px) {
+        font-size: 14px;
+      }
+    }
+    @media(max-width: 767px) {
+      font-size: 24px;
+    }
+    @media(max-width: 576px) {
       font-size: 18px;
     }
   }

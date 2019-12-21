@@ -98,7 +98,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(0deg, rgba(38, 157, 195, 0.65), rgba(38, 157, 195, 0.65));
+        background: rgba(0, 0, 0, 0.6);
         h2{
           font-size: 32px;
           font-weight: 500;

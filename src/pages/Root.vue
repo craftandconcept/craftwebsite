@@ -1,6 +1,6 @@
 <template>
   <div :class="{'no-scroll': isLoaderVisible}">
-    <div class="main-wrap" id="wrap" :class="{'open': menuIsOpen, 'unset-padding-left': !paddingLeft}">
+    <div class="main-wrap" id="wrap" :class="{'open': menuIsOpen}">
       <Header />
       <Navigation @toggleMenu="status => menuIsOpen = status" />
       <main class="container">
@@ -61,7 +61,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 .no-scroll{
   max-height: 100vh;
   overflow: hidden;
@@ -75,6 +75,27 @@ export default {
 @media (max-width: 1200) {
   .container{
     max-width: 1170px;
+  }
+}
+@media (min-width: 1400px) {
+  .container{
+    max-width: 1300px;
+  }
+}
+@media (min-width: 1800px) {
+  .container{
+    max-width: 1600px;
+  }
+}
+@media (min-width: 2000px) {
+  .container{
+    max-width: 1900px;
+  }
+}
+.container {
+  padding: 0 50px;
+  @media(max-width: 767px) {
+    padding: 0 15px;
   }
 }
 </style>

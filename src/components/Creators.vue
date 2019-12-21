@@ -61,11 +61,17 @@ export default {
 }
 .title{
   font-weight: 700;
-  font-size: 32px;
+  font-size: 2.2vw;;
   line-height: 79px;
   text-transform: uppercase;
   color: #000;
   margin: 40px 0;
+  @media(max-width: 767px) {
+    font-size: 24px;
+  }
+  @media(max-width: 576px) {
+    font-size: 18px;
+  }
 }
 .owl-prev, .owl-next{
   background: none !important;

@@ -40,10 +40,10 @@ export default {
       justify-content: center;
       .logo{
         img{
-          max-height: 17px;
+          max-height: 20px;
         }
         p{
-          font-size: 22px;
+          font-size: 19px;
           font-weight: 700;
           color: #000;
         }

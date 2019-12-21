@@ -104,7 +104,7 @@ export default {
     .right{
       width: 50%;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       .categories{
         p{
           display: flex;
@@ -160,12 +160,17 @@ export default {
     }
     p{
       padding-top: 10px;
-      margin: 0;
+      margin: 0 auto;
+      width: 60%;
       font-weight: 400;
       padding-left: 15px;
       font-size: 14px;
       line-height: 18px;
       color: #424647;
+      @media(max-width: 900px) {
+        width: 100%;
+        padding-left: 0;
+      }
     }
     img{
       width: 100%;
