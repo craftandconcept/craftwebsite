@@ -16,7 +16,7 @@
               {{category}}
             </label>
           </p> -->
-          <p v-show="activeProject.creator_name"><span>Creators:</span> {{activeProject.creator_name}}</p>
+          <p v-show="activeProject.creators"><span>Creators:</span> {{activeProject.creators}}</p>
           <p v-show="activeProject.collaborators"><span>Collaborators:</span> {{activeProject.collaborators}}</p>
           <p>
             <span>Location:</span>
