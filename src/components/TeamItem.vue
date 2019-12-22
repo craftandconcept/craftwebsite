@@ -43,9 +43,13 @@ export default {
   border-left: 6px solid #fff;
   border-right: 6px solid #fff;
   height: 100%;
+  overflow: hidden;
   img {
     height: 100%;
     object-fit: cover;
+    &:first-child{
+      height: unset;
+    }
   }
   .img-over{
     z-index: 3;
@@ -56,6 +60,7 @@ export default {
     opacity: 1;
     transition: all 0.4s;
     transition-delay: 0.1s;
+    object-fit: cover;
   }
   .text-wrap{
     position: absolute;
@@ -68,6 +73,7 @@ export default {
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 0;
+      text-shadow: rgba(0, 0, 0, 1);
     }
   }
   .line-1{

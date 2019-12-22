@@ -25,3 +25,8 @@ export function getCollaborators () {
   return axios.get(`${apiUrl}/api/collaborators`)
     .then(res => res.data.collaborator)
 }
+
+export function getGallery () {
+  return axios.get(`${apiUrl}/api/gallery`)
+    .then(res => res.data)
+}

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Gallery />
     <h2 class="project-map-title">
       __{{$t('project')}}
       {{$t('map')}}
@@ -96,6 +97,7 @@ import Collaborators from '@/components/Collaborators.vue'
 import Teams from '@/components/Teams.vue'
 import OurStory from '@/components/OurStory'
 import HomeCategories from '@/components/HomeCategories'
+import Gallery from '@/components/Gallery'
 export default {
   name: 'Home',
   components: {
@@ -104,7 +106,8 @@ export default {
     Collaborators,
     Teams,
     OurStory,
-    HomeCategories
+    HomeCategories,
+    Gallery
   },
   data: () => ({
     numberAnimation: [0, 0, 0, 0],

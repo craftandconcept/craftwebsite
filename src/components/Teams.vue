@@ -1,6 +1,8 @@
 <template>
   <div v-if="teams.length">
-    <h2 class="title">_{{$t('team')}}</h2>
+    <router-link :to="{name: 'team'}">
+      <h2 class="title">_{{$t('team')}}</h2>
+    </router-link>
     <div class="team-page">
       <carousel
         :autoplayHoverPause="true"
@@ -48,8 +50,8 @@ export default {
   }),
   async created () {
     this.$parent.$emit('loadingStart')
-    this.$parent.$emit('loadingFinish')
     this.teams = await getTeams()
+    this.$parent.$emit('loadingFinish')
   },
   methods: {
     openModal (index) {
@@ -65,6 +67,9 @@ export default {
   .owl-stage {
     display: flex;
   }
+}
+a:hover {
+  text-decoration: none;
 }
 .title{
   font-weight: 700;

@@ -1,6 +1,8 @@
 <template>
   <div v-if="creators.length">
-    <h2 class="title">_{{$t('creators')}}</h2>
+    <router-link :to="{name: 'Creators'}">
+      <h2 class="title">_{{$t('creators')}}</h2>
+    </router-link>
     <div class="team-page">
       <carousel
         :autoplayHoverPause="true"
@@ -44,8 +46,8 @@ export default {
   }),
   async created () {
     this.$parent.$emit('loadingStart')
-    this.$parent.$emit('loadingFinish')
     this.creators = await getCreators()
+    this.$parent.$emit('loadingFinish')
   },
   methods: {
     openModal (index) {
