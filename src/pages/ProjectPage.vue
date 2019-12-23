@@ -105,6 +105,7 @@ export default {
       width: 50%;
       display: flex;
       flex-direction: column;
+      margin-left: 20%;
       .categories{
         p{
           display: flex;
@@ -127,13 +128,18 @@ export default {
           }
         }
       }
+      @media(max-width: 767px) {
+        margin-left: 0;
+      }
     }
   }
   .text-project{
     margin-top: 10px;
     max-width: 40%;
+    margin-left: 20%;
     @media(max-width: 767px) {
       max-width: 100%;
+      margin-left: 0;
     }
     p{
       font-size: 16px;

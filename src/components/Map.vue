@@ -2960,6 +2960,7 @@ svg{
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   width: 220px;
+  z-index: 10;
   h2 {
     margin: 0;
     font-size: 36px;
