@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="collaborators">
     <h2 class="title">Collaborators</h2>
     <div class="row" v-if="teams.length">
       <div
@@ -46,9 +46,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .collaborator .team-item img {
   object-fit: contain;
-  height: 100%;
+}
+.collaborators {
+  .team-modal-wrap .photo-team {
+    img {
+      object-fit: contain;
+    }
+  }
 }
 </style>

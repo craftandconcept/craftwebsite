@@ -285,7 +285,6 @@ export default {
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
-        text-transform: capitalize;
         color: #424647;
       }
     }

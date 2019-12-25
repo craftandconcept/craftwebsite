@@ -47,9 +47,6 @@ export default {
   img {
     height: 100%;
     object-fit: cover;
-    &:first-child{
-      height: unset;
-    }
   }
   .img-over{
     z-index: 3;
@@ -73,7 +70,6 @@ export default {
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 0;
-      text-shadow: rgba(0, 0, 0, 1);
     }
   }
   .line-1{
@@ -129,6 +125,11 @@ export default {
     }
     .line-2, .line-4{
       height: 100%;
+    }
+    .text-wrap{
+      p {
+        text-shadow: 0 0 4px black;
+      }
     }
   }
 }
