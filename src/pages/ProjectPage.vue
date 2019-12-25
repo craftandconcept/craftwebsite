@@ -105,7 +105,7 @@ export default {
       width: 50%;
       display: flex;
       flex-direction: column;
-      margin-left: 20%;
+      margin-left: 25%;
       .categories{
         p{
           display: flex;
@@ -116,6 +116,7 @@ export default {
           text-transform: uppercase;
           color: #000000;
           font-weight: 500;
+          margin-bottom: 8px;
           span{
             font-weight: 400;
             color: #424647;
@@ -136,7 +137,7 @@ export default {
   .text-project{
     margin-top: 10px;
     max-width: 40%;
-    margin-left: 20%;
+    margin-left: 25%;
     @media(max-width: 767px) {
       max-width: 100%;
       margin-left: 0;
@@ -167,7 +168,7 @@ export default {
     p{
       padding-top: 10px;
       margin: 0 auto;
-      width: 60%;
+      width: 50%;
       font-weight: 400;
       padding-left: 15px;
       font-size: 14px;

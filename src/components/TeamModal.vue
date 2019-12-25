@@ -5,7 +5,7 @@
         <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`]">
       </div>
       <div class="info-team">
-        <h2>_{{option[`${str}title`]}}</h2>
+        <h2 v-show="option[`${str}title`]">_{{option[`${str}title`]}}</h2>
         <h3>
           {{option[`${str}name`] + ' '}}
           <template v-show="option[`${str}last_name`]">
@@ -44,7 +44,7 @@ export default {
     transform: translate(-50%, -50%);
     width: 1200px;
     max-height: 90vh;
-    background: #F8F8F8;
+    background: #fff;
     z-index: 5;
     overflow: hidden;
     display: flex;
@@ -82,7 +82,6 @@ export default {
       p{
         font-size: 16px;
         line-height: 24px;
-        text-transform: capitalize;
         font-weight: 400;
         color: #424647;
       }
@@ -179,6 +178,7 @@ export default {
     .team-modal-wrap{
       overflow: auto;
       max-height: 100vh;
+      min-height: 80vh;
       width: 100%;
       max-width: 470px;
       flex-wrap: wrap;

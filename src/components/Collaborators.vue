@@ -102,7 +102,6 @@ export default {
 .collaborators {
   .owl-carousel .owl-item {
     img {
-      height: 230px;
       background: #fff;
       object-fit: contain;
     }
