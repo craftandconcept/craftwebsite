@@ -3,6 +3,7 @@
     <img
       :src="option.images.length ? `${backendUrl}${option.images[0].image.path}` : `${backendUrl}${option[`${str}main_image`]}`"
       :alt="option[`${str}name`] + option[`${str}last_name`]"
+      class="img-under"
     >
     <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`] + option[`${str}last_name`]" class="img-over">
     <div class="text-wrap">
@@ -38,15 +39,17 @@ export default {
 <style lang="scss">
 .team-item{
   position: relative;
-  max-height: 420px;
   padding: 0 4px;
   border-left: 6px solid #fff;
   border-right: 6px solid #fff;
-  height: 100%;
   overflow: hidden;
+  height: 100%;
   img {
     height: 100%;
     object-fit: cover;
+  }
+  .img-under {
+    height: 100%;
   }
   .img-over{
     z-index: 3;

@@ -101,9 +101,15 @@ export default {
 }
 .collaborators {
   .owl-carousel .owl-item {
-    img {
-      background: #fff;
-      object-fit: contain;
+    .team-item {
+      height: auto;
+      img {
+        background: #fff;
+        object-fit: contain;
+      }
+      .img-under{
+        position: static;
+      }
     }
   }
 }
