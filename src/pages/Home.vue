@@ -26,20 +26,6 @@
         <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
-    <!-- <div class="our-story d-flex">
-      <div class="title-story left d-flex">
-        <h2>
-          — {{$t('our')}} <br />
-          {{$t('story')}}
-        </h2>
-      </div>
-      <div class="text-story right align-items-center ">
-        <p>{{$t('text-1')}}</p>
-        <p>{{$t('text-2')}}</p>
-        <p>{{$t('text-3')}}</p>
-        <p>{{$t('text-4')}}</p>
-      </div>
-    </div> -->
     <div class="gallery d-flex flex-wrap">
       <router-link to="/category/1" class="gallery-block">
         <h3>_{{$t('architecture')}}</h3>
@@ -111,7 +97,7 @@ export default {
   },
   data: () => ({
     numberAnimation: [0, 0, 0, 0],
-    countryList: []
+    countryList: [],
   }),
   async created () {
     this.$parent.$emit('loadingStart')
@@ -144,6 +130,7 @@ export default {
         if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
           this.animateNumber()
           animationStart = true
+          document.removeEventListener('scroll', scrollCallback)
         }
       }
       document.addEventListener('scroll', scrollCallback)
