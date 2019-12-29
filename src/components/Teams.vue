@@ -52,9 +52,7 @@ export default {
     teams: []
   }),
   async created () {
-    this.$parent.$emit('loadingStart')
     this.teams = await getTeams()
-    this.$parent.$emit('loadingFinish')
   },
   methods: {
     openModal (index) {

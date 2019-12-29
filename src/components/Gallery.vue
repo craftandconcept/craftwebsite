@@ -30,6 +30,7 @@
 import Carousel from 'vue-owl-carousel'
 import { getGallery } from '@/services/rest.js'
 import { apiUrl } from '@/config'
+import { mapMutations }from 'vuex'
 export default {
   name: 'Gallery',
   components: {
@@ -41,8 +42,13 @@ export default {
     apiUrl
   }),
   async created () {
+    this.loadingSwitch(true)
     this.gallery = await getGallery()
-  }
+    this.loadingSwitch(false)
+  },
+  methods: mapMutations({
+    loadingSwitch: 'loadingSwitch'
+  })
 }
 </script>
 

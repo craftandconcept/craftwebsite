@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     navOpen: false,
     projects: [],
-    categories: []
+    categories: [],
+    loading: false
   },
   mutations: {
     toggleNav (state) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     setCategories (state, categories) {
       state.categories = categories
+    },
+    loadingSwitch (state, payload) {
+      state.loading = payload
     }
   },
   actions: {
@@ -32,6 +36,7 @@ export default new Vuex.Store({
   getters: {
     navOpen: state => state.navOpen,
     projects: state => state.projects,
-    categories: state => state.categories
+    categories: state => state.categories,
+    loading: state => state.loading
   }
 })

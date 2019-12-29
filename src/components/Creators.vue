@@ -48,9 +48,7 @@ export default {
     canDraw: false
   }),
   async created () {
-    this.$parent.$emit('loadingStart')
     this.creators = await getCreators()
-    this.$parent.$emit('loadingFinish')
   },
   methods: {
     openModal (index) {

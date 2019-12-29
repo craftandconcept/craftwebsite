@@ -11,7 +11,7 @@
       <Footer />
     </div>
     <transition name="fade">
-      <Loader v-show="isLoaderVisible"/>
+      <Loader v-show="isLoaderVisible || loading"/>
     </transition>
   </div>
 </template>
@@ -21,6 +21,7 @@ import Loader from '@/components/Loader'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Navigation from '@/components/Navigation.vue'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     Loader,
@@ -31,34 +32,17 @@ export default {
   data: () => ({
     menuIsOpen: false,
     isLoaderVisible: false,
-    paddingLeft: true
   }),
   created () {
     this.isLoaderVisible = true
-    if (this.$route.name !== 'Home-fr') {
-      this.$i18n.locale = 'en'
-    } else {
-      this.$i18n.locale = 'fr'
-    }
-    if (this.$route.name === 'Home') {
-      this.paddingLeft = false
-    } else {
-      this.paddingLeft = true
-    }
     this.$on('loadingStart', (patload) => { this.isLoaderVisible = true })
     this.$on('loadingFinish', (patload) => {
       setTimeout(() => { this.isLoaderVisible = false }, 1000)
     })
   },
-  watch: {
-    '$route.name' () {
-      if (this.$route.name === 'Home') {
-        this.paddingLeft = false
-      } else {
-        this.paddingLeft = true
-      }
-    }
-  }
+  computed: mapGetters({
+    loading: 'loading'
+  })
 }
 </script>
 <style lang="scss">

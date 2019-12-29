@@ -4,8 +4,8 @@
   </div>
 </template>
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
 import '@/assets/fonts/fonts.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import 'font-awesome/css/font-awesome.css'
 export default {
   name: 'App'
