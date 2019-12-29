@@ -6,14 +6,14 @@
     url('./CoreSansD35Regular.ttf') format('ttf'),
     url('./CoreSansD35Regular.eot') format('eot');
 }
-@font-face {
+/* @font-face {
   font-family: 'CoreSans';
   font-style: normal;
   font-weight: 800;
   src: url('./CoreSansD65Heavy.woff') format('woff'),
     url('./CoreSansD65Heavy.ttf') format('ttf')
     url('./CoreSansD65Heavy.eot') format('eot');
-}
+} */
 @font-face {
   font-family: 'CoreSans';
   font-style: normal;

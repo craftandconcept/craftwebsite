@@ -7,7 +7,7 @@
       <br />
       <span>{{$t('Click-to-find-out-more')}}</span>
     </h2>
-    <Map :countryList="countryList" v-if="countryList.length"/>
+    <!-- <Map :countryList="countryList" v-if="countryList.length"/> -->
     <div class="project-counter d-flex" id="number">
       <div class="project-col">
         <h3>{{numberAnimation[0]}}</h3>
