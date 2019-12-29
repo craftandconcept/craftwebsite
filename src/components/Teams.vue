@@ -3,7 +3,7 @@
     <router-link :to="{name: 'team'}">
       <h2 class="title">_{{$t('team')}}</h2>
     </router-link>
-    <div class="team-page">
+    <div class="team-page" v-if="load">
       <carousel
         :autoplayHoverPause="true"
         :dots="false"
@@ -37,6 +37,9 @@ import { getTeams } from '@/services/rest'
 
 export default {
   name: 'Teams',
+  props: {
+    load: Boolean
+  },
   components: {
     Carousel,
     TeamItem,

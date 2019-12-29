@@ -67,10 +67,10 @@
     <div class="d-flex justify-content-center">
       <OurStory id="ourStory" />
     </div>
-    <HomeCategories />
-    <Teams id="teams" />
-    <Creators id="creators" />
-    <Collaborators id="collaborators" />
+    <HomeCategories :load="loadScroll"/>
+    <Teams id="teams" :load="loadScroll"/>
+    <Creators id="creators" :load="loadScroll"/>
+    <Collaborators id="collaborators" :load="loadScroll"/>
   </div>
 </template>
 
@@ -97,7 +97,8 @@ export default {
   },
   data: () => ({
     numberAnimation: [0, 0, 0, 0],
-    countryList: []
+    countryList: [],
+    loadScroll: false
   }),
   async created () {
     this.$parent.$emit('loadingStart')
@@ -108,6 +109,7 @@ export default {
     this.filterProjectByCountry()
     this.$parent.$emit('loadingFinish')
     setTimeout(this.initialization, 1500)
+    setTimeout(() => {this.loadScroll = true}, 5000)
   },
   mounted () {
     setTimeout(() => {
@@ -130,6 +132,7 @@ export default {
         if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
           this.animateNumber()
           animationStart = true
+          this.loadScroll = true
           document.removeEventListener('scroll', scrollCallback)
         }
       }

@@ -13,7 +13,7 @@
           <h2>__{{category.category_name}}</h2>
         </router-link>
       </div>
-      <div class="corousel-container">
+      <div class="corousel-container" v-if="load">
         <carousel
           :responsive="{0:{items:1},700:{items:2}, 800: {items:3}, 1300: {items: 3}}"
           :dots="false"
@@ -45,6 +45,9 @@ import Carousel from 'vue-owl-carousel'
 import { apiUrl } from '@/config'
 export default {
   name: 'HomeCategories',
+  props: {
+    load: Boolean
+  },
   components: {
     Carousel
   },
