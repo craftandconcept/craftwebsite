@@ -97,7 +97,7 @@ export default {
   },
   data: () => ({
     numberAnimation: [0, 0, 0, 0],
-    countryList: [],
+    countryList: []
   }),
   async created () {
     this.$parent.$emit('loadingStart')
