@@ -5,7 +5,6 @@
         :responsive="{0:{items:1}}"
         :items="1"
         :dots="false"
-        :margin="11"
         :navText="nav"
         :loop="true"
         :autoplay="true"
@@ -107,6 +106,9 @@ export default {
       color: #000;
       margin-top: 40px;
       max-width: 600px;
+    }
+    /deep/ .owl-item{
+      padding-right: 0;
     }
   }
 </style>
