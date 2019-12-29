@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import i18n from './plugins/i18n'
 import VueScrollTo from 'vue-scrollto'
+import VueLazyload from 'vue-lazyload'
+ 
+Vue.use(VueLazyload)
 
 Vue.use(VueScrollTo)
 

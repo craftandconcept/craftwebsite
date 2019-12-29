@@ -1,0 +1,46 @@
+variables:
+  SMOKE_TEST_HOST: https://frontend.dev.concept-and-craft.develop-test-alterrasoft.com/
+  SMOKE_TEST_URI: /
+  SMOKE_TEST_EXPECTED_STATUS_CODE: 200
+  CI_BUILDS_DIR: /opt/$CI_PROJECT_NAME
+
+stages:
+  - clone
+  - install-deps
+  - build
+  - smoke-test
+
+before_script:
+  - cd /opt/$CI_PROJECT_NAME
+
+clone:
+  stage: clone
+  script:
+    - cp -R $CI_PROJECT_DIR/* /opt/$CI_PROJECT_NAME
+  only:
+    refs:
+      - dev
+
+install-deps:
+  stage: install-deps
+  script:
+    - npm install
+  only:
+    refs:
+      - dev
+
+build:
+  stage: build
+  script:
+    - npm run build
+  only:
+    refs:
+      - dev
+
+smoke-test:
+  stage: smoke-test
+  script:
+    - "[[ $(curl -I $SMOKE_TEST_HOST$SMOKE_TEST_URI 2>/dev/null | head -n 1 | cut -d$' ' -f2) == *$SMOKE_TEST_EXPECTED_STATUS_CODE* ]] || exit 1" 
+  only:
+    refs:
+      - dev

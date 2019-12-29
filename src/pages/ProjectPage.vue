@@ -5,7 +5,7 @@
     </div>
     <div class="info-project">
       <div class="main-img-wrap">
-        <img :src="backendUrl + activeProject.main_image" :alt="activeProject.name">
+        <img v-lazy="backendUrl + activeProject.main_image" :alt="activeProject.name">
       </div>
       <div class="left">
         <div class="categories">
@@ -36,7 +36,7 @@
       <p>{{activeProject.main_text}}</p>
     </div>
     <div v-for="(image, index) in activeProject.images" :key="index" :class="image.full ? 'img-project' : 'plan-project'">
-      <img :src="backendUrl + image.img" :alt="'image-' + index">
+      <img v-lazy="backendUrl + image.img" :alt="'image-' + index">
       <p>{{image.text}}</p>
     </div>
   </div>

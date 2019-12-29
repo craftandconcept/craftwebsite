@@ -1,11 +1,11 @@
 <template>
   <div @click.prevent="$emit('openModal')" class="team-item">
     <img
-      :src="option.images.length ? `${backendUrl}${option.images[0].image.path}` : `${backendUrl}${option[`${str}main_image`]}`"
+      v-lazy="option.images.length ? `${backendUrl}${option.images[0].image.path}` : `${backendUrl}${option[`${str}main_image`]}`"
       :alt="option[`${str}name`] + option[`${str}last_name`]"
       class="img-under"
     >
-    <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`] + option[`${str}last_name`]" class="img-over">
+    <img v-lazy="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`] + option[`${str}last_name`]" class="img-over">
     <div class="text-wrap">
       <p>{{option[`${str}title`]}}</p>
       <p>
