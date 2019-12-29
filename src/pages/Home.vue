@@ -7,7 +7,7 @@
       <br />
       <span>{{$t('Click-to-find-out-more')}}</span>
     </h2>
-    <Map :countryList="countryList" v-if="countryList.length"/>
+    <!-- <Map :countryList="countryList" v-if="countryList.length"/> -->
     <div class="project-counter d-flex" id="number">
       <div class="project-col">
         <h3>{{numberAnimation[0]}}</h3>
@@ -101,15 +101,14 @@ export default {
     loadScroll: false
   }),
   async created () {
-    this.$parent.$emit('loadingStart')
+    this.$parent.$emit('loadingFinish')
     this.getCategories()
     if (!this.projects.length) {
       await this.getProjects()
     }
     this.filterProjectByCountry()
-    this.$parent.$emit('loadingFinish')
     setTimeout(this.initialization, 1500)
-    setTimeout(() => {this.loadScroll = true}, 5000)
+    setTimeout(() => { this.loadScroll = true }, 5000)
   },
   mounted () {
     setTimeout(() => {

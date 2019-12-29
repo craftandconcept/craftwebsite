@@ -41,9 +41,7 @@ export default {
     apiUrl
   }),
   async created () {
-    this.$parent.$emit('loadingStart')
     this.gallery = await getGallery()
-    this.$parent.$emit('loadingFinish')
   }
 }
 </script>
@@ -92,6 +90,7 @@ export default {
       }
     }
     /deep/ .owl-theme .owl-nav{
+      display: none;
       @media(max-width: 767px) {
         display: block;
       }
