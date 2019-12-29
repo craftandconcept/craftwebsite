@@ -3,7 +3,7 @@
     <router-link :to="{name: 'Collaborators'}">
       <h2 class="title">_{{$t('collaborators')}}</h2>
     </router-link>
-    <div class="team-page collaborators">
+    <div class="team-page collaborators" v-if="load">
       <carousel
         :autoplayHoverPause="true"
         :dots="false"
@@ -32,6 +32,9 @@ import { getCollaborators } from '@/services/rest'
 
 export default {
   name: 'Collaborators',
+  props: {
+    load: Boolean
+  },
   components: {
     Carousel,
     TeamItem,

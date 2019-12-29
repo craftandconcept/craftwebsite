@@ -5,13 +5,13 @@
             <button class="burger" :class="{'on': isOpen}" @click="toggleMenu()"><span></span></button>
             <div class="social-link">
                 <a href="https://www.facebook.com/craftandconceptmontreux/" target="_blank">
-                    <img src="../assets/img/facebook.png" alt="facebook" />
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.instagram.com/craft.and.concept/?hl=ru" target="_blank">
-                    <img src="../assets/img/instagram.png" alt="instagram" />
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.linkedin.com/company/30127412/" target="_blank">
-                    <img src="../assets/img/linkedin.png" alt="linkedin" />
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
                 <div class="shield">
                     <Shield />
@@ -99,13 +99,15 @@ export default {
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-end;
-            padding: 50px 15px 80px;
+            padding: 50px 15px 50px;
             .social-link{
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
                 a{
                     margin-bottom: 28px;
+                    color: #a3a3a3;
+                    font-size: 18px;
                 }
                 .shield{
                     margin-top: 20px;
@@ -265,6 +267,7 @@ export default {
             .navigation-left{
                 max-height: 100vh;
                 overflow: auto;
+                padding-bottom: 80px;
             }
             &.open{
                 width: 100vw;
