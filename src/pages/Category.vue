@@ -7,7 +7,7 @@
     <div class="gallery-block project" v-for="(project, index) in getFiltredProject" :key="index">
       <router-link :to="{name: 'Project', params: {id: project.id}}">
         <div class="overflow">
-          <img v-lazy="backendUrl + project.main_image" :alt="project.name" />
+          <img :src="backendUrl + project.main_image" :alt="project.name" />
         </div>
         <div class="hover-block">
           <h2>{{project.name}}</h2>
