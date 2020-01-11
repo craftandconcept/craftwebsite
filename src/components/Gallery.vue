@@ -15,7 +15,7 @@
           v-for="(item, index) in gallery"
           :key="index"
         >
-          <img v-lazy="apiUrl + item.path" alt="img">
+          <img src="apiUrl + item.path" alt="img">
         </div>
       </Carousel>
       <p class="text-center">
