@@ -29,7 +29,7 @@
 import Carousel from 'vue-owl-carousel'
 import { getGallery } from '@/services/rest.js'
 import { apiUrl } from '@/config'
-import { mapMutations }from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Gallery',
   components: {
@@ -106,6 +106,9 @@ export default {
       color: #000;
       margin-top: 40px;
       max-width: 600px;
+      @media(max-width: 767px) {
+        font-size: 16px;
+      }
     }
     /deep/ .owl-item{
       padding-right: 0;
