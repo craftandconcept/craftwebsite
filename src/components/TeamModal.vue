@@ -2,7 +2,7 @@
   <div>
     <div class="team-modal-wrap">
       <div class="photo-team">
-        <img :src="`${backendUrl}${option[`${str}main_image`]}`" :alt="option[`${str}name`]">
+        <img :src="option.images.length ? `${backendUrl}${option.images[0].image.path}` : `${backendUrl}${option[`${str}main_image`]}`">
       </div>
       <div class="info-team">
         <h2 v-show="option[`${str}title`]">_{{option[`${str}title`]}}</h2>

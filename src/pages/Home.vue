@@ -381,7 +381,7 @@ export default {
     .project-counter{
       flex-wrap: wrap;
       margin-bottom: 25px;
-      margin-top: 25px;
+      margin-top: 0;
       .project-col{
         max-width: unset;
         width: 45%;
@@ -426,8 +426,6 @@ export default {
     .project-counter{
       flex-wrap: wrap;
      .project-col{
-        width: 100%;
-        margin-right: 0;
         text-align: center;
         h3{
           font-size: 40px;

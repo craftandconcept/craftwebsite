@@ -31,7 +31,7 @@ export default {
   },
   data: () => ({
     menuIsOpen: false,
-    isLoaderVisible: false,
+    isLoaderVisible: false
   }),
   created () {
     this.isLoaderVisible = true
