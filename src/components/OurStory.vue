@@ -36,10 +36,12 @@
       </div>
     </div>
     <div class="text-our-story">
-      <p>{{$t('text-5')}}</p>
-      <p>{{$t('text-6')}}</p>
-      <p>{{$t('text-7')}}</p>
-      <p>{{$t('text-8')}}</p>
+      <p>
+        Find a group of people who challenge and inspire you, spend a lot of time with them, and it will change your life." – Amy Poehler Every craft man is unique by his nature and has his strengths. The beautiful things happen when you gather the best industry professionals to form a concept from a dream. In Craft & Concept, we value traits like attention to details, creativity, efficiency, adaptability and personal touch. Our goal is to bring those qualities to every project, every partner, every client and every family.
+        <br />
+        <br />
+        Trust us and dream on…
+      </p>
     </div>
   </div>
 </template>

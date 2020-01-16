@@ -5,10 +5,10 @@
         :responsive="{0:{items:1}}"
         :items="1"
         :dots="false"
-        :navText="nav"
         :loop="true"
         :autoplay="true"
         :autoplayTimeout="5000"
+        :nav="false"
       >
         <div
           class="slide"
@@ -68,38 +68,6 @@ export default {
         }
       }
     }
-    /deep/ .owl-prev {
-      left: 5px;
-      i {
-        color: #fff;
-        font-size: 42px;
-      }
-      @media(max-width: 767px) {
-        left: -5px;
-        i {
-          font-size: 24px;
-        }
-      }
-    }
-    /deep/ .owl-next {
-      right: 5px;
-      i {
-        color: #fff;
-        font-size: 42px;
-      }
-      @media(max-width: 767px) {
-        right: -5px;
-        i {
-          font-size: 24px;
-        }
-      }
-    }
-    /deep/ .owl-theme .owl-nav{
-      display: none;
-      @media(max-width: 767px) {
-        display: block;
-      }
-    }
     p{
       font-size: 24px;
       margin: 0 auto;
@@ -112,6 +80,9 @@ export default {
     }
     /deep/ .owl-item{
       padding-right: 0;
+    }
+    /deep/ .owl-carousel .owl-nav.disabled {
+      display: none;
     }
   }
 </style>

@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-between aling-items-center">
         <div class="left d-flex">
           <router-link :to="{name: 'Home'}" class="logo">
-            <img src="../assets/img/logo.jpg" alt="logo" />
+            <img src="../assets/img/logo.svg" alt="logo" />
             <p>complex design solutions</p>
           </router-link>
         </div>
@@ -16,7 +16,7 @@
             <br />
           </div>
           <div class="two-s">
-            <img src="../assets/img/c&c.png" alt="c&c" />
+            <img src="../assets/img/triangle.svg" alt="c&c" />
           </div>
         </div>
       </div>
@@ -66,6 +66,12 @@ export default {
         }
       }
     }
+    .two-s {
+      height: 100%;
+      img {
+        height: 100%;
+      }
+    }
   }
   @media(max-width: 767px) {
     .header{
@@ -76,10 +82,6 @@ export default {
         p{
           font-size: 13px;
         }
-      }
-      .two-s img{
-        width: 80px;
-        height: 80px;
       }
       .translator {
         margin-right: 50px;
