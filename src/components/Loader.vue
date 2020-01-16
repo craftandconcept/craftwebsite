@@ -1,6 +1,6 @@
 <template>
   <div class="load-wrap">
-    <img src="../assets/img/c&c.png" alt="c&c" />
+    <img src="../assets/img/loader.gif" alt="c&c" />
   </div>
 </template>
 

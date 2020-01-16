@@ -15,7 +15,9 @@
         <p>{{option[`${str}description`]}}</p>
       </div>
       <span class="close" @click="$emit('close')">
-        <i class="fa fa-times"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" id="root" version="1.1" viewBox="0 0 16 14">
+          <path fill="none" stroke="currentColor" stroke-linecap="square" d="M 4.5 4.5 L 11.5 11.5 M 4.5 11.5 L 11.5 4.5"/>
+      </svg>
       </span>
     </div>
     <div class="overlay" @click="$emit('close')"></div>
@@ -88,9 +90,6 @@ export default {
     }
     .close {
       position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       right: 32px;
       top: 32px;
       width: 24px;
@@ -105,11 +104,6 @@ export default {
         border-radius: 50%;
         width: 40px;
         height: 40px;
-        i{
-          color: #000;
-          line-height: 1;
-          margin-top: -2px;
-        }
       }
       &:hover{
         opacity: 1;
