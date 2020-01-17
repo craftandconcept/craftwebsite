@@ -19,13 +19,25 @@
 
     <div class="col-12 col-md-9">
         <p class="h4">Edit category</p>
-        <form method="POST" action="{{route('categories.update',$category->id)}}">
+        <form method="POST" enctype="multipart/form-data" action="{{route('categories.update',$category->id)}}">
             @csrf
             {{method_field('PUT')}}
             <div class="form-group">
               <label for="name">Name</label>
               <input name="name" class="form-control" type="text" value="{{$category->category_name}}">
             </div>
+            <p class="h5">Choose image</p>
+                    <div class="input-group mb-3 increment">
+                        <img src="{{ URL::to('/') }}/{{$category->image}}" alt="" style="height: 37px;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">File</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" name="main_image" class="custom-file-input">
+                            <input type="hidden" name="isset_main_image" value="{{$category->image}}" class="form-control">
+                            <label class="custom-file-label">{{$category->image}}</label>
+                        </div>
+                    </div>
             <button type="submit" class="btn btn-primary">Save</button>
             @if($errors->any())
                 <div class="alert alert-danger mt-2" role="alert">

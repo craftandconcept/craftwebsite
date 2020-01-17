@@ -43,9 +43,20 @@ class CategoryController extends Controller
         $data = $request->validate([
             'name' => 'required|min:2|max:254|unique:categories,category_name',
         ]);
-        Category::create([
+
+        $category = Category::create([
             'category_name' => request('name')
         ]);
+        if($request->hasfile('main_image')){
+            $main_image = $request->file('main_image');
+            $main_image_name = $main_image->getClientOriginalName();
+            $main_img_url = '/images/category'. $category->id .'/'. $main_image_name;
+
+            $main_image->move(public_path().'/images/category'.$category->id.'/', $main_image_name);
+            $category->update(['image' => $main_img_url]);
+            $category->save();
+        }
+
         return redirect('/admin/categories');
     }
 
@@ -84,11 +95,23 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $data = $request->validate([
-            'name' => 'required|min:2|max:254|unique:categories,category_name',
+            'name' => 'required|min:2|max:254',
         ]);
         $category->update([
             'category_name' => request('name')
         ]);
+        if($request->hasfile('main_image')){
+            $path= public_path().'/images/category'.$category->id.'/';
+            if (\File::exists($path)) \File::deleteDirectory($path);
+
+            $main_image = $request->file('main_image');
+            $main_image_name = $main_image->getClientOriginalName();
+            $main_img_url = '/images/collaborator'. $category->id .'/'. $main_image_name;
+
+            $main_image->move(public_path().'/images/collaborator'.$category->id.'/', $main_image_name);
+            $category->update(['image' => $main_img_url]);
+            $category->save();
+        }
         return redirect('/admin/categories');
     }
 

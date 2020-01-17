@@ -184,9 +184,9 @@ class CollaboratorController extends Controller
     public function destroy(Collaborator $collaborator)
     {
         $path= public_path().'/images/collaborator'.$collaborator->id.'/';
-        $collaborator->delete();
 
         if (\File::exists($path)) \File::deleteDirectory($path);
+        $collaborator->delete();
         return redirect ('/admin/collaborators');
     }
 }
