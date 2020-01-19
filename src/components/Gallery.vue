@@ -69,7 +69,7 @@ export default {
       }
     }
     p{
-      font-size: 24px;
+      font-size: 20px;
       margin: 0 auto;
       color: #000;
       margin-top: 40px;

@@ -14,7 +14,7 @@
         <p>{{$t('country-of-operations')}}</p>
       </div>
       <div class="project-col">
-        <h3>{{numberAnimation[1]}}</h3>
+        <h3>{{numberAnimation[1]}}+</h3>
         <p>{{$t('projects')}}</p>
       </div>
       <div class="project-col">
@@ -22,7 +22,7 @@
         <p>{{$t('realized-project')}}</p>
       </div>
       <div class="project-col">
-        <h3>{{numberAnimation[3]}}</h3>
+        <h3>{{numberAnimation[3]}}+</h3>
         <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
@@ -139,11 +139,11 @@ export default {
       scrollCallback()
     },
     animateNumber () {
-      let step = 5
-      let values = [20, 500, 450, 71]
+      let step = 8
+      let values = [19, 200, 62, 20]
       let numberAnimationIsFinish = [false, false, false, false]
       this.numberAnimation = this.numberAnimation.map((num, i) => {
-        if (num + 5 < values[i]) {
+        if (num + step < values[i]) {
           num += step
         } else {
           num = values[i]
@@ -154,7 +154,7 @@ export default {
       if (numberAnimationIsFinish.find(item => !item) === false) {
         setTimeout(() => {
           this.animateNumber()
-        }, 100)
+        }, 70)
       }
     },
     filterProjectByCountry () {

@@ -20,8 +20,9 @@
         </div>
         <div class="navigation-right">
             <div class="text-menu">
-                <ul>
-                    <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">{{$t('our-story')}}</a></li>
+                <ul @click.prevent="mobileClose">
+                    <li><router-link :to="{name: 'Home'}">Home</router-link></li>
+                    <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">About Us</a></li>
                     <li v-for="catogory in categories" :key="catogory.id">
                         <a
                             href="#"
@@ -77,6 +78,11 @@ export default {
       if (this.$route.name !== 'Home') {
         this.$router.push({ name: 'Home', params: { anchor } })
       }
+    },
+    mobileClose () {
+        if (window.innerWidth < 767) {
+            this.toggleMenu();
+        }
     }
   }
 }

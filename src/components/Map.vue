@@ -2959,11 +2959,13 @@ svg{
   background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 0.01%, rgba(247, 249, 254, 0.9) 100%);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
-  width: 220px;
+  width: 250px;
   z-index: 10;
+  max-height: 270px;
+  overflow: auto;
   h2 {
     margin: 0;
-    font-size: 36px;
+    font-size: 30px;
     color: #000;
     margin-bottom: 30px;
   }
