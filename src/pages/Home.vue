@@ -26,48 +26,11 @@
         <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
-    <div class="gallery d-flex flex-wrap">
-      <router-link to="/category/1" class="gallery-block">
-        <h3>_{{$t('architecture')}}</h3>
-        <div class="overflow">
-          <img src="../assets/img/Architecture.jpeg" alt="gallery" />
-        </div>
-      </router-link>
-      <router-link to="/category/2" class="gallery-block">
-        <h3>_{{$t('interior-design')}}</h3>
-        <div class="overflow">
-          <img src="../assets/img/Interiourdesign.jpg" alt="gallery" />
-        </div>
-      </router-link>
-      <router-link to="/category/3" class="gallery-block">
-        <h3>_{{$t('individual-objects')}}</h3>
-        <div class="overflow">
-          <img src="../assets/img/Individualobjects.jpg" alt="gallery" />
-        </div>
-      </router-link>
-      <router-link to="/category/5" class="gallery-block">
-        <h3>_{{$t('brand-development')}}</h3>
-        <div class="overflow">
-          <img src="../assets/img/Branddevelopment.jpg" alt="gallery" />
-        </div>
-      </router-link>
-      <router-link to="/category/4" class="gallery-block">
-        <h3>_{{$t('3d-rendering')}}</h3>
-        <div class="overflow">
-          <img src="../assets/img/3Drenderings.jpg" alt="gallery" />
-        </div>
-      </router-link>
-      <router-link to="/category/6" class="gallery-block">
-        <h3>_{{$t('production-facilities')}}</h3>
-        <div class="overflow">
-          <img src="../assets/img/Productionfacilities.jpg" alt="gallery" />
-        </div>
-      </router-link>
-    </div>
+    <!-- <HomeCategory /> -->
     <div class="d-flex justify-content-center">
       <OurStory id="ourStory" />
     </div>
-    <HomeCategories :load="loadScroll"/>
+    <FeaturedProjects :load="loadScroll"/>
     <Teams id="teams" :load="loadScroll"/>
     <Creators id="creators" :load="loadScroll"/>
     <Collaborators id="collaborators" :load="loadScroll"/>
@@ -82,8 +45,10 @@ import Creators from '@/components/Creators.vue'
 import Collaborators from '@/components/Collaborators.vue'
 import Teams from '@/components/Teams.vue'
 import OurStory from '@/components/OurStory'
-import HomeCategories from '@/components/HomeCategories'
+import FeaturedProjects from '@/components/FeaturedProjects'
 import Gallery from '@/components/Gallery'
+import HomeCategory from '@/components/HomeCategory'
+
 export default {
   name: 'Home',
   components: {
@@ -92,8 +57,9 @@ export default {
     Collaborators,
     Teams,
     OurStory,
-    HomeCategories,
-    Gallery
+    FeaturedProjects,
+    Gallery,
+    HomeCategory
   },
   data: () => ({
     numberAnimation: [0, 0, 0, 0],
@@ -154,7 +120,7 @@ export default {
       if (numberAnimationIsFinish.find(item => !item) === false) {
         setTimeout(() => {
           this.animateNumber()
-        }, 70)
+        }, 30)
       }
     },
     filterProjectByCountry () {
@@ -278,39 +244,6 @@ export default {
       }
     }
   }
-  .gallery{
-    margin-top: 155px;
-    margin-bottom: 80px;
-    margin-right: -10px;
-    margin-left: -10px;
-    .gallery-block{
-      width: 33.3%;
-      padding: 0 10px 45px;
-      text-decoration: none;
-      .overflow{
-        overflow: hidden;
-      }
-      img{
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        transform: scale(1);
-        transition: transform .3s;
-      }
-      h3{
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 15px;
-        text-transform: uppercase;
-        color: #000000;
-      }
-      &:hover{
-        img{
-          transform: scale(1.2);
-        }
-      }
-    }
-  }
   .owl-carousel .owl-nav.disabled{
     display: block;
   }
@@ -363,11 +296,6 @@ export default {
     .our-story{
       padding-left: 0;
     }
-    .gallery{
-      .gallery-block{
-        width: 50%;
-      }
-    }
   }
 }
 @media(max-width: 767px) {
@@ -400,16 +328,6 @@ export default {
     }
     .our-story .text-story {
       padding-top: 25px;
-    }
-    .gallery{
-      margin-top: 50px;
-      margin-bottom: 0px;
-      .gallery-block{
-        width: 100%;
-        h3{
-          font-size: 14px;
-        }
-      }
     }
   }
   .our-story-info .title-our-story h2,

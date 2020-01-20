@@ -8,33 +8,35 @@
       :key="category.id"
       :id="(category.category_name.replace(/ /g,'')).replace(/[0-9]/g, '')"
     >
-      <div class="title-wrap">
-        <router-link :to="{name: 'Category', params: {id: category.id}}">
-          <h2>__{{category.category_name}}</h2>
-        </router-link>
-      </div>
-      <div class="corousel-container" v-if="load">
-        <carousel
-          :responsive="{0:{items:1},700:{items:2}, 800: {items:3}, 1300: {items: 3}}"
-          :dots="false"
-          :margin="11"
-          :navText="nav"
-          :loop="true"
-          :autoplay="isMobile"
-          :autoplayTimeout="3000"
-        >
-          <div class="gallery-block project" v-for="project in getProjectByCategories(category.id)" :key="project.name">
-            <router-link :to="{name: 'Project', params: {id: project.id}}">
-              <div class="overflow">
-                <img :src="backendUrl + project.main_image" :alt="project.name" />
-              </div>
-              <div class="hover-block">
-                <h2>{{project.name}}</h2>
-              </div>
-            </router-link>
-          </div>
-        </carousel>
-      </div>
+      <template v-if="category.category_name === 'Featured projects'">
+        <div class="title-wrap">
+          <router-link :to="{name: 'Category', params: {id: category.id}}">
+            <h2>__{{category.category_name}}</h2>
+          </router-link>
+        </div>
+        <div class="corousel-container" v-if="load">
+          <carousel
+            :responsive="{0:{items:1},700:{items:2}, 800: {items:3}, 1300: {items: 3}}"
+            :dots="false"
+            :margin="11"
+            :navText="nav"
+            :loop="true"
+            :autoplay="isMobile"
+            :autoplayTimeout="3000"
+          >
+            <div class="gallery-block project" v-for="project in getProjectByCategories(category.id)" :key="project.name">
+              <router-link :to="{name: 'Project', params: {id: project.id}}">
+                <div class="overflow">
+                  <img :src="backendUrl + project.main_image" :alt="project.name" />
+                </div>
+                <div class="hover-block">
+                  <h2>{{project.name}}</h2>
+                </div>
+              </router-link>
+            </div>
+          </carousel>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -44,7 +46,7 @@ import { mapGetters } from 'vuex'
 import Carousel from 'vue-owl-carousel'
 import { apiUrl } from '@/config'
 export default {
-  name: 'HomeCategories',
+  name: 'FeaturedProjects',
   props: {
     load: Boolean
   },
