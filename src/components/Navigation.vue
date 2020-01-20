@@ -23,15 +23,19 @@
                 <ul @click.prevent="mobileClose">
                     <li><router-link :to="{name: 'Home'}">Home</router-link></li>
                     <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">About Us</a></li>
-                    <li v-for="catogory in categories" :key="catogory.id">
+                    <li
+                        v-for="category in categories"
+                        :key="category.id"
+                        v-show="category.category_name !== 'Featured projects'">
                         <a
                             href="#"
-                            @click.prevent="toHome(`#${catogory.category_name.replace(/[0-9]/g, '').replace(/ /g,'')}`)"
-                            v-scroll-to="`#${catogory.category_name.replace(/ /g,'').replace(/[0-9]/g, '')}`"
+                            @click.prevent="toHome(`#${category.category_name.replace(/[0-9]/g, '').replace(/ /g,'')}`)"
+                            v-scroll-to="`#${category.category_name.replace(/ /g,'').replace(/[0-9]/g, '')}`"
+                            v-if="category.category_name === 'Featured projects'"
                         >
-                                _{{catogory.category_name}}
+                            {{category.category_name}}
                         </a>
-                        <!-- <router-link :to="`/category/${catogory.id}`">_{{catogory.category_name}}</router-link> -->
+                        <router-link v-else :to="`/category/${category.id}`">_{{category.category_name}}</router-link>
                     </li>
                     <li><a href="#" @click.prevent="toHome('#teams')" v-scroll-to="'#teams'">{{$t('team')}}</a></li>
                     <li><a href="#" @click.prevent="toHome('#creators')" v-scroll-to="'#creators'">{{$t('creators')}}</a></li>
@@ -80,9 +84,9 @@ export default {
       }
     },
     mobileClose () {
-        if (window.innerWidth < 767) {
-            this.toggleMenu();
-        }
+      if (window.innerWidth < 767) {
+        this.toggleMenu()
+      }
     }
   }
 }
