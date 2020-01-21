@@ -30,7 +30,7 @@
     <div class="d-flex justify-content-center">
       <OurStory id="ourStory" />
     </div>
-    <!-- <FeaturedProjects :load="loadScroll"/> -->
+    <FeaturedProjects :load="loadScroll"/>
     <Teams id="teams" :load="loadScroll"/>
     <Creators id="creators" :load="loadScroll"/>
     <Collaborators id="collaborators" :load="loadScroll"/>

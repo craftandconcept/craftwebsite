@@ -3,8 +3,8 @@
   <div class="titel-ah">
     <h2>_{{getCategoryName}}</h2>
   </div>
-  <div class="gallery d-flex flex-wrap" v-if="getFiltredProject.length">
-    <div class="gallery-block project" v-for="(project, index) in getFiltredProject" :key="index">
+  <div class="category d-flex flex-wrap" v-if="getFiltredProject.length">
+    <div class="category-block project" v-for="(project, index) in getFiltredProject" :key="index">
       <router-link :to="{name: 'Project', params: {id: project.id}}">
         <div class="overflow">
           <img :src="backendUrl + project.main_image" :alt="project.name" />
@@ -60,8 +60,54 @@ export default {
 </script>
 
 <style lang="scss">
+.category{
+  margin-top: 155px;
+  margin-bottom: 80px;
+  margin-right: -10px;
+  margin-left: -10px;
+  .category-block{
+    width: 33.3%;
+    padding: 0 10px 45px;
+    text-decoration: none;
+    .overflow{
+      overflow: hidden;
+    }
+    img{
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform .3s;
+    }
+    h3{
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: #000000;
+      @media(max-width: 767px) {
+        font-size: 14px;
+      }
+    }
+    &:hover{
+      img{
+        transform: scale(1.2);
+      }
+    }
+    @media(max-width: 992px) {
+      width: 50%;
+    }
+    @media(max-width: 767px) {
+      width: 100%;
+    }
+  }
+  @media(max-width: 767px) {
+      margin-top: 50px;
+      margin-bottom: 0px;
+  }
+}
 .category-wrap{
-  .gallery{
+  .category{
     margin-top: 60px;
   }
   .titel-ah {
