@@ -26,7 +26,7 @@
                     <li
                         v-for="category in categories"
                         :key="category.id"
-                        v-show="category.category_name !== 'Featured projects'">
+                    >
                         <a
                             href="#"
                             @click.prevent="toHome(`#${category.category_name.replace(/[0-9]/g, '').replace(/ /g,'')}`)"
