@@ -7,7 +7,7 @@
                 <a href="https://www.facebook.com/craftandconceptmontreux/" target="_blank">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.instagram.com/craft.and.concept/?hl=ru" target="_blank">
+                <a href="https://www.instagram.com/craft_and_concept/?hl=en" target="_blank">
                     <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.linkedin.com/company/30127412/" target="_blank">

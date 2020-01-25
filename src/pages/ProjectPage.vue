@@ -95,6 +95,8 @@ export default {
       justify-content: center;
       img{
         max-width: 100%;
+        width: 100%;
+        height: 100%;
         margin-bottom: 30px;
         max-height: 100vh;
         object-fit: contain;
@@ -167,11 +169,12 @@ export default {
     }
     p{
       padding-top: 10px;
+      text-align: center;
       margin: 0 auto;
       width: 50%;
       font-weight: 400;
       padding-left: 15px;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 18px;
       color: #424647;
       @media(max-width: 900px) {
@@ -281,7 +284,6 @@ export default {
     .info-project{
       .left, .right{
         .categories p{
-          font-size: 11px;
           span{
             min-width: unset;
           }

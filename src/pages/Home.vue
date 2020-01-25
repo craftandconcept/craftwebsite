@@ -8,7 +8,7 @@
       <span>{{$t('Click-to-find-out-more')}}</span>
     </h2>
     <Map :countryList="countryList" v-if="countryList.length"/>
-    <div class="project-counter d-flex" id="number">
+    <div class="project-counter d-flex justify-content-center" id="number">
       <div class="project-col">
         <h3>{{numberAnimation[0]}}</h3>
         <p>{{$t('country-of-operations')}}</p>
@@ -79,7 +79,8 @@ export default {
   mounted () {
     setTimeout(() => {
       if (this.$route.params.anchor) {
-        this.$scrollTo(this.$route.params.anchor)
+        this.loadScroll = true
+        setTimeout(() => this.$scrollTo(this.$route.params.anchor), 500)
       }
     }, 700)
   },
@@ -198,7 +199,6 @@ export default {
     }
   }
   .project-counter{
-    padding-left: 15%;
     margin-bottom: 120px;
     margin-top: 40px;
     .project-col{
@@ -219,7 +219,9 @@ export default {
         text-transform: uppercase;
         color: #424647;
       }
-
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
   .our-story{

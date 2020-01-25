@@ -1,10 +1,14 @@
 <template>
-<div class="category-wrap">
+<div class="category-wrap" id="top">
   <div class="titel-ah">
     <h2>_{{getCategoryName}}</h2>
   </div>
   <div class="category d-flex flex-wrap" v-if="getFiltredProject.length">
-    <div class="category-block project" v-for="(project, index) in getFiltredProject" :key="index">
+    <div
+      class="category-block project"
+      v-for="(project, index) in getFiltredProject"
+      :key="index"
+      :class="{'show': index < currentPage * 12}">
       <router-link :to="{name: 'Project', params: {id: project.id}}">
         <div class="overflow">
           <img :src="backendUrl + project.main_image" :alt="project.name" />
@@ -24,7 +28,9 @@ import { apiUrl } from '@/config'
 export default {
   name: 'Category',
   data: () => ({
-    backendUrl: apiUrl
+    backendUrl: apiUrl,
+    currentPage: 1,
+    pageCount: 1
   }),
   computed: {
     ...mapGetters({
@@ -50,11 +56,30 @@ export default {
     }
     this.$parent.$emit('loadingFinish')
   },
+  mounted () {
+    this.updatePageCount()
+    window.addEventListener('scroll', this.scrollHandle)
+  },
+  watch: {
+    $route () {
+      this.updatePageCount()
+    }
+  },
   methods: {
     ...mapActions({
       getProjects: 'getProjects',
       getCategories: 'getCategories'
-    })
+    }),
+    updatePageCount () {
+      this.currentPage = 1
+      this.pageCount = Number((this.getFiltredProject.length / 12).toFixed(0))
+      this.$scrollTo('#top')
+    },
+    scrollHandle (e) {
+      if (document.documentElement.scrollHeight < document.documentElement.clientHeight + window.pageYOffset + 200) {
+        this.currentPage++
+      }
+    }
   }
 }
 </script>
@@ -69,6 +94,10 @@ export default {
     width: 33.3%;
     padding: 0 10px 45px;
     text-decoration: none;
+    display: none;
+    &.show {
+      display: block;
+    }
     .overflow{
       overflow: hidden;
     }
