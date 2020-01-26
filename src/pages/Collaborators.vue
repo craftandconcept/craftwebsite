@@ -49,6 +49,7 @@ export default {
 <style lang="scss">
 .collaborator .team-item img {
   object-fit: contain;
+  background: #fff;
 }
 .collaborators {
   .team-modal-wrap .photo-team {
