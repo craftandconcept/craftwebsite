@@ -8,6 +8,7 @@
         :loop="true"
         :autoplay="true"
         :autoplayTimeout="5000"
+        :autoplayHoverPause="true"
         :nav="false"
       >
         <div
@@ -15,7 +16,8 @@
           v-for="(item, index) in gallery"
           :key="index"
         >
-          <img :src="apiUrl + item.path" alt="img">
+          <img :src="apiUrl + item.path" alt="img" v-if="item.path">
+          <iframe :src="item.link" v-if="item.link" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </Carousel>
       <p class="text-center">
@@ -66,6 +68,10 @@ export default {
         @media(max-width: 767px) {
           height: 200px;
         }
+      }
+      iframe {
+        height: calc(100vh - 200px);
+        width: 100%;
       }
     }
     p{
