@@ -67,10 +67,8 @@ export default {
       }
     }
     .two-s {
-      height: 100%;
-      width: auto;
       img {
-        height: 100%;
+        height: 69px;
       }
     }
   }
