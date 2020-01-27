@@ -305,8 +305,9 @@ export default {
     margin-bottom: 16px;
   }
   .main-wrap{
-    &.open{
-      padding-left: 80px;
+    padding-left: 0;
+    &.open {
+      padding-left: 0;
     }
     .project-counter{
       flex-wrap: wrap;
