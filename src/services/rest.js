@@ -3,7 +3,7 @@ import { apiUrl } from '@/config'
 
 export function getProjects () {
   return axios.get(`${apiUrl}/api/v1`)
-    .then(res => res.data.data)
+    .then(res => res.data.data.reverse())
 }
 
 export function getCategories () {
