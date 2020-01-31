@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'no-scroll': isLoaderVisible}">
+  <div :class="{'no-scroll': isLoaderVisible || loading}">
     <div class="main-wrap" id="wrap" :class="{'open': menuIsOpen}">
       <Header />
       <Navigation @toggleMenu="status => menuIsOpen = status" />

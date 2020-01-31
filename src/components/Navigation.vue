@@ -289,9 +289,10 @@ export default {
     }
     @media(max-width: 767px) {
         .navigation-wrap{
-            width: 0;
-            max-width: 80px;
+            width: 100vw;
+            max-width: 100vw;
             background: none;
+            height: 0;
             .shield{
                 opacity: 1;
                 transition-delay: 0s;
@@ -302,23 +303,22 @@ export default {
                 overflow: auto;
                 padding-bottom: 80px;
             }
+            .navigation-right{
+                width: 100%;
+                ul li{
+                    text-align: center;
+                }
+            }
             &.open{
-                width: 100vw;
+                height: 100vh;
                 .navigation-left{
-                    .burger{
-                        display: none;
-                    }
-                    display: flex;
-                    justify-content: flex-end;
+                    display: none;
                 }
                 .navigation-right{
-                    width: calc(100vw - 80px);
+                    width: 100%;
                     .text-menu{
                         max-height: 100vh;
                         overflow: auto;
-                        ul li{
-                            text-align: center;
-                        }
                     }
                 }
             }
