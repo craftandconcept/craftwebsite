@@ -26,7 +26,7 @@
         <p>{{$t('creators-and-team')}}</p>
       </div>
     </div>
-    <HomeCategory />
+    <HomeCategory v-if="loadScroll"/>
     <div class="d-flex justify-content-center">
       <OurStory id="ourStory" />
     </div>
@@ -97,6 +97,7 @@ export default {
         if (scrollToTopFromElement - clientHeight < currentScrollToTop - 40 && !animationStart) {
           this.animateNumber()
           animationStart = true
+          this.loadScroll = true
           document.removeEventListener('scroll', scrollCallback)
         }
       }
@@ -152,9 +153,8 @@ export default {
     loading (loading) {
       if (!loading) {
         setTimeout(() => { 
-          this.loadScroll = true
           this.initialization()
-        }, 1500)
+        }, 2500)
       }
     }
   },
