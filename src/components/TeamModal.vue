@@ -34,6 +34,12 @@ export default {
   props: {
     option: Object,
     str: String
+  },
+  created () {
+    this.$root.$emit('hideScroll')
+  },
+  beforeDestroy () {
+    this.$root.$emit('showScroll')
   }
 }
 </script>
@@ -171,8 +177,7 @@ export default {
   @media(max-width: 767px){
     .team-modal-wrap{
       overflow: auto;
-      max-height: 100vh;
-      min-height: 80vh;
+      min-height: 100vh;
       width: 100%;
       max-width: 470px;
       flex-wrap: wrap;

@@ -259,6 +259,7 @@ export default {
 @media(max-width: 767px){
   .project-page{
     .title-bake{
+      margin-top: 50px;
       h2{
         font-size: 40px;
       }
@@ -276,6 +277,7 @@ export default {
   .project-page{
     .title-bake {
       margin: 20px 0;
+      margin-top: 50px;
       h2{
         font-size: 21px;
         line-height: 1.2;

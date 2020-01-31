@@ -1,39 +1,41 @@
 <template>
   <div>
     <Gallery />
-    <h2 class="project-map-title">
-      __{{$t('project')}}
-      {{$t('map')}}
-      <br />
-      <span>{{$t('Click-to-find-out-more')}}</span>
-    </h2>
-    <Map :countryList="countryList" v-if="countryList.length"/>
-    <div class="project-counter d-flex justify-content-center" id="number">
-      <div class="project-col">
-        <h3>{{numberAnimation[0]}}</h3>
-        <p>{{$t('country-of-operations')}}</p>
+    <div v-if="!loading">
+      <h2 class="project-map-title">
+        __{{$t('project')}}
+        {{$t('map')}}
+        <br />
+        <span>{{$t('Click-to-find-out-more')}}</span>
+      </h2>
+      <Map :countryList="countryList" v-if="countryList.length"/>
+      <div class="project-counter d-flex justify-content-center" id="number">
+        <div class="project-col">
+          <h3>{{numberAnimation[0]}}</h3>
+          <p>{{$t('country-of-operations')}}</p>
+        </div>
+        <div class="project-col">
+          <h3>{{numberAnimation[1]}}+</h3>
+          <p>{{$t('projects')}}</p>
+        </div>
+        <div class="project-col">
+          <h3>{{numberAnimation[2]}}</h3>
+          <p>{{$t('realized-project')}}</p>
+        </div>
+        <div class="project-col">
+          <h3>{{numberAnimation[3]}}+</h3>
+          <p>{{$t('creators-and-team')}}</p>
+        </div>
       </div>
-      <div class="project-col">
-        <h3>{{numberAnimation[1]}}+</h3>
-        <p>{{$t('projects')}}</p>
+      <HomeCategory />
+      <div class="d-flex justify-content-center">
+        <OurStory id="ourStory" />
       </div>
-      <div class="project-col">
-        <h3>{{numberAnimation[2]}}</h3>
-        <p>{{$t('realized-project')}}</p>
-      </div>
-      <div class="project-col">
-        <h3>{{numberAnimation[3]}}+</h3>
-        <p>{{$t('creators-and-team')}}</p>
-      </div>
+      <FeaturedProjects :load="loadScroll"/>
+      <Teams id="teams" :load="loadScroll"/>
+      <Creators id="creators" :load="loadScroll"/>
+      <Collaborators id="collaborators" :load="loadScroll"/>
     </div>
-    <HomeCategory />
-    <div class="d-flex justify-content-center">
-      <OurStory id="ourStory" />
-    </div>
-    <FeaturedProjects :load="loadScroll"/>
-    <Teams id="teams" :load="loadScroll"/>
-    <Creators id="creators" :load="loadScroll"/>
-    <Collaborators id="collaborators" :load="loadScroll"/>
   </div>
 </template>
 
@@ -67,14 +69,13 @@ export default {
     loadScroll: false
   }),
   async created () {
-    this.$parent.$emit('loadingFinish')
     this.getCategories()
     if (!this.projects.length) {
       await this.getProjects()
     }
     this.filterProjectByCountry()
-    setTimeout(this.initialization, 1500)
     setTimeout(() => { this.loadScroll = true }, 5000)
+    this.$parent.$emit('loadingFinish')
   },
   mounted () {
     setTimeout(() => {
@@ -148,11 +149,18 @@ export default {
   watch: {
     navOpen () {
       window.dispatchEvent(new Event('resize'))
+    },
+
+    loading (loading) {
+      if (!loading) {
+        setTimeout(this.initialization, 1500)
+      }
     }
   },
   computed: mapGetters({
     projects: 'projects',
-    navOpen: 'navOpen'
+    navOpen: 'navOpen',
+    loading: 'loading'
   })
 }
 </script>

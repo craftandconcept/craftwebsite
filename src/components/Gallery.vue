@@ -16,7 +16,7 @@
           v-for="(item, index) in gallery"
           :key="index"
         >
-          <img :src="apiUrl + item.path" alt="img" v-if="item.path">
+          <img :src="apiUrl + item.path" alt="img" v-if="item.path" @load="imgLoaded">
           <iframe :src="item.link" v-if="item.link" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </Carousel>
@@ -40,16 +40,30 @@ export default {
   data: () => ({
     gallery: [],
     nav: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-    apiUrl
+    apiUrl,
+    count: 0,
+    imgLength: 0
   }),
   async created () {
     this.loadingSwitch(true)
     this.gallery = await getGallery()
-    this.loadingSwitch(false)
+    this.imgLength = this.gallery.reduce((acc, item) => {
+      if (item.path) {
+        return acc + 1
+      }
+    }, 0)
   },
-  methods: mapMutations({
-    loadingSwitch: 'loadingSwitch'
-  })
+  methods: {
+    ...mapMutations({
+      loadingSwitch: 'loadingSwitch'
+    }),
+    imgLoaded () {
+      ++this.count
+      if (this.count === this.imgLength) {
+        this.loadingSwitch(false)
+      }
+    }
+  }
 }
 </script>
 
