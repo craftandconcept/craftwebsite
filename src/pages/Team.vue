@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="title">Teams</h2>
+    <h2 class="title">Team</h2>
     <div class="row" v-if="teams.length">
       <div
         class="col-12 col-md-6 col-lg-4 mb-3"
