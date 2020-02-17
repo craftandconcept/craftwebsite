@@ -29,11 +29,11 @@ Route::resources([
     '/admin/creators' => 'CreatorController',
     '/admin/teams' => 'TeamController',
     '/admin/collaborators' => 'CollaboratorController',
-])->middleware('auth');;
-Route::get('/admin/gallery', 'GalleryController@index')->middleware('auth');;
-Route::get('/admin/gallery/create', 'GalleryController@create')->name('gallery.create')->middleware('auth');;
-Route::get('/admin/gallery/remove', 'GalleryController@destroy')->name('gallery.delete')->middleware('auth');;
+])->middleware('auth');
+Route::get('/admin/gallery', 'GalleryController@index')->middleware('auth');
+Route::get('/admin/gallery/create', 'GalleryController@create')->name('gallery.create')->middleware('auth');
+Route::get('/admin/gallery/remove', 'GalleryController@destroy')->name('gallery.delete')->middleware('auth');
 
-Route::post('/admin/gallery', 'GalleryController@index')->name('gallery.create')->middleware('auth');;
+Route::post('/admin/gallery', 'GalleryController@index')->name('gallery.create')->middleware('auth');
 
-Route::post('/admin/gallery/save', 'GalleryController@store')->name('gallery.store')->middleware('auth');;
+Route::post('/admin/gallery/save', 'GalleryController@store')->name('gallery.store')->middleware('auth');
