@@ -22,7 +22,7 @@
             <div class="navigation-right">
                 <div class="text-menu">
                     <ul @click.prevent="mobileClose">
-                        <li><router-link :to="{name: 'Home'}">Home</router-link></li>
+                        <li><a href="#" @click.prevent="toHome('#top')" v-scroll-to="'#top'">Home</a></li>
                         <li><a href="#" @click.prevent="toHome('#ourStory')" v-scroll-to="'#ourStory'">About Us</a></li>
                         <li
                             v-for="category in categories"
@@ -141,6 +141,8 @@ export default {
             display: flex;
             align-items: center;
             padding-left: 0;
+            max-height: 100%;
+            overflow-y: auto;
             @media(max-width: 767px) {
                 justify-content: center;
             }

@@ -152,7 +152,7 @@ export default {
 
     loading (loading) {
       if (!loading) {
-        setTimeout(() => { 
+        setTimeout(() => {
           this.initialization()
         }, 2500)
       }
