@@ -11,12 +11,9 @@ export default {
 </script>
 
 <style lang="scss">
-$d: 2em;
-$t: 1.5s;
 
 .load-wrap {
   position: fixed;
-  padding-top: 1em;
   background: currentcolor;
   color: #fff;
   text-align: center;
@@ -28,5 +25,8 @@ $t: 1.5s;
   display: flex;
   align-items: center;
   justify-content: center;
+  img {
+    width: 110px;
+  }
 }
 </style>
